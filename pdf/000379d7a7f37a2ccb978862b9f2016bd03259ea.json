@@ -1,0 +1,1895 @@
+{
+    "paper_id": "000379d7a7f37a2ccb978862b9f2016bd03259ea",
+    "metadata": {
+        "title": "ScienceDirect ScienceDirect Effect of Nanomaterial Shape on Fabrication of Conformal Circuits",
+        "authors": [
+            {
+                "first": "Harish",
+                "middle": [],
+                "last": "Devaraj",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Rutgers University",
+                    "location": {
+                        "postCode": "08854",
+                        "settlement": "New Brunswick",
+                        "region": "New Jersey",
+                        "country": "USA"
+                    }
+                },
+                "email": ""
+            },
+            {
+                "first": "Rajiv",
+                "middle": [],
+                "last": "Malhotra",
+                "suffix": "",
+                "affiliation": {
+                    "laboratory": "",
+                    "institution": "Rutgers University",
+                    "location": {
+                        "postCode": "08854",
+                        "settlement": "New Brunswick",
+                        "region": "New Jersey",
+                        "country": "USA"
+                    }
+                },
+                "email": "rajiv.malhotra@rutgers.edu"
+            }
+        ]
+    },
+    "abstract": [
+        {
+            "text": "approach. The NM shape in the conformal circuit is tuned by mixing nanowires (NW) with nanoflakes (NF) or nanospheres (NS) at different mixing ratios. The change in line resistance post-forming and post-sintering for any given mixing ratio is studied in greater depth using SEM characterization, UV-Vis spectrophotometry and thermal measurements. For optimal NM mixing ratio and process parameters, the fabricated circuit achieves electrical resistivity of 55.4 \u00b5\u2126-cm within 30 seconds on a wall inclined at 60\u2070 to the horizontal with a width to height aspect ratio of 2.5:1.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Abstract",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "given mixing ratio is studied in greater depth using SEM characterization, UV-Vis spectrophotometry and thermal measurements. For optimal NM mixing ratio and process parameters, the fabricated circuit achieves electrical resistivity of 55.4 \u00b5\u2126-cm within 30 seconds on a wall inclined at 60\u2070 to the horizontal with a width to height aspect ratio of 2.5:1.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "Abstract",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "given mixing ratio is studied in greater depth using SEM characterization, UV-Vis spectrophotometry and thermal measurements. For optimal NM mixing ratio and process parameters, the fabricated circuit achieves electrical resistivity of 55.4 \u00b5\u2126-cm within 30 seconds on a wall inclined at 60\u2070 to the horizontal with a width to height aspect ratio of 2.5:1.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        },
+        {
+            "text": "This paper investigates how the change in nanomaterial (NM) shape influences resistance evolution during conformal interconnect fabrication via sequential Vacuum-forming and Flash Light Sintering (FLS) approach. The NM shape in the conformal circuit is tuned by mixing nanowires (NW) with nanoflakes (NF) or nanospheres (NS) at different mixing ratios. The change in line resistance post-forming and post-sintering for any given mixing ratio is studied in greater depth using SEM characterization, UV-Vis spectrophotometry and thermal measurements. For optimal NM mixing ratio and process parameters, the fabricated circuit achieves electrical resistivity of 55.4 \u00b5\u2126-cm within 30 seconds on a wall inclined at 60\u2070 to the horizontal with a width to height aspect ratio of 2.5:1.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Abstract"
+        }
+    ],
+    "body_text": [
+        {
+            "text": "Integration of functional electronic devices on rigid surfaces can enable smart structures with sophisticated functionalities and applications [1] [2] [3] [4] such as bio-integrated electronics in healthcare systems, dynamic structural health monitoring in aerospace applications and miniature radar devices for defense applications [1] [2] [3] [4] . A critical enabler of these applications is the fabrication of electrically conductive 3D interconnects conformally on to 3D surfaces [2, 4, 5] . These interconnects can be combined with pick-and-place methods for integrating other active devices.",
+            "cite_spans": [
+                {
+                    "start": 143,
+                    "end": 146,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 147,
+                    "end": 150,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 151,
+                    "end": 154,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 155,
+                    "end": 158,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 333,
+                    "end": 336,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 337,
+                    "end": 340,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 341,
+                    "end": 344,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 345,
+                    "end": 348,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 485,
+                    "end": 488,
+                    "text": "[2,",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 489,
+                    "end": 491,
+                    "text": "4,",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 492,
+                    "end": 494,
+                    "text": "5]",
+                    "ref_id": "BIBREF4"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Past work has shown several methods that can fabricate such conformal interconnects. In transfer printing, the ability to conform to complex surface features is limited to smooth curved surfaces due to the inherent need for a mechanical handling system to transfer the interconnects embedded on planar elastomer to the target 3D surface [3, 6] . Conformal 3D printing of nanospheres directly on the target surface can fabricate conformal circuits without requiring mechanical conformation, with high geometric versatility and without expensive vacuum deposition [4] . Further, it has significant advantages over laser direct structuring that is often used to fabricate molded-interconnect-devices because expensive metallic inorganic compounds for the entire mold and the chemical plating processes are eliminated. At the same time conformal 3D printing needs heating of the 3D object and the conformally printed circuits to reduce electrical resistance. This is carried out in an oven at high temperatures (\u2248 200-550 \u00b0C), for a longer time (\u2248 1-2 hours). The use of ovens limits the usable size and material of the 3D object. Laser sintering of the printed interconnects alleviates direct heating of the bulk of the 3D object but can still cause significant indirect heating of the 3D surface, which limits the choice of materials for the 3D object. Wire embedding process involves embedding the interconnect on the polymer using a localized thermal source. This method is applicable to thermoplastic materials which constrains the object material window [7, 8] . In lamination forming process conformal circuits are fabricated by depositing the interconnects on a planar polymer substrate, and then forming the assembly to the shape of the desired freeform surface [9] . This approach enables better conformance to sharp surface features, wider material window due to lack of heating of the 3D object, as well as potentially larger and more modular circuits. However, the commercially available",
+            "cite_spans": [
+                {
+                    "start": 337,
+                    "end": 340,
+                    "text": "[3,",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 341,
+                    "end": 343,
+                    "text": "6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 562,
+                    "end": 565,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 1556,
+                    "end": 1559,
+                    "text": "[7,",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 1560,
+                    "end": 1562,
+                    "text": "8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 1767,
+                    "end": 1770,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Integration of functional electronic devices on rigid surfaces can enable smart structures with sophisticated functionalities and applications [1] [2] [3] [4] such as bio-integrated electronics in healthcare systems, dynamic structural health monitoring in aerospace applications and miniature radar devices for defense applications [1] [2] [3] [4] . A critical enabler of these applications is the fabrication of electrically conductive 3D interconnects conformally on to 3D surfaces [2, 4, 5] . These interconnects can be combined with pick-and-place methods for integrating other active devices.",
+            "cite_spans": [
+                {
+                    "start": 143,
+                    "end": 146,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 147,
+                    "end": 150,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 151,
+                    "end": 154,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 155,
+                    "end": 158,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 333,
+                    "end": 336,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 337,
+                    "end": 340,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 341,
+                    "end": 344,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 345,
+                    "end": 348,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 485,
+                    "end": 488,
+                    "text": "[2,",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 489,
+                    "end": 491,
+                    "text": "4,",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 492,
+                    "end": 494,
+                    "text": "5]",
+                    "ref_id": "BIBREF4"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Past work has shown several methods that can fabricate such conformal interconnects. In transfer printing, the ability to conform to complex surface features is limited to smooth curved surfaces due to the inherent need for a mechanical handling system to transfer the interconnects embedded on planar elastomer to the target 3D surface [3, 6] . Conformal 3D printing of nanospheres directly on the target surface can fabricate conformal circuits without requiring mechanical conformation, with high geometric versatility and without expensive vacuum deposition [4] . Further, it has significant advantages over laser direct structuring that is often used to fabricate molded-interconnect-devices because expensive metallic inorganic compounds for the entire mold and the chemical plating processes are eliminated. At the same time conformal 3D printing needs heating of the 3D object and the conformally printed circuits to reduce electrical resistance. This is carried out in an oven at high temperatures (\u2248 200-550 \u00b0C), for a longer time (\u2248 1-2 hours). The use of ovens limits the usable size and material of the 3D object. Laser sintering of the printed interconnects alleviates direct heating of the bulk of the 3D object but can still cause significant indirect heating of the 3D surface, which limits the choice of materials for the 3D object. Wire embedding process involves embedding the interconnect on the polymer using a localized thermal source. This method is applicable to thermoplastic materials which constrains the object material window [7, 8] . In lamination forming process conformal circuits are fabricated by depositing the interconnects on a planar polymer substrate, and then forming the assembly to the shape of the desired freeform surface [9] . This approach enables better conformance to sharp surface features, wider material window due to lack of heating of the 3D object, as well as potentially larger and more modular circuits. However, the commercially available",
+            "cite_spans": [
+                {
+                    "start": 337,
+                    "end": 340,
+                    "text": "[3,",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 341,
+                    "end": 343,
+                    "text": "6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 562,
+                    "end": 565,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 1556,
+                    "end": 1559,
+                    "text": "[7,",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 1560,
+                    "end": 1562,
+                    "text": "8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 1767,
+                    "end": 1770,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Integration of functional electronic devices on rigid surfaces can enable smart structures with sophisticated functionalities and applications [1] [2] [3] [4] such as bio-integrated electronics in healthcare systems, dynamic structural health monitoring in aerospace applications and miniature radar devices for defense applications [1] [2] [3] [4] . A critical enabler of these applications is the fabrication of electrically conductive 3D interconnects conformally on to 3D surfaces [2, 4, 5] . These interconnects can be combined with pick-and-place methods for integrating other active devices.",
+            "cite_spans": [
+                {
+                    "start": 143,
+                    "end": 146,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 147,
+                    "end": 150,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 151,
+                    "end": 154,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 155,
+                    "end": 158,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 333,
+                    "end": 336,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 337,
+                    "end": 340,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 341,
+                    "end": 344,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 345,
+                    "end": 348,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 485,
+                    "end": 488,
+                    "text": "[2,",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 489,
+                    "end": 491,
+                    "text": "4,",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 492,
+                    "end": 494,
+                    "text": "5]",
+                    "ref_id": "BIBREF4"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Past work has shown several methods that can fabricate such conformal interconnects. In transfer printing, the ability to conform to complex surface features is limited to smooth curved surfaces due to the inherent need for a mechanical handling system to transfer the interconnects embedded on planar elastomer to the target 3D surface [3, 6] . Conformal 3D printing of nanospheres directly on the target surface can fabricate conformal circuits without requiring mechanical conformation, with high geometric versatility and without expensive vacuum deposition [4] . Further, it has significant advantages over laser direct structuring that is often used to fabricate molded-interconnect-devices because expensive metallic inorganic compounds for the entire mold and the chemical plating processes are eliminated. At the same time conformal 3D printing needs heating of the 3D object and the conformally printed circuits to reduce electrical resistance. This is carried out in an oven at high temperatures (\u2248 200-550 \u00b0C), for a longer time (\u2248 1-2 hours). The use of ovens limits the usable size and material of the 3D object. Laser sintering of the printed interconnects alleviates direct heating of the bulk of the 3D object but can still cause significant indirect heating of the 3D surface, which limits the choice of materials for the 3D object. Wire embedding process involves embedding the interconnect on the polymer using a localized thermal source. This method is applicable to thermoplastic materials which constrains the object material window [7, 8] . In lamination forming process conformal circuits are fabricated by depositing the interconnects on a planar polymer substrate, and then forming the assembly to the shape of the desired freeform surface [9] . This approach enables better conformance to sharp surface features, wider material window due to lack of heating of the 3D object, as well as potentially larger and more modular circuits. However, the commercially available",
+            "cite_spans": [
+                {
+                    "start": 337,
+                    "end": 340,
+                    "text": "[3,",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 341,
+                    "end": 343,
+                    "text": "6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 562,
+                    "end": 565,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 1556,
+                    "end": 1559,
+                    "text": "[7,",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 1560,
+                    "end": 1562,
+                    "text": "8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 1767,
+                    "end": 1770,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Integration of functional electronic devices on rigid surfaces can enable smart structures with sophisticated functionalities and applications [1] [2] [3] [4] such as bio-integrated electronics in healthcare systems, dynamic structural health monitoring in aerospace applications and miniature radar devices for defense applications [1] [2] [3] [4] . A critical enabler of these applications is the fabrication of electrically conductive 3D interconnects conformally on to 3D surfaces [2, 4, 5] . These interconnects can be combined with pick-and-place methods for integrating other active devices.",
+            "cite_spans": [
+                {
+                    "start": 143,
+                    "end": 146,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 147,
+                    "end": 150,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 151,
+                    "end": 154,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 155,
+                    "end": 158,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 333,
+                    "end": 336,
+                    "text": "[1]",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 337,
+                    "end": 340,
+                    "text": "[2]",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 341,
+                    "end": 344,
+                    "text": "[3]",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 345,
+                    "end": 348,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 485,
+                    "end": 488,
+                    "text": "[2,",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 489,
+                    "end": 491,
+                    "text": "4,",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 492,
+                    "end": 494,
+                    "text": "5]",
+                    "ref_id": "BIBREF4"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Past work has shown several methods that can fabricate such conformal interconnects. In transfer printing, the ability to conform to complex surface features is limited to smooth curved surfaces due to the inherent need for a mechanical handling system to transfer the interconnects embedded on planar elastomer to the target 3D surface [3, 6] . Conformal 3D printing of nanospheres directly on the target surface can fabricate conformal circuits without requiring mechanical conformation, with high geometric versatility and without expensive vacuum deposition [4] . Further, it has significant advantages over laser direct structuring that is often used to fabricate molded-interconnect-devices because expensive metallic inorganic compounds for the entire mold and the chemical plating processes are eliminated. At the same time conformal 3D printing needs heating of the 3D object and the conformally printed circuits to reduce electrical resistance. This is carried out in an oven at high temperatures (\u2248 200-550 \u00b0C), for a longer time (\u2248 1-2 hours). The use of ovens limits the usable size and material of the 3D object. Laser sintering of the printed interconnects alleviates direct heating of the bulk of the 3D object but can still cause significant indirect heating of the 3D surface, which limits the choice of materials for the 3D object. Wire embedding process involves embedding the interconnect on the polymer using a localized thermal source. This method is applicable to thermoplastic materials which constrains the object material window [7, 8] . In lamination forming process conformal circuits are fabricated by depositing the interconnects on a planar polymer substrate, and then forming the assembly to the shape of the desired freeform surface [9] . This approach enables better conformance to sharp surface features, wider material window due to lack of heating of the 3D object, as well as potentially larger and more modular circuits. However, the commercially available 48th SME North American Manufacturing Research Conference, NAMRC 48 (Cancelled due to polymer-metal inks can be printed on to polymer sheets and then thermoformed result in very high resistivity of \u2248 500-1000 \u00b5\u2126-cm even after post sintering due to the high polymer content of these inks [9] .",
+            "cite_spans": [
+                {
+                    "start": 337,
+                    "end": 340,
+                    "text": "[3,",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 341,
+                    "end": 343,
+                    "text": "6]",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 562,
+                    "end": 565,
+                    "text": "[4]",
+                    "ref_id": "BIBREF3"
+                },
+                {
+                    "start": 1556,
+                    "end": 1559,
+                    "text": "[7,",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 1560,
+                    "end": 1562,
+                    "text": "8]",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 1767,
+                    "end": 1770,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 2284,
+                    "end": 2287,
+                    "text": "[9]",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "We investigate sequential vacuum-forming [10] [11] [12] and Flash Light Sintering (FLS) [13, 14] of printed nanomaterial-based interconnects on planar polymer sheets [15] to overcome the high resistivity issue with the lamination-based process. The advantages of this Form-Fuse process are as follows: (i) high throughput, (ii) causes minimal substrate damage and thus enables wider material window, (iii) enhanced repairability (iv) robust integration with the target 3D object and (v) high scalability [15] .",
+            "cite_spans": [
+                {
+                    "start": 41,
+                    "end": 45,
+                    "text": "[10]",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 46,
+                    "end": 50,
+                    "text": "[11]",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 51,
+                    "end": 55,
+                    "text": "[12]",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 88,
+                    "end": 92,
+                    "text": "[13,",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 93,
+                    "end": 96,
+                    "text": "14]",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 166,
+                    "end": 170,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 504,
+                    "end": 508,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                }
+            ],
+            "ref_spans": [],
+            "section": "Introduction"
+        },
+        {
+            "text": "Hereafter, the term nanoparticle collectively refers to nanowires (NWs), nanospheres (NSs) and nanoflakes (NFs). Silver (Ag) inks with nanomaterials mixed in different ratios were printed on a polycarbonate (PC) sheet to fabricate planar interconnects [ Fig. 1(a) ]. This planar assembly was vacuum-formed into the desired surface geometry [ Fig. 1(b) ] and then subjected to FLS [ Fig. 1(c) ]. The dependence of interconnect resistance and shape on the forming strain, FLS fluence, and nanomaterial shape are examined. In particular, variation in nanomaterial shape is affected by mixing NWs, NSs & NFs in different concentrations. The process capability is further demonstrated via a simple conformal LED-lighting circuit for relatively complex 3D surfaces. ",
+            "cite_spans": [],
+            "ref_spans": [
+                {
+                    "start": 254,
+                    "end": 263,
+                    "text": "Fig. 1(a)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 342,
+                    "end": 351,
+                    "text": "Fig. 1(b)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 382,
+                    "end": 391,
+                    "text": "Fig. 1(c)",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Introduction"
+        },
+        {
+            "text": "Ag NWs (150 \u00b5m length, 100 nm diameter, ACS Materials), Ag NSs (20 nm diameter, US-Nano) and Ag NFs (100 nm size, Inframat) were individually suspended in ethanol at 5 mg/mL concentration without any dispersant to prepare a stable ink. In this study, pure Ag NW ink was mixed with pure Ag NS ink at 5%, 15%, and 25% concentrations by weight to obtain mixed NW-NS inks. NW-NF inks were also prepared in a similar method with the aforementioned concentrations. Wide-area Aerosol-Jet Printing (AJP) with a mask was used to deposit the mixed inks on a 250 \u00b5m thick PC sheets, as shown in Fig. 1(a) . Printing nanomaterials of this concentration and size has also been performed by largearea printheads without a mask [16] . During printing, the sample stage was preheated to 70\u2070C to quickly evaporate the ethanol. For process characterization, the printed pattern was a straight-line interconnect. The in-plane stage motion was controlled by G-codes. After depositing the interconnect pattern, the printed substrate was taken out of the AJP stage and the mask was removed from the substrate [ Fig. 1(d) ]. The number of printing passes was maintained at 140 in order to retain similar interconnect thickness across different samples. The interconnect-PC assembly was then thermoformed to the given mold shape by heating it above the polymer's glass-transition temperature (Tg). The Tg for PC was measured using Differential Scanning Calorimetry to be 153 \u2103. The mold was designed with air suction ducts and fabricated with polyetherimide using stereolithography based 3D printing. Mold with a truncated pyramid cross-section and aspect ratio (width/height) of 2.5, characterized by a maximum mold angle \u03b8m = 60\u2070 [ Fig. 1 (c] was used to characterize the effect of nanomaterial compositions on post-forming resistance. The PC-interconnect assembly was aligned such that one end of the interconnect is on the top section and the other end is located at the root section of the mold. This setup was adapted so that uniaxial strain was imposed on the interconnect along the pyramid slope. During our experiments, the mold was completely raised so that the polymer substrate (PC) was made to wrap the mold. The fixed PC was heated to 200\u2103 (as measured by a thermal camera), and then vacuum-formed to the mold shape. The vacuum-forming process took about 30 seconds to complete. This vacuum-formed assembly was subjected to FLS (Sinteron 3000 system, Xenon Corporation). This lamp has a minimum optical footprint, and therefore working area, of 1-foot x 1 inch. The thermal power density Q absorbed at an arbitrary location on the 3D interconnect was obtained as shown in Eq. (1). In this equation Q depends on distance D; the fraction of total optical irradiance at given wavelength \u03bb, i.e. X(\u03bb); ratio of absorbed power Pa (\u03bb) to incident power Pi (\u03bb) on the interconnect; and the lamp voltage V in kV. The term (V/3120) 2.4 denotes the total optical irradiance at a given voltage at the focal plane, as specified by the manufacturer. The base of the formed PC was fixed at 0.5 inches away from the lamp focal plane, and the lamp voltage was fixed at 3 kV. The focal plane of the light is located at 1 inch from the lamp casing. The optical fluence at the PC base was varied, as 5,7 & 9 J/cm 2 , with single optical pulse. The interconnect resistance was quantified by attaching copper tapes with highly conductive silver paste to the end-pads of the interconnects. The interconnect morphology was analyzed via Scanning Electron Micrography (SEM, Zeiss Sigma Field Emission 8100). The optical absorption of the",
+            "cite_spans": [
+                {
+                    "start": 713,
+                    "end": 717,
+                    "text": "[16]",
+                    "ref_id": "BIBREF15"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 584,
+                    "end": 593,
+                    "text": "Fig. 1(a)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 1089,
+                    "end": 1098,
+                    "text": "Fig. 1(d)",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 1710,
+                    "end": 1716,
+                    "text": "Fig. 1",
+                    "ref_id": "FIGREF0"
+                }
+            ],
+            "section": "Methods"
+        },
+        {
+            "text": "deposited Ag NWs was measured using an UV-vis spectrophotometer. The sintering temperature was measured with an optical pyrometer. Post-FLS resistance decreases with increase in optical fluence for all configurations. At higher fluence (9J/cm 2 ) blowoff is visually observed in pure Ag NW cases as in past work [17, 18] . The blowoff occurs due to nanoscale degradation and evaporation of NWs beyond a limiting fluence [15] . The missing data points in Figures 2c and 2f denote that there is no conductivity across the interconnect to measure resistance. However, for samples mixed with higher NS or NF content are less prone to FLS induced damage. Figs. 3(a) -(d) show SEM images after forming and after FLS. Clustering of NFs or NSs at NW-NW junctions is observable. The size of the aggregate formation is bigger at higher concentrations for both NFs and NSs. These clusters were observed across the interconnect after deposition and are caused due to the presence of surface defects on the nanoflakes & nanospheres [19] . Lower number of contact points and higher neck growth is desirable for better percolation of electrons [20, 21] . Figure 2 shows that the change in line resistance between post-forming and post-FLS is much greater in mixed configurations and further increases with an increase in NF or NS content than pure NW samples. Also, interconnects containing NW-NS or NW-NF mixtures sustain higher optical fluence energy than pure NWs. ",
+            "cite_spans": [
+                {
+                    "start": 312,
+                    "end": 316,
+                    "text": "[17,",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 317,
+                    "end": 320,
+                    "text": "18]",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 420,
+                    "end": 424,
+                    "text": "[15]",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 1019,
+                    "end": 1023,
+                    "text": "[19]",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 1129,
+                    "end": 1133,
+                    "text": "[20,",
+                    "ref_id": "BIBREF19"
+                },
+                {
+                    "start": 1134,
+                    "end": 1137,
+                    "text": "21]",
+                    "ref_id": "BIBREF20"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 454,
+                    "end": 471,
+                    "text": "Figures 2c and 2f",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 650,
+                    "end": 665,
+                    "text": "Figs. 3(a) -(d)",
+                    "ref_id": null
+                },
+                {
+                    "start": 1140,
+                    "end": 1148,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF2"
+                }
+            ],
+            "section": "Methods"
+        },
+        {
+            "text": "(400 to 700 nm). It is observed that the NW-NF configuration samples have greater optical absorption than other samples. Pure NWs showed very low optical absorption characteristics. This is because NFs have greater optical absorption than NWs [22, 23] . Therefore NW-NF ensemble results in greater optical absorption characteristics than only NWs. This phenomenon is applicable to NW-NS mixtures as well. Sintering temperatures were measured at the root section of the formed samples for 5J/cm 2 optical fluence [ Fig.  4(b) ]. The 25% NF sample had the highest sintering temperature at 237.5 \u2070C and pure NWs sample had the lowest sintering temperature at 193.2 \u2070C. Figure 4 (b) shows that sintering temperatures increase with greater non-NW content for both NW-NF and NW-NS configurations. Hence it is safe to assume that the incident optical energy from the flash lamp is effectively absorbed by the NSs or NFs. The heat generated due to optical absorption is transferred to NW-NW junctions to facilitate interparticle neck growth thus resulting in a greater change in post-FLS line resistance for NW-NS or NW-NF samples as shown in Figure 2 . Thus, nanomaterial shape plays a key role in reducing the line resistance after FLS so that neck growth induced reduction in resistance due to FLS can overcome the concurrent increase in resistance due to vacuum-forming. The lowest post-FLS resistance here (\u2248 10 \u2126/cm, resistivity of 55.4 \u00b5\u2126-cm) is achieved in pure Ag NW samples sintered at 5J/cm 2 optical energy [ Fig 5(a) ], which is considered as the optimal fluence in this work. In order to achieve lower manufacturing costs, interconnects containing NW-NS mixtures and sintered at higher fluence can be used to achieve resistance, similar to that of pure NWs sample. But if the optical fluence or the NS content is greater than a certain optimum, the resistance will increase due to blowoff. Thus, FLS plays a key role in compensating for the increase in resistance after vacuum-forming. The change in resistivity with respect to forming angle is plotted in Figure 4 (c). It is observed that change in resistivities post-forming & post-FLS are comparable at lower forming angles (30\u2070 & 40\u2070). At higher forming angles (50\u2070 & 60\u2070), the change in resistivity is non-linear. This is due to greater strain on the NWs as the forming angle increases. Our process with optimal parameters was used to integrate conductive interconnects on more complex surfaces such as the stepped geometry [ Fig.  5a ] and the concavo-convex geometry [Fig 5b] . The PCinterconnect assemblies were adhesively integrated with the mold surface and connected to an LED-photoresistor circuit.",
+            "cite_spans": [
+                {
+                    "start": 243,
+                    "end": 247,
+                    "text": "[22,",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 248,
+                    "end": 251,
+                    "text": "23]",
+                    "ref_id": "BIBREF22"
+                }
+            ],
+            "ref_spans": [
+                {
+                    "start": 514,
+                    "end": 524,
+                    "text": "Fig.  4(b)",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 666,
+                    "end": 674,
+                    "text": "Figure 4",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 1135,
+                    "end": 1143,
+                    "text": "Figure 2",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 1513,
+                    "end": 1521,
+                    "text": "Fig 5(a)",
+                    "ref_id": null
+                },
+                {
+                    "start": 2062,
+                    "end": 2070,
+                    "text": "Figure 4",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 2487,
+                    "end": 2495,
+                    "text": "Fig.  5a",
+                    "ref_id": null
+                },
+                {
+                    "start": 2530,
+                    "end": 2538,
+                    "text": "[Fig 5b]",
+                    "ref_id": null
+                }
+            ],
+            "section": "AFTER FORMING AFTER FLS"
+        },
+        {
+            "text": "This paper discusses the influence of nanomaterial shape morphology on line resistance in the Form-Fuse process. Addition of NSs or NFs in NWs expand the useable fluence range by alleviating blowoff but at the cost of lower conductivity. The non-linear dependence of line-resistance on the addition of NSs or NFs was explained using SEM characterization, UV-Vis spectroscopy and temperature measurements. UV-Vis and temperature measurements show that addition of NFs or NSs results in greater optical absorption due to size and shape effects. This leads to greater NW-NW neck growth and resulted in observed post-FLS resistance decrease. Note that the scale of this Form-Fuse process can be increased by using large area printheads along with commercial vacuum-forming machines and linearly placed sintering lamps. The demonstrated process also enables high throughput and circuit repairability and wide material window, which makes this process versatile and independent of object size and shape. However, there are several unanswered questions such as: why is there a significant change in line resistance from post-forming to post-FLS for samples containing NFs or NSs when compared to NWs only cases? Does localized optical absorption or sintering kinetics or both drive this change? The reasoning behind these questions will be discussed in our future work. ",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Conclusion"
+        }
+    ],
+    "bib_entries": {
+        "BIBREF0": {
+            "ref_id": "b0",
+            "title": "Conformal Electronics Wrapped Around Daily Life Objects Using an Original Method: Water Transfer Printing",
+            "authors": [
+                {
+                    "first": "Le",
+                    "middle": [],
+                    "last": "Borgne",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "De Sagazan",
+                    "suffix": ""
+                },
+                {
+                    "first": "O",
+                    "middle": [],
+                    "last": "Crand",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Jacques",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Harnois",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "ACS Applied Materials & Interfaces",
+            "volume": "9",
+            "issn": "35",
+            "pages": "29424--29429",
+            "other_ids": {}
+        },
+        "BIBREF1": {
+            "ref_id": "b1",
+            "title": "Conformal Printing of Electrically Small Antennas on Three-Dimensional Surfaces",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Adams",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Duoss",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "F"
+                    ],
+                    "last": "Malkowski",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Motala",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Ahn",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "G"
+                    ],
+                    "last": "Nuzzo",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Bernhard",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Lewis",
+                    "suffix": ""
+                }
+            ],
+            "year": 2011,
+            "venue": "",
+            "volume": "23",
+            "issn": "",
+            "pages": "1335--1340",
+            "other_ids": {}
+        },
+        "BIBREF2": {
+            "ref_id": "b2",
+            "title": "Stretchable, Curvilinear Electronics Based on Inorganic Materials",
+            "authors": [
+                {
+                    "first": "D.-H",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Xiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Song",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Rogers",
+                    "suffix": ""
+                }
+            ],
+            "year": 2010,
+            "venue": "Advanced Materials",
+            "volume": "22",
+            "issn": "19",
+            "pages": "2108--2124",
+            "other_ids": {}
+        },
+        "BIBREF3": {
+            "ref_id": "b3",
+            "title": "3D polymer objects with electronic components interconnected via conformally printed electrodes",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Jo",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Jung",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [
+                        "Y"
+                    ],
+                    "last": "Ahn",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Lewis",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Choi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Jeong",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Nanoscale",
+            "volume": "9",
+            "issn": "39",
+            "pages": "14798--14803",
+            "other_ids": {}
+        },
+        "BIBREF4": {
+            "ref_id": "b4",
+            "title": "3D Printing onto Unknown Uneven Surfaces**This work is supported by the University of Portsmouth -Research Development Framework (RDF)",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Bausch",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [
+                        "P"
+                    ],
+                    "last": "Dawkins",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Frei",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Klein",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "IFAC-PapersOnLine",
+            "volume": "49",
+            "issn": "21",
+            "pages": "583--590",
+            "other_ids": {}
+        },
+        "BIBREF5": {
+            "ref_id": "b5",
+            "title": "Assembly and applications of 3D conformal electronics on curvilinear surfaces",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Huang",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Wu",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Xiao",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Duan",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Bian",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Ye",
+                    "suffix": ""
+                },
+                {
+                    "first": "Yin",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Materials Horizons",
+            "volume": "6",
+            "issn": "4",
+            "pages": "642--683",
+            "other_ids": {}
+        },
+        "BIBREF6": {
+            "ref_id": "b6",
+            "title": "Cooperative Tool Path Planning for Wire Embedding on Additively Manufactured Curved Surfaces Using Robot Kinematics",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Espalin",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Cuaron",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Perez",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Lee",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Macdonald",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Wicker",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "Journal of Mechanisms and Robotics",
+            "volume": "7",
+            "issn": "2",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF7": {
+            "ref_id": "b7",
+            "title": "Electrical and Thermal Characterization of 3D Printed Thermoplastic Parts With Embedded Wires for High Current-Carrying Applications",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [
+                        "M M"
+                    ],
+                    "last": "Billah",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Coronel",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Halbig",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [
+                        "B"
+                    ],
+                    "last": "Wicker",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Espalin",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "IEEE Access",
+            "volume": "7",
+            "issn": "",
+            "pages": "18799--18810",
+            "other_ids": {}
+        },
+        "BIBREF8": {
+            "ref_id": "b8",
+            "title": "Arbitrarily Shaped 2.5D Circuits using Stretchable Interconnects Embedded in Thermoplastic Polymers",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Plovie",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Guillaume",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Dunphy",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Dhaenens",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Van Put",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Vandecasteele",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Vervust",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Bossuyt",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Vanfleteren",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Advanced Engineering Materials",
+            "volume": "19",
+            "issn": "8",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF9": {
+            "ref_id": "b9",
+            "title": "Modeling and Optimization of a Plastic Thermoforming Process",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.-W",
+                    "middle": [],
+                    "last": "Hung",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "Journal of Reinforced Plastics and Composites",
+            "volume": "23",
+            "issn": "1",
+            "pages": "109--121",
+            "other_ids": {}
+        },
+        "BIBREF10": {
+            "ref_id": "b10",
+            "title": "Simulation of thermoplastic prepreg thermoforming based on a viscohyperelastic model and a thermal homogenization",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Guzman-Maldonado",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Hamila",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Naouar",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Moulin",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Boisse",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Materials & Design",
+            "volume": "93",
+            "issn": "",
+            "pages": "431--442",
+            "other_ids": {}
+        },
+        "BIBREF11": {
+            "ref_id": "b11",
+            "title": "A thermo-viscoelastic approach for the characterization and modeling of the bending behavior of thermoplastic composites",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Ropers",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Kardos",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [
+                        "A"
+                    ],
+                    "last": "Osswald",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Composites Part A: Applied Science and Manufacturing",
+            "volume": "90",
+            "issn": "",
+            "pages": "22--32",
+            "other_ids": {}
+        },
+        "BIBREF12": {
+            "ref_id": "b12",
+            "title": "Temperature, Crystalline Phase and Influence of Substrate Properties in Intense Pulsed Light Sintering of Copper Sulfide Nanoparticle Thin Films",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Dexter",
+                    "suffix": ""
+                },
+                {
+                    "first": "Z",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bansal",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.-H",
+                    "middle": [],
+                    "last": "Chang",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Malhotra",
+                    "suffix": ""
+                }
+            ],
+            "year": 2018,
+            "venue": "Scientific Reports",
+            "volume": "8",
+            "issn": "1",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF13": {
+            "ref_id": "b13",
+            "title": "Nanoscale-shapemediated coupling between temperature and densification in intense pulsed light sintering",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bansal",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Malhotra",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "Nanotechnology",
+            "volume": "27",
+            "issn": "49",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF14": {
+            "ref_id": "b14",
+            "title": "Scalable Forming and Flash Light Sintering of Polymer-Supported Interconnects for Surface-Conformal Electronics",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Devaraj",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Malhotra",
+                    "suffix": ""
+                }
+            ],
+            "year": 2019,
+            "venue": "Journal of Manufacturing Science and Engineering",
+            "volume": "",
+            "issn": "",
+            "pages": "1--25",
+            "other_ids": {}
+        },
+        "BIBREF15": {
+            "ref_id": "b15",
+            "title": "Inkjet Printing of Silver Nanowire Networks",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Finn",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Lotya",
+                    "suffix": ""
+                },
+                {
+                    "first": "Coleman",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "N"
+                    ],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2015,
+            "venue": "ACS Applied Materials & Interfaces",
+            "volume": "7",
+            "issn": "17",
+            "pages": "9254--9261",
+            "other_ids": {}
+        },
+        "BIBREF16": {
+            "ref_id": "b16",
+            "title": "Photonic welding of ultra-long copper nanowire network for flexible transparent electrodes using white flash light sintering",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Mallikarjuna",
+                    "suffix": ""
+                },
+                {
+                    "first": "H.-J",
+                    "middle": [],
+                    "last": "Hwang",
+                    "suffix": ""
+                },
+                {
+                    "first": "W.-H",
+                    "middle": [],
+                    "last": "Chung",
+                    "suffix": ""
+                },
+                {
+                    "first": "H.-S",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                }
+            ],
+            "year": 2016,
+            "venue": "RSC Advances",
+            "volume": "6",
+            "issn": "6",
+            "pages": "4770--4779",
+            "other_ids": {}
+        },
+        "BIBREF17": {
+            "ref_id": "b17",
+            "title": "High-intensity pulse light sintering of silver nanowire transparent films on polymer substrates: the effect of the thermal properties of substrates on the performance of silver films",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Jiu",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Sugahara",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Nogi",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Araki",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Suganuma",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Uchida",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Shinozaki",
+                    "suffix": ""
+                }
+            ],
+            "year": 2013,
+            "venue": "Nanoscale",
+            "volume": "5",
+            "issn": "23",
+            "pages": "11820--11828",
+            "other_ids": {}
+        },
+        "BIBREF18": {
+            "ref_id": "b18",
+            "title": "Melting behavior of Ag nanoparticles and their clusters",
+            "authors": [
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Feng",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Feng",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Yuan",
+                    "suffix": ""
+                },
+                {
+                    "first": "X",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                },
+                {
+                    "first": "Wang",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "Applied Thermal Engineering",
+            "volume": "111",
+            "issn": "",
+            "pages": "1457--1463",
+            "other_ids": {}
+        },
+        "BIBREF19": {
+            "ref_id": "b19",
+            "title": "Self-limited plasmonic welding of silver nanowire junctions",
+            "authors": [
+                {
+                    "first": "E",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Garnett",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Cai",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [
+                        "J"
+                    ],
+                    "last": "Cha",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Mahmood",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [
+                        "T"
+                    ],
+                    "last": "Connor",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Greyson Christoforo",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Cui",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "D"
+                    ],
+                    "last": "Mcgehee",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Brongersma",
+                    "suffix": ""
+                }
+            ],
+            "year": 2012,
+            "venue": "Nature Materials",
+            "volume": "11",
+            "issn": "",
+            "pages": "",
+            "other_ids": {}
+        },
+        "BIBREF20": {
+            "ref_id": "b20",
+            "title": "Controlling processing temperatures and selflimiting behaviour in intense pulsed sintering by tailoring nanomaterial shape distribution",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Dexter",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Bhandari",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [
+                        "H"
+                    ],
+                    "last": "Chang",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Malhotra",
+                    "suffix": ""
+                }
+            ],
+            "year": 2017,
+            "venue": "RSC Advances",
+            "volume": "7",
+            "issn": "89",
+            "pages": "56395--56405",
+            "other_ids": {}
+        },
+        "BIBREF21": {
+            "ref_id": "b21",
+            "title": "The Optical Properties of Metal Nanoparticles: The Influence of Size, Shape, and Dielectric Environment",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Kelly",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Coronado",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [
+                        "L"
+                    ],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [
+                        "C"
+                    ],
+                    "last": "Schatz",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "The Journal of Physical Chemistry B",
+            "volume": "107",
+            "issn": "3",
+            "pages": "668--677",
+            "other_ids": {}
+        },
+        "BIBREF22": {
+            "ref_id": "b22",
+            "title": "Shape and size effects in the optical properties of metallic nanorods",
+            "authors": [
+                {
+                    "first": "Stefan",
+                    "middle": [],
+                    "last": "Kooij",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Poelsema",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "",
+                    "suffix": ""
+                }
+            ],
+            "year": 2006,
+            "venue": "Physical Chemistry Chemical Physics",
+            "volume": "8",
+            "issn": "28",
+            "pages": "3349--3357",
+            "other_ids": {}
+        }
+    },
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Schematics of (a) Aerosol-jet deposition (AJP), (b) Vacuum-forming and (c) Flash Light Sintering (FLS).(d) Aerosol-jet printed planar interconnect",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "a)-(c) show the line resistance post-forming and post-FLS, for different compositions of NSs mixed with NW, leading to the following observations: The resistance increases significantly after vacuum-forming but also decreases significantly after FLS. The post-formed resistance increases with increase in NS concentration. The change in line resistance post-forming and post-FLS is also greater with increase in the concentration of NW-NS mixtures. Similar trends are observed in NW-NF configurations as shown in Figures 2(d)-(f) but the change in line resistance due to forming and due to FLS is higher for NW-NF mixtures than for NW-NS mixtures.",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Change in resistance: for Ag NW-NS: (a) 5J/cm 2 (b) 7J/cm 2 (c) 9J/cm 2 , for Ag NW-NF: (d) 5J/cm 2 (e) 7J/cm 2 (f) 9J/cm 2 .",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "Comparing Figs. 2(c) & 2(f), it is observed that NW-NF configuration demonstrates a greater change in line resistance post-sintering than NW-NS at higher concentrations. This phenomenon of greater change in line resistance between post-forming & post-FLS might occur due to a combination of two reasons (i) higher optical absorption exhibited by NS clusters, Fig. 3 SEM images of interconnects after Forming and after FLS (a) NW-NF at 5% (b) NW-NF at 25% (c) NW-NS at 5% (d) NW-NS at 25%.causing the localized relative temperature to rise and (ii) better sintering kinetics among NWs at lower sintering temperatures. Optical absorption of planar NW-NS samples with varying concentrations were examined with a UV-Vis Spectrophotometer [Fig. 4(a)] within the visible spectrum",
+            "latex": null,
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "a) UV-Vis absorption spectrum. (b) Sintering temperature at the root section of the formed sample for varying nanomaterial compositions. (c) Change in resistivity with forming angle (for optimal parameters) Fig. 5 Conformal Interconnects on complex surfaces: (a) Stepped geometry (b) Concavo-convex geometry.",
+            "latex": null,
+            "type": "figure"
+        }
+    },
+    "back_matter": [
+        {
+            "text": "This work was supported by the National Science Foundation, USA grant CBET #1449383.",
+            "cite_spans": [],
+            "ref_spans": [],
+            "section": "Acknowledgements"
+        }
+    ]
+}

@@ -1,0 +1,2805 @@
+{
+    "paper_id": "PMC1065257",
+    "metadata": {
+        "title": "Characterization of the frameshift signal of Edr, a mammalian example of programmed \u22121 ribosomal frameshifting",
+        "authors": [
+            {
+                "first": "Emily",
+                "middle": [],
+                "last": "Manktelow",
+                "suffix": "",
+                "email": null,
+                "affiliation": {}
+            },
+            {
+                "first": "Kazuhiro",
+                "middle": [],
+                "last": "Shigemoto",
+                "suffix": "",
+                "email": null,
+                "affiliation": {}
+            },
+            {
+                "first": "Ian",
+                "middle": [],
+                "last": "Brierley",
+                "suffix": "",
+                "email": null,
+                "affiliation": {}
+            }
+        ]
+    },
+    "body_text": [
+        {
+            "text": "Programmed \u22121 ribosomal frameshifting (hereafter frameshifting for brevity) is a translational control mechanism that allows the production of a specific ratio of gene products from two overlapping open reading frames, the relative quantities of which depend upon the frameshift efficiency at that particular site. Frameshifting occurs during the elongation phase of protein synthesis where, in response to elements in the mRNA, the ribosome switches from the zero reading frame to the \u22121 frame (in the 5\u2032 direction) at a defined position, and translation continues in the new frame. The frameshift signals of this class, first described in retroviruses (1,2), have subsequently been found (mainly) in other virus genomes and in Escherichia coli insertional elements [reviewed in (3\u20136)]. The mRNA signals that promote frameshifting comprise a slippery sequence, where the frameshift takes place, and a 3\u2032-stimulatory RNA structure, separated from the slippery sequence by a short spacer region. The heptanucleotide slippery sequence typically contains consecutive homopolymeric triplets (XXXYYYZ), with the ribosome-bound tRNAs decoding the P- and A-site codons slipping from the zero frame (X XXY YYZ) to the \u22121 frame (XXX YYY). Studies of frameshifting in eukaryotic systems have indicated that X can be any nucleotide, Y is almost always A or U, and Z any nucleotide but G (although the YYZ codon is often AAG in prokaryotic systems). Efficient frameshifting also requires the presence of the 3\u2032-stimulatory RNA beginning \u223c5\u20139 nt downstream of the slippery sequence. At some sites, a simple stem\u2013loop structure appears to be necessary and sufficient for frameshifting but more commonly, an RNA pseudoknot structure is present. These are H-(hairpin)-type pseudoknots (7), although some viral pseudoknots have also been described as kissing hairpins (8,9). The mechanism of frameshifting is not fully understood, although a number of models have been proposed to explain how the interaction of the ribosome with the stimulatory RNA leads to a realignment of the tRNAs decoding the slippery sequence into the \u22121 frame [(10) and references therein].",
+            "cite_spans": [
+                {
+                    "start": 655,
+                    "end": 656,
+                    "mention": "1",
+                    "ref_id": "BIBREF0"
+                },
+                {
+                    "start": 657,
+                    "end": 658,
+                    "mention": "2",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 781,
+                    "end": 782,
+                    "mention": "3",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 783,
+                    "end": 784,
+                    "mention": "6",
+                    "ref_id": "BIBREF49"
+                },
+                {
+                    "start": 1770,
+                    "end": 1771,
+                    "mention": "7",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 1852,
+                    "end": 1853,
+                    "mention": "8",
+                    "ref_id": "BIBREF51"
+                },
+                {
+                    "start": 1854,
+                    "end": 1855,
+                    "mention": "9",
+                    "ref_id": "BIBREF52"
+                },
+                {
+                    "start": 2120,
+                    "end": 2122,
+                    "mention": "10",
+                    "ref_id": "BIBREF1"
+                }
+            ],
+            "section": "INTRODUCTION",
+            "ref_spans": []
+        },
+        {
+            "text": "Computer-assisted database screens have highlighted the potential for \u22121 frameshifting in conventional cellular genes (11\u201313), but only two examples with obvious biological relevance have been identified to date. The first is present in the E.coli dnaX gene, encoding the \u03b3 and \u03c4 subunits of DNA polymerase III holoenzyme. The synthesis of the \u03b3 protein is by frameshifting, which directs ribosomes to a premature stop codon, while the longest form (\u03c4) is translated by continued standard decoding (14,15). The frameshift occurs at the slippery sequence AAAAAAG, by simultaneous slippage of both P- and A-site tRNALys species from the zero (A AAA AAG) to the \u22121 frame (AAA AAA) (16,17). This process requires two stimulatory signals in the mRNA, a Shine\u2013Dalgarno-like sequence 10 nt upstream of the slippery sequence and a stem\u2013loop structure 5 nt downstream of it (18,19). The second example, present in the mouse embryonal carcinoma differentiation regulated (Edr) gene, was described more recently (20). Edr and the human orthologue PEG10 [paternally expressed 10 (21)] are single copy genes located on mouse chromosome 6 and human chromosome 7, respectively. High levels of Edr are seen during mouse embryogenesis, with distinct spatial and temporal patterns of mRNA expression observed in the developing musculo-skeletal system. Edr thus appears to play a crucial role in mammalian development, although its exact function is yet to be determined (20). The normal function of the PEG10 protein is also uncertain, although it is associated with the development of human hepatocellular carcinoma (22). The Edr gene has two long, partially overlapping reading frames (RF1 and RF2), with a likely slippery sequence (GGGAAAC) within the overlap region and in the appropriate reading frame. The signal is poorly characterized, but in vitro frameshift assays indicate that \u223c30% of ribosomes change frame within the RF1/RF2 overlap region (20). With GGGAAAC as the site of frameshifting, the gene would encode a 37 kDa non-frameshift product (RF1) by normal translation and a 113 kDa fusion protein (RF1\u2013RF2) by frameshifting. RF1 contains a putative zinc-binding domain of the CCHC subclass with a high content of basic amino acids commonly found in retroviral Gag proteins, whereas the protein encoded by RF2 contains a consensus motif for an aspartyl protease catalytic site. Thus, the organization is reminiscent of a retroviral gag/pro overlap and suggests that the Edr frameshift signal is of retroviral origin. Nevertheless, current models of the Edr stimulatory RNA (20) do not resemble closely the kind of structures that have been seen previously at retroviral frameshift signals [reviewed in (23,24)].",
+            "cite_spans": [
+                {
+                    "start": 119,
+                    "end": 121,
+                    "mention": "11",
+                    "ref_id": "BIBREF2"
+                },
+                {
+                    "start": 122,
+                    "end": 124,
+                    "mention": "13",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 499,
+                    "end": 501,
+                    "mention": "14",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 502,
+                    "end": 504,
+                    "mention": "15",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 679,
+                    "end": 681,
+                    "mention": "16",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 682,
+                    "end": 684,
+                    "mention": "17",
+                    "ref_id": "BIBREF8"
+                },
+                {
+                    "start": 866,
+                    "end": 868,
+                    "mention": "18",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 869,
+                    "end": 871,
+                    "mention": "19",
+                    "ref_id": "BIBREF10"
+                },
+                {
+                    "start": 1002,
+                    "end": 1004,
+                    "mention": "20",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 1068,
+                    "end": 1070,
+                    "mention": "21",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 1453,
+                    "end": 1455,
+                    "mention": "20",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 1600,
+                    "end": 1602,
+                    "mention": "22",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 1937,
+                    "end": 1939,
+                    "mention": "20",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 2572,
+                    "end": 2574,
+                    "mention": "20",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 2701,
+                    "end": 2703,
+                    "mention": "23",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 2704,
+                    "end": 2706,
+                    "mention": "24",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "section": "INTRODUCTION",
+            "ref_spans": []
+        },
+        {
+            "text": "As the first eukaryotic cellular example of \u22121 frameshifting, it is of interest to ascertain whether Edr represents a new class of frameshift signal. In this study, we have used site-directed mutagenesis and RNA structure probing to characterize the Edr signal. We first confirmed the functionality and magnitude of the signal and confirmed a role for the GGGAAAC motif. Subsequently, we derived a model of the Edr stimulatory RNA and assessed its similarity to those stimulatory RNAs found at viral frameshift sites. We found that the structure is an RNA pseudoknot quite different from the one proposed previously (20) but possessing features typical of retroviral frameshifter pseudoknots. From these experiments, we conclude that the Edr signal and by inference, the PEG10 orthologue, do not represent a novel \u2018cellular class\u2019 of programmed \u22121 ribosomal frameshift signal, but rather are similar to viral examples, albeit with some interesting features.",
+            "cite_spans": [
+                {
+                    "start": 617,
+                    "end": 619,
+                    "mention": "20",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "section": "INTRODUCTION",
+            "ref_spans": []
+        },
+        {
+            "text": "Site-specific mutagenesis was carried out by a procedure based on that of Kunkel (25) as described previously (26). Mutants were identified by dideoxy sequencing of single-stranded templates (27). Sequencing through G+C-rich regions was facilitated by replacing dGTP with deaza-GTP in the sequencing mixes.",
+            "cite_spans": [
+                {
+                    "start": 82,
+                    "end": 84,
+                    "mention": "25",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 111,
+                    "end": 113,
+                    "mention": "26",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 192,
+                    "end": 194,
+                    "mention": "27",
+                    "ref_id": "BIBREF19"
+                }
+            ],
+            "section": "Site-directed mutagenesis ::: MATERIALS AND METHODS",
+            "ref_spans": []
+        },
+        {
+            "text": "The Edr frameshift region was amplified from plasmid pSP64T/Edr (20). A 1230 nt region between mRNA positions 631 and 1861 was amplified using Pfu DNA polymerase (Promega) and forward and reverse primers, respectively: 5\u2032-TACATGCCATGGGTGCTGCAGCAGCCCCTATC-3\u2032 and 5\u2032-TAGTACAAGCTTCCGGCAGCAGAGTCGGCAGTA-3\u2032. The PCR product was digested with NdeI and HindIII and cloned into plasmid pKT0 (28) to create pKT0/Edr (Figure 1). Plasmid pKT0/Edr/T3 was prepared from pKT0/Edr by inserting the sequence 5\u2032-AATTAACCCTCACTAAAGGGA-3\u2032 at a position 33 nt upstream of the start of the GGGAAAC slippery sequence. This introduced a unique bacteriophage T3 RNA polymerase promotor. All plasmid junctions were confirmed by dideoxy sequencing of single-stranded templates rescued from E.coli JM101.",
+            "cite_spans": [
+                {
+                    "start": 65,
+                    "end": 67,
+                    "mention": "20",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 384,
+                    "end": 386,
+                    "mention": "28",
+                    "ref_id": "BIBREF20"
+                }
+            ],
+            "section": "Construction of plasmids ::: MATERIALS AND METHODS",
+            "ref_spans": [
+                {
+                    "start": 408,
+                    "end": 416,
+                    "mention": "Figure 1",
+                    "ref_id": "FIGREF0"
+                }
+            ]
+        },
+        {
+            "text": "Plasmids for in vitro transcription were prepared using a commercial kit (WizardPlus SV Miniprep; Promega). In vitro transcription reactions employing the bacteriophage SP6 RNA polymerase were carried out essentially as described by Melton et al. (29) and included the synthetic cap structure 7meGpppG (New England Biolabs) to generate capped mRNA. Product RNA was recovered by a single extraction with phenol/chloroform/isoamyl alcohol (49:49:2) followed by precipitation in ethanol in the presence of 5 M ammonium acetate. The RNA pellet was dissolved in water, and the remaining unicorporated nucleotide triphosphates removed by Sephadex G-50 chromatography. RNA was recovered by ethanol precipitation, dissolved in water and checked for integrity by electrophoresis on 1% (w/v) agarose gels containing 0.1% (w/v) SDS. In ribosomal frameshift assays, purified mRNAs were translated in rabbit reticulocyte lysate (RRL) as described previously (26). Translation products were analysed on SDS-15% (w/v) polyacrylamide gels according to the standard procedures (30). The relative abundance of non-frameshifted and frameshifted products on the gels was determined by direct measurement of [35S]methionine incorporation using a Packard Instant Imager 2024 and adjusted to take into account the differential methionine content of the products. The frameshift efficiencies quoted are the average of at least three independent measurements which varied by <10%, i.e. a measurement of 30% frameshift efficiency was between 27 and 33%. The calculations of frameshift efficiency take into account the differential methionine content of the various products.",
+            "cite_spans": [
+                {
+                    "start": 248,
+                    "end": 250,
+                    "mention": "29",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 946,
+                    "end": 948,
+                    "mention": "26",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 1061,
+                    "end": 1063,
+                    "mention": "30",
+                    "ref_id": "BIBREF23"
+                }
+            ],
+            "section": "In vitro transcription and translation ::: MATERIALS AND METHODS",
+            "ref_spans": []
+        },
+        {
+            "text": "RNAs for secondary structure probing were prepared by in vitro transcription of NdeI-cut pKT0/Edr/T3 using bacteriophage T3 RNA polymerase. Transcription reactions were on a 200 \u03bcl scale and contained 20 \u03bcg plasmid DNA, 2.5 mM of each rNTP and 200 U of T3 RNA polymerase (Promega) in a buffer containing 40 mM Tris, pH 8, 15 mM MgCl2 and 5 mM DTT. After 3 h at 37\u00b0C, 100 U of DNase I was added and the incubation continued for a further 30 min. Nucleic acids were harvested by extraction with phenol/chloroform (1:1) and ethanol precipitation. DNA fragments were removed by Sephadex G-50 chromatography and the RNA transcripts concentrated by ethanol precipitation. The RNA was quantified by spectrophotometry and its integrity checked by electrophoresis on a 2% (w/v) agarose gel containing 0.1% SDS. Transcripts (10 \u03bcg) were 5\u2032 end-labelled with [\u03b3-33P]ATP using a standard dephosphorylation\u2013rephosphorylation strategy (31), purified from 6% acrylamide\u2013urea gels and dissolved in water. The structure probing experiments followed the general principles outlined by others (32\u201334). All reactions contained 10\u201350 000 c.p.m. 5\u2032 end-labelled RNA transcript. RNase probing reactions were carried out in 50 \u03bcl reaction volumes containing 50 \u03bcg carrier E.coli rRNA (Sigma). Enzymatic probing reactions were carried out on ice for 20 min. RNase CL3 [Industrial Research Laboratories (IRL), New Zealand] and RNase T1 (Ambion) probing was in 50 mM sodium cacodylate, pH 7, 2 mM MgCl2 and 0\u20130.2 units CL3 or T1; RNase V1 (Ambion) in 10 mM Tris, pH 8, 2 mM MgCl2, 0.1 M KCl and 0\u20130.2 units V1; and RNase U2 (IRL) in 20 mM sodium acetate, pH 4.8, 2 mM MgCl2, 100 mM KCl and 0\u20130.2 units U2. Enzyme reactions were stopped by the addition of 150 \u03bcl ethanol and the RNA recovered by centrifugation. RNAs were prepared for analysis on 6, 10 or 15% polyacrylamide\u20137 M urea sequencing-type gels [with or without 20% (v/v) formamide] by dissolution in water and mixing with an equal volume of formamide gel loading buffer [95% (v/v) formamide, 10 mM EDTA, 0.1% bromophenol blue and 0.1% xylene cyanol], before heating at 80\u00b0C for 3 min.",
+            "cite_spans": [
+                {
+                    "start": 922,
+                    "end": 924,
+                    "mention": "31",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 1075,
+                    "end": 1077,
+                    "mention": "32",
+                    "ref_id": "BIBREF25"
+                },
+                {
+                    "start": 1078,
+                    "end": 1080,
+                    "mention": "34",
+                    "ref_id": "BIBREF27"
+                }
+            ],
+            "section": "RNA structure probing ::: MATERIALS AND METHODS",
+            "ref_spans": []
+        },
+        {
+            "text": "Chemical probing was performed with lead acetate and imidazole in 10 \u03bcl reaction volumes. Lead probing was at 25\u00b0C for 5 min in 20 mM HEPES-NaOH, pH 7.5, 5 mM Mg acetate, 50 mM K acetate and 1\u20135 mM Pb acetate. Reactions were stopped by the addition of EDTA to 33 mM and the RNA recovered by precipitation in ethanol, redissolved in water and prepared for gel loading as above. For imidazole probing, the end-labelled RNA was mixed with 10 \u03bcg carrier rRNA, dried in a desiccator and redissolved in 10 \u03bcl of 2 M imidazole, pH 7, containing 40 mM NaCl and 10 mM MgCl2. After incubation at 37\u00b0C for 2\u20134 h, the reaction was stopped by the addition of 100 \u03bcl of a fresh solution of 2% (w/v) lithium perchlorate in acetone. The RNA was recovered by centrifugation, washed with acetone, dried, dissolved in water and prepared for gel loading as above. All structure probing gels included an alkaline hydrolysis ladder as a size marker, prepared by dissolving the dried pellet from 3 \u03bcl of end-labelled RNA and 10 \u03bcg carrier rRNA in 3 \u03bcl of 22.5 mM NaHCO3, 2.5 mM Na2CO3 and boiling for 2 min. After the addition of an equal volume of formamide gel loading buffer and heating to 80\u00b0C for 3 min, the sample was loaded immediately onto the gel.",
+            "cite_spans": [],
+            "section": "RNA structure probing ::: MATERIALS AND METHODS",
+            "ref_spans": []
+        },
+        {
+            "text": "The 5\u2032 and 3\u2032 boundaries of the Edr frameshift signal were not characterized in the previous study (20), but we began our analysis with the assumption that the 5\u2032 boundary is the GGGAAAC heptamer located within the RF1/RF2 overlap region. A 1230 bp portion of the Edr gene containing this slippery sequence and flanked by substantial lengths of open reading frame was cloned by PCR into the expression vector pKT0 (28) (see Materials and Methods) to generate pKT0/Edr (Figure 1). This plasmid contains a bacteriophage SP6 (and T7) promoter for the generation of in vitro transcripts and provides an optimized (Kozak) initiation codon for the translation of the cloned Edr segment. The cloned PCR product was sequenced to confirm that no errors had been introduced into the Edr sequence. To assess crudely the extent to which 3\u2032 sequences were required for frameshifting, a series of run-off transcripts containing varying lengths of Edr sequence were prepared following digestion of the plasmid with NdeI, AvrII, HindIII or BamHI and transcription with SP6 RNA polymerase (Figure 1). The mRNAs were translated in the RRL in vitro translation system and the products analysed by SDS/PAGE (Figure 2). Frameshifting was observed in all cases with each mRNA showing an efficiency of \u223c30% (hereafter the \u2018wild-type\u2019 efficiency) in good agreement with the value obtained by Shigemoto et al. (20). The sizes of the non-frameshifted and frameshifted species were consistent with those expected following frameshifting at the RF1/RF2 overlap region (see legend to Figure 2). As the mRNA from the NdeI-digested plasmid (linearized 105 bp downstream of the slippery sequence) stimulated wild-type levels of frameshifting, subsequent investigations focussed on regions upstream of this restriction site.",
+            "cite_spans": [
+                {
+                    "start": 100,
+                    "end": 102,
+                    "mention": "20",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 415,
+                    "end": 417,
+                    "mention": "28",
+                    "ref_id": "BIBREF20"
+                },
+                {
+                    "start": 1386,
+                    "end": 1388,
+                    "mention": "20",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "section": "Mapping the 3\u2032 boundary of the Edr frameshift signal ::: RESULTS",
+            "ref_spans": [
+                {
+                    "start": 469,
+                    "end": 477,
+                    "mention": "Figure 1",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 1073,
+                    "end": 1081,
+                    "mention": "Figure 1",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 1188,
+                    "end": 1196,
+                    "mention": "Figure 2",
+                    "ref_id": "FIGREF1"
+                },
+                {
+                    "start": 1555,
+                    "end": 1563,
+                    "mention": "Figure 2",
+                    "ref_id": "FIGREF1"
+                }
+            ]
+        },
+        {
+            "text": "To further delineate the essential sequences, in-frame deletions of 24, 63 or 90 nt were introduced into pKT0/Edr in the region between the GGGAAAC motif and the NdeI site (Figure 3A). The plasmids were linearized with HindIII before in vitro transcription and translation. As shown in Figure 3B, efficient frameshifting was observed only with pKT0/Edr/\u039424 nt, hence the stimulatory RNA is in fact longer than that proposed in the original study (20) (Figure 3A, emboldened bases), with a 3\u2032 boundary located between the 5\u2032 edge of the deletions of pKT0/Edr/\u039463 and \u039424. In addition to the non-frameshifted and frameshifted species, an additional longer product was seen in these translation reactions (Figure 3B, asterisk) and in fact, in all translations of pKT0/Edr to a greater or lesser extent. The identity of this product is uncertain. It is unlikely to be an alternative frameshift product, since its size was unaffected by changes in the length of the mRNA downstream of the frameshift site. However, given that its intensity paralleled that of the non-frameshifted product and its size was roughly double that of the non-frameshifted product, it may represent a stable dimer.",
+            "cite_spans": [
+                {
+                    "start": 447,
+                    "end": 449,
+                    "mention": "20",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "section": "Mapping the 3\u2032 boundary of the Edr frameshift signal ::: RESULTS",
+            "ref_spans": [
+                {
+                    "start": 173,
+                    "end": 182,
+                    "mention": "Figure 3A",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 286,
+                    "end": 295,
+                    "mention": "Figure 3B",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 452,
+                    "end": 461,
+                    "mention": "Figure 3A",
+                    "ref_id": "FIGREF2"
+                },
+                {
+                    "start": 703,
+                    "end": 712,
+                    "mention": "Figure 3B",
+                    "ref_id": "FIGREF2"
+                }
+            ]
+        },
+        {
+            "text": "The results of the deletion analysis prompted a re-evaluation of the folding possibilities within the RNA downstream of the slippery sequence. Scrutiny of potential base-pairing interactions within this extended region indicated the potential for the formation of an RNA pseudoknot structure, shown in Figure 4B in comparison with the previous models of Shigemoto et al. (20) (Figure 4A). The proposed pseudoknot is positioned \u223c5 nt downstream of the GGGAAAC sequence and contains two relatively long stems, linked by loops of three (loop 1) and nine (loop 2) nucleotides. Stem 1 can be subdivided into two regions (1a and 1b) separated by a 3 nt bulge in the second arm.",
+            "cite_spans": [
+                {
+                    "start": 372,
+                    "end": 374,
+                    "mention": "20",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "section": "Proposed structure of the frameshift stimulatory signal of the Edr gene ::: RESULTS",
+            "ref_spans": [
+                {
+                    "start": 302,
+                    "end": 311,
+                    "mention": "Figure 4B",
+                    "ref_id": "FIGREF3"
+                },
+                {
+                    "start": 377,
+                    "end": 386,
+                    "mention": "Figure 4A",
+                    "ref_id": "FIGREF3"
+                }
+            ]
+        },
+        {
+            "text": "To test our model of the Edr frameshift signal, site-directed mutagenesis was carried out. The mutants fell into four groups (i) changes in the putative slippery sequence GGGAAAC, (ii) destabilizing and restabilizing mutations within the predicted stem regions 1a, 1b and 2 (iii) a mutation that deleted the bulge triplet between stems 1a and 1b and (iv) a mutation that changed the central seven (of nine) nucleotides in loop 2 to their complementary Watson\u2013Crick bases. Figure 5 shows the mutations (m1\u2013m12) introduced into the frameshift region of pKT0/Edr (Figure 5A), in vitro translations of the mutant constructs (Figure 5B; mRNAs derived from HindIII-cut plasmids) and a summary of the frameshift efficiencies measured for each construct (Figure 5C). As before the sizes of the non-frameshifted and frameshift species expected from these mRNAs were 29 and 45 kDa, respectively.",
+            "cite_spans": [],
+            "section": "Site-directed mutagenesis of the Edr frameshift signal ::: RESULTS",
+            "ref_spans": [
+                {
+                    "start": 472,
+                    "end": 480,
+                    "mention": "Figure 5",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 561,
+                    "end": 570,
+                    "mention": "Figure 5A",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 621,
+                    "end": 630,
+                    "mention": "Figure 5B",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 747,
+                    "end": 756,
+                    "mention": "Figure 5C",
+                    "ref_id": "FIGREF4"
+                }
+            ]
+        },
+        {
+            "text": "The two independent mutations created within the putative slippery sequence had the second base of each homopolymeric triplet changed to a C residue (m1 and m2). These changes would reduce the ability of the tRNAs decoding this sequence to slip into the \u22121 reading frame and consistent with this, each change reduced the frameshifting efficiency (Figure 5). As seen with other frameshift signals, the mutation in the second homopolymeric triplet (GGGACAC, m1), decoded in the ribosomal A-site during the frameshift, was highly inhibitory (frameshifting was essentially abolished), whereas the reduction in efficiency with the P-site change (GCGAAAC, m2) was less dramatic (a 4-fold reduction). These data are entirely consistent with the belief that the GGGAAAC stretch is indeed the site of the frameshift in Edr and confirm the earlier observations of Shigemoto et al. (20).",
+            "cite_spans": [
+                {
+                    "start": 872,
+                    "end": 874,
+                    "mention": "20",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "section": "Site-directed mutagenesis of the Edr frameshift signal ::: RESULTS",
+            "ref_spans": [
+                {
+                    "start": 347,
+                    "end": 355,
+                    "mention": "Figure 5",
+                    "ref_id": "FIGREF4"
+                }
+            ]
+        },
+        {
+            "text": "Analysis of the proposed stem regions involved the introduction of complementary and compensatory changes within stems 1a, 1b and 2. Three mutations were prepared for each stem. Two of these were destabilizing mutations, introduced into each arm of the relevant stem by changing three central base pairs to their complementary Watson\u2013Crick bases. The third was a double mutation leading to a \u2018pseudowild-type\u2019 structure, in which both changes were made and should be compensatory. As shown in Figure 5, destabilization of any stem reduced frameshifting efficiency (m3, m4, m6, m7, m9 and m10), but frameshifting was restored in the double mutant, pseudowild-type constructs (m5, m8 and m11) supporting the belief that the stems form and are required for frameshifting. However, there was some stem-specific variation in the magnitude by which frameshifting was reduced by stem destabilization and the extent to which frameshifting was restored in the double mutants. For stem 1a, the reduction in frameshift efficiency after disruption of individual arms was quite modest (\u223c2.5-fold for the 1st arm; \u223c6-fold for the 2nd arm), but frameshifting efficiency was restored to close to that of the wild-type in the double mutant construct (m5, 25.6%). Disruption of stem 1b in the same manner also led to a reduction in frameshifting efficiency, but more dramatically, with frameshifting reduced \u223c15-fold for either arm. As with the stem 1a double mutant, frameshift efficiency was restored to close to that of the wild-type value with the stem 1b pseudowild-type construct (m8, 24.6%). Disruption of stem 2 was also inhibitory, with efficiency values of \u223c2% for mutations in the individual arms. However, although the double mutant construct showed a rise in efficiency in comparison with the single mutants, frameshifting was restored only to about half that of the wild-type construct (m11, 16.5%).",
+            "cite_spans": [],
+            "section": "Site-directed mutagenesis of the Edr frameshift signal ::: RESULTS",
+            "ref_spans": [
+                {
+                    "start": 493,
+                    "end": 501,
+                    "mention": "Figure 5",
+                    "ref_id": "FIGREF4"
+                }
+            ]
+        },
+        {
+            "text": "The presence of the \u2013ACA\u2013 bulge in stem 1 was of interest as a triplet bulge has been observed in the frameshift stimulatory RNA of human immunodeficiency virus type 1 (HIV-1) and shown to contribute to frameshifting, although the bulge is considered to be a component of a stem\u2013loop stimulatory RNA in this system (35). However, we found that deletion of the bulge had a very minor effect on Edr frameshifting, reducing the efficiency by only a few percent (m13, 26.8%).",
+            "cite_spans": [
+                {
+                    "start": 316,
+                    "end": 318,
+                    "mention": "35",
+                    "ref_id": "BIBREF28"
+                }
+            ],
+            "section": "Site-directed mutagenesis of the Edr frameshift signal ::: RESULTS",
+            "ref_spans": []
+        },
+        {
+            "text": "The final mutation concerned loop 2. In a number of frameshift-stimulating pseudoknots, an adenosine-rich triplex formed between loop 2 and the minor groove of stem 1 has been described and contributes to frameshifting (23,24,36,37). A conserved 5\u2032-AACAA-3\u2032 motif in such loops has its bases rotated by varying degrees to allow interactions with bases on both strands in the minor groove of stem 1. It is an RNA-specific feature, with each interaction involving a hydrogen bond formed from a ribose 2\u2032 hydroxyl group. Loop 2 of the proposed Edr pseudoknot is relatively A-rich (five of nine bases) and includes a 5\u2032-AACGA-3\u2032 stretch. To assess whether loop 2\u2013stem 1 interactions may occur in Edr, the central seven bases of loop 2 were changed to their Watson\u2013Crick complementary nucleotides and frameshifting measured. A modest reduction in frameshifting was observed (m12, 23.2%), but not so dramatic as to suggest a major role for stem 1\u2013loop 2 interactions in this pseudoknot, at least those mediated by runs of loop adenosines, since only one loop 2 adenosine remains in this mutant.",
+            "cite_spans": [
+                {
+                    "start": 220,
+                    "end": 222,
+                    "mention": "23",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 223,
+                    "end": 225,
+                    "mention": "24",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 226,
+                    "end": 228,
+                    "mention": "36",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 229,
+                    "end": 231,
+                    "mention": "37",
+                    "ref_id": "BIBREF30"
+                }
+            ],
+            "section": "Site-directed mutagenesis of the Edr frameshift signal ::: RESULTS",
+            "ref_spans": []
+        },
+        {
+            "text": "The mutagenesis data provided strong support for our model of the Edr frameshift region, but it was important to confirm the main features by RNA structure mapping. To facilitate this, a bacteriophage T3 promotor was inserted into pKT0/Edr \u223c33 nt upstream of the slippery sequence (Figure 1), the plasmid linearized with NdeI and a 130 nt T3 transcript (encompassing the frameshift region) prepared. This was end-labelled with [\u03b3-33P]ATP, gel purified and subjected to chemical and enzymatic digestion before analysis on denaturing polyacrylamide gels. Four enzymatic probes were used: RNases CL3, T1 and U2, which preferentially cleave single-stranded C, G and A residues, respectively, and RNase CV1, which targets double-stranded and stacked bases. The chemical probes imidazole and lead acetate were also employed, which show specificity for single-stranded regions. In these experiments, the Mg2+ level was kept at 2 mM, which is the approximate concentration of this ion in RRL (38). Representative structure probing gels are shown in Figure 6 and a summary is shown in Figure 7.",
+            "cite_spans": [
+                {
+                    "start": 985,
+                    "end": 987,
+                    "mention": "38",
+                    "ref_id": "BIBREF31"
+                }
+            ],
+            "section": "Structure probing of the Edr frameshift signal ::: RESULTS",
+            "ref_spans": [
+                {
+                    "start": 282,
+                    "end": 290,
+                    "mention": "Figure 1",
+                    "ref_id": "FIGREF0"
+                },
+                {
+                    "start": 1041,
+                    "end": 1049,
+                    "mention": "Figure 6",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 1076,
+                    "end": 1084,
+                    "mention": "Figure 7",
+                    "ref_id": "FIGREF6"
+                }
+            ]
+        },
+        {
+            "text": "The structure probing data were strongly supportive of the pseudoknot model of Figure 4. The cleavage pattern of imidazole especially was highly consistent with the model, with cleavage occurring only within loops 1 and 2, at the very ends of the stems and in the \u2013ACA\u2013 bulge of stem 1. Lead acetate gave a similar cleavage pattern, although there were more cuts at the ends of the stems. Taking all of the probing reagents into account, the pattern of reactivities of stem 2, loop 1 and loop 2 matched the structure prediction very closely. Stem 2 appeared to be very stable in comparison with the same region of other frameshift-stimulating pseudoknots we have studied (39\u201341). It was cleaved almost exclusively by the double-strand specific RNase CV1, being unreactive with single-stranded enzymatic probes and showing only occasional, weak cleavage with single-stranded chemical probes. The loops also showed appropriate reactivity. Both were cleaved by single-stranded chemical probes and loop 2 also by single-strand-specific enzymes. Only C89 of loop 2 exhibited any consistent cleavage with CV1 and this may indicate some base-stacking. Although loop 1 was not reactive to single-strand-specific enzymatic probes, this probably reflects a reduced accessibility of enzymes to this short loop.",
+            "cite_spans": [
+                {
+                    "start": 672,
+                    "end": 674,
+                    "mention": "39",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 675,
+                    "end": 677,
+                    "mention": "41",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "section": "Structure probing of the Edr frameshift signal ::: RESULTS",
+            "ref_spans": [
+                {
+                    "start": 79,
+                    "end": 87,
+                    "mention": "Figure 4",
+                    "ref_id": "FIGREF3"
+                }
+            ]
+        },
+        {
+            "text": "The most unexpected features of this stimulatory RNA were the atypical cleavage pattern of stem 1 and the paucity of cleavages in the slippery sequence/spacer region. The assignment of cleavages in these areas was complicated by a strong compression effect in the gels (see Figure 6A, between bases 40 and 60), presumably arising from stable base-pairing, which was not completely relieved (although much improved) by running reactions on highly denaturing gels containing 20% formamide (Figure 6B). Nevertheless, we were able to assign almost all of the reactivities in this region, and it was noticeable that stem 1, especially stem 1a, showed susceptibility to cleavage by single-strand-specific enzymatic probes, notably RNase T1 at residues G80\u201382. Similarly, RNase CL3, a C-specific reagent also showed cleavage at some of the C residues in stem 1. Although it can be argued that the the \u2013ACA\u2013 bulge in stem 1 would introduce some deformation of the (presumably) A-form helix and increase accessibility of adjacent bases to enzymatic probes, we did not see an increased access of chemical probes, arguing against a severe bulge-induced destabilization of stem 1a. It may be that stem 1a exists in equilibrium with another conformation and one such possibility is shown in Figure 7B. In this alternative model, the first arm of stem 1a is proposed to pair with an upstream region (G35\u2013G40), displacing the second arm of stem 1a and the bulge triplet into loop 2. Some features of this alternative model are attractive, e.g. the cleavage of G80\u201382 by RNase T1 is rationalized as these residues would be located in loop 2. Similarly, the limited reactivity of the slippery sequence and spacer region to single-strand cleavage reagents could be attributed to the fact that much of the region is folded into a hairpin. However, the alternative model also has flaws, most noticeably that the pattern of reactivities of the bases in the second arm of stem 1a is not fully consistent with their location in loop 2. These bases should show increased sensitivity to lead acetate and imidazole and reduced CV1 cleavage, neither of which was observed. In addition, one might expect that the sensitivity of G80\u201382 to RNase T1 would be similar to that of the other G's in loop 2 (G86 and G90), which also was not the case.",
+            "cite_spans": [],
+            "section": "Structure probing of the Edr frameshift signal ::: RESULTS",
+            "ref_spans": [
+                {
+                    "start": 274,
+                    "end": 283,
+                    "mention": "Figure 6A",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 488,
+                    "end": 497,
+                    "mention": "Figure 6B",
+                    "ref_id": "FIGREF5"
+                },
+                {
+                    "start": 1278,
+                    "end": 1287,
+                    "mention": "Figure 7B",
+                    "ref_id": "FIGREF6"
+                }
+            ]
+        },
+        {
+            "text": "Based on the mutational analysis (Figure 5) and the chemical probing data, we favour the idea that stem 1a folds according to the original prediction, but shows breathing or flips occasionally into an alternative conformation (perhaps the one described above). This behaviour might account for the fact that destabilization of the stem did not reduce frameshifting as dramatically as those mutations that destabilized stem 1b or stem 2 (Figure 5). Nevertheless, it remains difficult to explain the strong reactivity of the G's (to RNase T1) in the second arm of stem 1a. It may be that unusual structural features are present that promote RNase T1 cleavage. This idea is not without precedent. Structure probing of the coronavirus infectious bronchitis virus (IBV) frameshift-stimulating pseudoknot (S. Pennell and I. Brierley, unpublished data), functional derivatives of this pseudoknot (40,41) and a functional derivative of the RSV pseudoknot (39) has also revealed unexpected RNase T1 reactivity towards apparently base-paired G residues, although in these pseudoknots, at the top of stem 2.",
+            "cite_spans": [
+                {
+                    "start": 890,
+                    "end": 892,
+                    "mention": "40",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 893,
+                    "end": 895,
+                    "mention": "41",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 948,
+                    "end": 950,
+                    "mention": "39",
+                    "ref_id": "BIBREF32"
+                }
+            ],
+            "section": "Structure probing of the Edr frameshift signal ::: RESULTS",
+            "ref_spans": [
+                {
+                    "start": 34,
+                    "end": 42,
+                    "mention": "Figure 5",
+                    "ref_id": "FIGREF4"
+                },
+                {
+                    "start": 437,
+                    "end": 445,
+                    "mention": "Figure 5",
+                    "ref_id": "FIGREF4"
+                }
+            ]
+        },
+        {
+            "text": "In this study, the secondary structure of the Edr frameshift signal was investigated using site-directed mutagenesis and RNA structure probing. The results obtained clearly demonstrate that the stimulatory RNA downstream of the slippery sequence folds into an RNA pseudoknot which, although different from an earlier study (20), undoubtedly resembles the frameshift-promoting pseudoknots of virus signals.",
+            "cite_spans": [
+                {
+                    "start": 324,
+                    "end": 326,
+                    "mention": "20",
+                    "ref_id": "BIBREF12"
+                }
+            ],
+            "section": "DISCUSSION",
+            "ref_spans": []
+        },
+        {
+            "text": "The Edr frameshift site comprises a slippery sequence GGGAAAC, a 5 nt spacer region and a relatively large pseudoknot (in viral terms) with 10 bp in stem 1, 9 in stem 2 and loops of 3 (loop1) and 9 (loop 2) nucleotides. In comparison with viral frameshift signals, Edr does not fit into a specific category, but has hallmarks of different viruses. The possession of relatively long pseudoknot stems, especially stem 2, is a feature of the frameshift signals present at the pro/pol overlap of the retroviruses human T-cell lymphotrophic virus (HTLV) types 1 and 2, simian T-cell lymphotrophic virus type 1 and bovine leukaemia virus, and also of the coronaviruses, although in these viruses, the pseudoknots are accompanied by the slippery sequence UUUAAAC rather than GGGAAAC (26,42\u201344). In terms of loop lengths, Edr resembles most closely those pseudoknots found at the gag/pro overlap of the retroviruses Maedi\u2013Visna virus, Mason\u2013Pfizer monkey virus, feline immunodeficiency virus and simian retrovirus (SRV) types 1 and 2, which possess relatively short loops and also employ the slippery sequence GGGAAAC (42). The loops of the Edr pseudoknot are short but sufficiently long to span the stems (7,37). That we have identified the entire frameshift region seems likely from the results of our mutational analysis and from phylogenetic sequence comparisons. In Figure 7A, nucleotides within and surrounding the pseudoknot that differ in the human orthologue, PEG10, are shown. As can be seen, almost all of the sequence variation occurs before the slippery sequence and immediately following stem 2. Four nucleotide differences are present within the frameshift region, but of these, only one is likely to have an effect on pseudoknot function, namely the G to A transition at the top of stem 2. Of the other three changes, one is within the stem 1 bulge and the other two in loop 2. As we have shown experimentally that the bulge in stem 1 is not required for frameshifting and that most of the sequence of loop 2 can be changed without consequence, it seems that these changes are in \u2018neutral\u2019 regions. The stem 2 transition itself would only affect the ultimate stem 2 base pair and would likely have only a modest effect on frameshift efficiency. From the perspective of phylogenetics, it will be interesting to see whether Edr orthologues are present in other mammalian species. This will be informative in assessing the conservation of the pseudoknot and the stage in mammalian evolution at which the Edr gene was acquired.",
+            "cite_spans": [
+                {
+                    "start": 777,
+                    "end": 779,
+                    "mention": "26",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 780,
+                    "end": 782,
+                    "mention": "42",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 783,
+                    "end": 785,
+                    "mention": "44",
+                    "ref_id": "BIBREF38"
+                },
+                {
+                    "start": 1111,
+                    "end": 1113,
+                    "mention": "42",
+                    "ref_id": "BIBREF36"
+                },
+                {
+                    "start": 1199,
+                    "end": 1200,
+                    "mention": "7",
+                    "ref_id": "BIBREF50"
+                },
+                {
+                    "start": 1201,
+                    "end": 1203,
+                    "mention": "37",
+                    "ref_id": "BIBREF30"
+                }
+            ],
+            "section": "DISCUSSION",
+            "ref_spans": [
+                {
+                    "start": 1363,
+                    "end": 1372,
+                    "mention": "Figure 7A",
+                    "ref_id": "FIGREF6"
+                }
+            ]
+        },
+        {
+            "text": "An unexpected feature of the Edr pseudoknot was the marked accessibility of single-strand-specific enzymatic reagents to stem 1a in the structure probing experiments. In the discussion of these data in the Results section above, this accessibility was hypothesized to be a consequence of a relative instability of stem 1a or the presence of a specific stem 1 conformation highly reactive to single-stranded enzymatic probes, such as RNase T1 and CL3. In related investigations of the IBV (40,45), SRV-1 (31) and RSV pseudoknots (39), stem 2, rather than stem 1, proved to be more sensitive to single-stranded probes and possessed unusual susceptibility to RNase T1 (CL3 was not used in these studies). Another difference was highlighted in our mutational analysis of the Edr pseudoknot, where a complementary change that destabilized the first arm of stem 1a still retained about two-fifths of the wild-type frameshifting efficiency (Figure 5, m3 12.2%). In most models of ribosomal frameshifting, a ribosomal pause is proposed to occur upon encounter of the pseudoknot, perhaps because of a failure to unwind the pseudoknot efficiently, and this pause occurs while the decoding centre is over the slippery sequence. In constructs with a stem 1 destabilization, one would expect frameshifting to be greatly reduced, since the ribosome would translate further into the structure (since stem 1 affords less resistance) and fail to pause, or pause at an inappropriate place. Certainly, in the IBV, SRV-1 and RSV pseudoknots (cited above), destabilization of stem 1 has generally proven to be highly inhibitory in comparison with equivalent changes in stem 2. The substantial frameshift efficiency engendered by the m3 mutant may simply indicate the adoption of an alternative (fortuitous) conformation that partially restores stem 1 function. However, it may also highlight a mechanistic aspect of Edr frameshifting, pointing towards a different contribution of the stems to ribosomal pausing and/or a different pathway of unwinding during the frameshift process (23,24). Perhaps in Edr, stem 2, rather than stem 1, is critical in determining the site of pausing or the rate of initial unwinding of the pseudoknot. If this is the case, the stability of stem 1 may be less crucial. Further work is required to ascertain the relative contribution of the two stems to frameshifting in this system. A detailed analysis of related structures (e.g. the HTLV-1 pro/pol frameshift signal) may also prove to be valuable.",
+            "cite_spans": [
+                {
+                    "start": 489,
+                    "end": 491,
+                    "mention": "40",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 492,
+                    "end": 494,
+                    "mention": "45",
+                    "ref_id": "BIBREF39"
+                },
+                {
+                    "start": 504,
+                    "end": 506,
+                    "mention": "31",
+                    "ref_id": "BIBREF24"
+                },
+                {
+                    "start": 529,
+                    "end": 531,
+                    "mention": "39",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 2061,
+                    "end": 2063,
+                    "mention": "23",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 2064,
+                    "end": 2066,
+                    "mention": "24",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "section": "DISCUSSION",
+            "ref_spans": [
+                {
+                    "start": 934,
+                    "end": 942,
+                    "mention": "Figure 5",
+                    "ref_id": "FIGREF4"
+                }
+            ]
+        },
+        {
+            "text": "Several virus pathogens utilize \u22121 ribosomal frameshifting, including the retrovirus HIV-1 (46), the coronavirus responsible for severe acute respiratory syndrome [SARS-CoV (47)] and numerous plant pathogens [for example, see (48,49,50)]. Frameshifting signals have thus been considered as targets for antiviral intervention (51,52). The existence of related signals in eukaryotic cellular genes, however, would potentially complicate the design of, or even prevent the use of such therapies, particularly if the cellular frameshifting signal(s) was structurally similar to the virus examples. The report of frameshifting in the mouse Edr gene provided the first opportunity to characterize such a cellular signal. We have demonstrated here that the Edr signal resembles viral examples closely, with a characteristic slippery sequence\u2014spacer-pseudoknot organization. Thus, the similarity of parts of the Edr coding sequence to the gag/pro region of retroviral genomes extends to the maintenance of a retrovirus-like frameshifting signal. Given this, and the possibility that other retrovirus-like motifs have been subsumed into mammalian genes and retained a role for frameshifting, antiviral agents that target this process may have previously unanticipated consequences on cellular metabolism in uninfected cells.",
+            "cite_spans": [
+                {
+                    "start": 92,
+                    "end": 94,
+                    "mention": "46",
+                    "ref_id": "BIBREF40"
+                },
+                {
+                    "start": 174,
+                    "end": 176,
+                    "mention": "47",
+                    "ref_id": "BIBREF41"
+                },
+                {
+                    "start": 227,
+                    "end": 229,
+                    "mention": "48",
+                    "ref_id": "BIBREF42"
+                },
+                {
+                    "start": 230,
+                    "end": 232,
+                    "mention": "49",
+                    "ref_id": "BIBREF43"
+                },
+                {
+                    "start": 233,
+                    "end": 235,
+                    "mention": "50",
+                    "ref_id": "BIBREF45"
+                },
+                {
+                    "start": 326,
+                    "end": 328,
+                    "mention": "51",
+                    "ref_id": "BIBREF46"
+                },
+                {
+                    "start": 329,
+                    "end": 331,
+                    "mention": "52",
+                    "ref_id": "BIBREF47"
+                }
+            ],
+            "section": "DISCUSSION",
+            "ref_spans": []
+        }
+    ],
+    "ref_entries": {
+        "FIGREF0": {
+            "text": "Figure 1: Construction of plasmid pKT0/Edr. A 1230 bp DNA fragment (631\u20131861) encompassing the Edr frameshift region was amplified by PCR from plasmid pSP64T/Edr (20) and cloned into NcoI/HindIII digested plasmid pKT0 (28). The 5\u2032 and 3\u2032 portions of the cloned Edr segment are shown in lower case, numbered according to the mRNA sequence (A of natural AUG start site is base 452; accession no. AJ006464). The AUG for the expression of Edr sequences in pKT0/Edr is derived from the vector (upper case, underlined). In ribosomal frameshifting assays, capped mRNAs were prepared by SP6 transcription of NdeI-linearized templates (unless otherwise stated). The predicted size of the non-frameshifted (stop) and frameshifted (fs) products generated from the translation of this mRNA in RRL is 29 and 32 kDa, respectively. For structural analysis of the Edr stimulatory RNA, a T3 promoter was introduced into the Edr sequence (at position 1357) to generate plasmid pKT0/Edr/T3. Linearization of this plasmid with NdeI and subsequent transcription with T3 RNA polymerase yields a transcript of 152 nt.",
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Figure 2: Confirming functionality of the Edr frameshift signal. pKT0/Edr was linearized with NdeI, AvrII, HindIII or BamHI, transcribed with T7 RNA polymerase and transcripts translated in RRL, either undiluted (1; final concentration \u223c50 \u03bcg/ml) or diluted 1/3 (1/3; about 15 \u03bcg/ml). Products were labelled with [35S]methionine, separated on a 15% SDS/polyacrylamide gel and detected by autoradiography. The non-frameshifted (stop) and frameshifted (FS) species are marked with arrows. M represents 14C protein markers (Amersham Pharmacia Biotech). C is a control translation of an mRNA derived from EcoRI-linearized plasmid p2luc/MMTV gag/pro (53). The first G of the putative Edr slippery sequence (GGGAAAC) is at position 1390 (in the mRNA sequence). The sites of cleavage of the four restriction endonucleases used above are 1501 (NdeI), 1764 (AvrII), 2028 (HindIII) and 2082 (BamH1) and are predicted to specify frameshift products of 33, 43, 52 and 54 kDa, respectively. The non-frameshifted product is predicted to be 29 kDa in each case. The frameshift efficiencies measured for each mRNA are shown (Fe%).",
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Figure 3: Deletion analysis of the Edr frameshift signal. (A) Three independent in-frame deletions were created in pKT0/Edr, \u039490, \u039463 and \u039424, to investigate the requirement for sequence information downstream of the putative Edr slippery sequence GGGAAAC (boxed). Each deletion (of 90, 63 or 24 nt) was to a common 3\u2032 site (immediately downstream of the NdeI site, which was removed), leaving varying lengths of 5\u2032 sequence. The nucleotides implicated as forming the stimulatory RNA in a previous study (20) are in bold. (B) The three deletion mutants were digested with HindIII, transcribed with SP6 RNA polymerase and transcripts translated in RRL, either undiluted (1; final concentration \u223c50 \u03bcg/ml) or diluted 1/3 (1/3; about 15 \u03bcg/ml). Products were labelled with [35S]methionine, separated on a 15% SDS/polyacrylamide gel and detected by autoradiography. The non-frameshifted (stop) and frameshifted (FS) species are marked with arrows. M represents 14C protein markers (Amersham Pharmacia Biotech). The species indicated with an asterisk is discussed in the text.",
+            "type": "figure"
+        },
+        "FIGREF3": {
+            "text": "Figure 4: Proposed foldings of the Edr stimulatory RNA. (A) The stem\u2013loop and pseudoknot models of Shigemoto et al. (20). (B) New pseudoknot model based on the results of the deletion analysis of Figure 3. In the new model, stem 1 is considered as two helices, 1a and 1b, separated by a 3 nt bulge (\u2013ACA\u2013) in the second arm.",
+            "type": "figure"
+        },
+        "FIGREF4": {
+            "text": "Figure 5: Analysis of the Edr frameshift signal by site-directed mutagenesis. (A) A series of mutations were introduced into the Edr frameshift region to modify the proposed slippery sequence (GGGAAAC, in bold) or pseudoknot. (B). Wild-type pKT0/Edr or mutant derivatives were digested with HindIII, transcribed with SP6 RNA polymerase and transcripts translated in RRL at a concentration of \u223c50 \u03bcg/ml. Products were labelled with [35S]methionine, separated on 15% SDS/polyacrylamide gels and detected by autoradiography. The non-frameshifted (stop) and frameshifted (FS) species are marked with arrows. M represents 14C protein markers (Amersham Pharmacia Biotech). (C) Summary of the mutations made and the resulting frameshift efficiencies. In constructs pKT0/m5, m8 and m11, both arms of the relevant stem region were mutated such that the stems should reform (double/revertant).",
+            "type": "figure"
+        },
+        "FIGREF5": {
+            "text": "Figure 6: Structure probing of the Edr frameshift signal. RNA derived by transcription of pKT0/Edr/T3/NdeI with T3 RNA polymerase was 5\u2032 end-labelled with [\u03b3-33P]ATP and subjected to limited RNase or chemical cleavage using structure-specific probes. Sites of cleavage were identified by comparison with a ladder of bands created by limited alkaline hydrolysis of the RNA (OH\u2212) and the position of known RNase U2 and T1 cuts, determined empirically. Products were analysed on a 6% acrylamide/7 M urea gel (A) or a 10% gel containing formamide (20% v/v) (B). Data were also collected from 6 to 15% gels (gels not shown). Enzymatic structure probing was with RNases CL3, T1, U2 and CV1. Uniquely cleaved nucleotides were identified by their absence in untreated control lanes (0). The number of units of enzyme added to each reaction is indicated, except in (B), the U2, T1 and CV1 reactions contained 0.1 U. Chemical structure probing was with imidazole (2 h, I) or lead acetate (Pb2+; mM concentration in reaction). The water lane (W) represents RNA, which was dissolved in water, incubated for 2 h and processed in parallel to the imidazole-treated sample. R represents an aliquot of the purified RNA loaded directly onto the gel without incubation in a reaction buffer.",
+            "type": "figure"
+        },
+        "FIGREF6": {
+            "text": "Figure 7: Summary of the Edr probing results. (A) The sensitivity of bases in the Edr frameshift region to the various probes is shown. The size of the symbols is approximately proportional to the intensity of cleavage at that site. Bases in red indicate sequence differences present in the human orthologue, PEG10. (B) An alternative folding possibility for the slippery sequence/spacer/stem 1a region.",
+            "type": "figure"
+        }
+    },
+    "back_matter": [],
+    "bib_entries": {
+        "BIBREF0": {
+            "title": "Expression of the Rous sarcoma virus pol gene by ribosomal frameshifting",
+            "authors": [
+                {
+                    "first": "T.",
+                    "middle": [],
+                    "last": "Jacks",
+                    "suffix": ""
+                },
+                {
+                    "first": "H.E.",
+                    "middle": [],
+                    "last": "Varmus",
+                    "suffix": ""
+                }
+            ],
+            "year": 1985,
+            "venue": "Science",
+            "volume": "230",
+            "issn": "",
+            "pages": "1237-1242",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF1": {
+            "title": "The 9 \u212b solution: how mRNA pseudoknots promote efficient programmed \u22121 ribosomal frameshifting",
+            "authors": [
+                {
+                    "first": "E.P.",
+                    "middle": [],
+                    "last": "Plant",
+                    "suffix": ""
+                },
+                {
+                    "first": "K.L.",
+                    "middle": [],
+                    "last": "Jacobs",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.W.",
+                    "middle": [],
+                    "last": "Harger",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.",
+                    "middle": [],
+                    "last": "Meskauskas",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.L.",
+                    "middle": [],
+                    "last": "Jacobs",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.L.",
+                    "middle": [],
+                    "last": "Baxter",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.N.",
+                    "middle": [],
+                    "last": "Petrov",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.D.",
+                    "middle": [],
+                    "last": "Dinman",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "RNA",
+            "volume": "9",
+            "issn": "",
+            "pages": "168-174",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF2": {
+            "title": "Identification of putative programmed \u22121 ribosomal frameshift signals in large DNA databases",
+            "authors": [
+                {
+                    "first": "A.B.",
+                    "middle": [],
+                    "last": "Hammell",
+                    "suffix": ""
+                },
+                {
+                    "first": "R.C.",
+                    "middle": [],
+                    "last": "Taylor",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.W.",
+                    "middle": [],
+                    "last": "Peltz",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.D.",
+                    "middle": [],
+                    "last": "Dinman",
+                    "suffix": ""
+                }
+            ],
+            "year": 1999,
+            "venue": "Genome Res.",
+            "volume": "9",
+            "issn": "",
+            "pages": "417-427",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF3": {
+            "title": "Towards a computational model for \u22121 eukaryotic frameshifting sites",
+            "authors": [
+                {
+                    "first": "M.",
+                    "middle": [],
+                    "last": "Bekaert",
+                    "suffix": ""
+                },
+                {
+                    "first": "L.",
+                    "middle": [],
+                    "last": "Bidou",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.",
+                    "middle": [],
+                    "last": "Denise",
+                    "suffix": ""
+                },
+                {
+                    "first": "G.",
+                    "middle": [],
+                    "last": "Duchateau-Nguyen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.P.",
+                    "middle": [],
+                    "last": "Forest",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.",
+                    "middle": [],
+                    "last": "Froidevaux",
+                    "suffix": ""
+                },
+                {
+                    "first": "I.",
+                    "middle": [],
+                    "last": "Hatin",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.P.",
+                    "middle": [],
+                    "last": "Rousset",
+                    "suffix": ""
+                },
+                {
+                    "first": "M.",
+                    "middle": [],
+                    "last": "Termier",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Bioinformatics",
+            "volume": "19",
+            "issn": "",
+            "pages": "327-335",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF4": {
+            "title": "Sequences that direct significant levels of frameshifting are frequent in coding regions of Escherichia coli",
+            "authors": [
+                {
+                    "first": "O.L.",
+                    "middle": [],
+                    "last": "Gurvich",
+                    "suffix": ""
+                },
+                {
+                    "first": "P.V.",
+                    "middle": [],
+                    "last": "Baranov",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.",
+                    "middle": [],
+                    "last": "Zhou",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.W.",
+                    "middle": [],
+                    "last": "Hammer",
+                    "suffix": ""
+                },
+                {
+                    "first": "R.F.",
+                    "middle": [],
+                    "last": "Gesteland",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.F.",
+                    "middle": [],
+                    "last": "Atkins",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "EMBO J.",
+            "volume": "22",
+            "issn": "",
+            "pages": "5941-5950",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF5": {
+            "title": "Programmed ribosomal frameshifting generates the Escherichia coli DNA polymerase III \u03b3 subunit from within the \u03c4 subunit reading frame",
+            "authors": [
+                {
+                    "first": "A.L.",
+                    "middle": [],
+                    "last": "Blinkowa",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.R.",
+                    "middle": [],
+                    "last": "Walker",
+                    "suffix": ""
+                }
+            ],
+            "year": 1990,
+            "venue": "Nucleic Acids Res.",
+            "volume": "18",
+            "issn": "",
+            "pages": "1725-1729",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF6": {
+            "title": "The gamma subunit of DNA Polymerase III holoenzyme of Escherichia coli is produced by ribosomal frameshifting",
+            "authors": [
+                {
+                    "first": "A.M.",
+                    "middle": [],
+                    "last": "Flower",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.S.",
+                    "middle": [],
+                    "last": "McHenry",
+                    "suffix": ""
+                }
+            ],
+            "year": 1990,
+            "venue": "Proc. Natl Acad. Sci. USA",
+            "volume": "87",
+            "issn": "",
+            "pages": "3713-3717",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF7": {
+            "title": "Signals for ribosomal frameshifting in the Rous sarcoma virus gag-pol region",
+            "authors": [
+                {
+                    "first": "T.",
+                    "middle": [],
+                    "last": "Jacks",
+                    "suffix": ""
+                },
+                {
+                    "first": "H.D.",
+                    "middle": [],
+                    "last": "Madhani",
+                    "suffix": ""
+                },
+                {
+                    "first": "F.R.",
+                    "middle": [],
+                    "last": "Masiarz",
+                    "suffix": ""
+                },
+                {
+                    "first": "H.E.",
+                    "middle": [],
+                    "last": "Varmus",
+                    "suffix": ""
+                }
+            ],
+            "year": null,
+            "venue": "Cell",
+            "volume": "55",
+            "issn": "",
+            "pages": "447-458",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF8": {
+            "title": "Sequence requirements for efficient translational frameshifting in the Escherichia coli dnaX gene and the role of an unstable interaction between tRNALys and an AAG lysine codon",
+            "authors": [
+                {
+                    "first": "Z.",
+                    "middle": [],
+                    "last": "Tsuchihashi",
+                    "suffix": ""
+                },
+                {
+                    "first": "P.O.",
+                    "middle": [],
+                    "last": "Brown",
+                    "suffix": ""
+                }
+            ],
+            "year": 1992,
+            "venue": "Genes Dev.",
+            "volume": "6",
+            "issn": "",
+            "pages": "511-519",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF9": {
+            "title": "rRNA\u2013mRNA base pairing stimulates a programmed \u22121 ribosomal frameshift",
+            "authors": [
+                {
+                    "first": "B.",
+                    "middle": [],
+                    "last": "Larsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "N.M.",
+                    "middle": [],
+                    "last": "Wills",
+                    "suffix": ""
+                },
+                {
+                    "first": "R.F.",
+                    "middle": [],
+                    "last": "Gesteland",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.F.",
+                    "middle": [],
+                    "last": "Atkins",
+                    "suffix": ""
+                }
+            ],
+            "year": 1994,
+            "venue": "J. Bacteriol.",
+            "volume": "176",
+            "issn": "",
+            "pages": "6842-6851",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF10": {
+            "title": "Structural probing and mutagenic analysis of the stem\u2013loop required for Escherichia coli dnaX ribosomal frameshifting: programmed efficiency of 50%",
+            "authors": [
+                {
+                    "first": "B.",
+                    "middle": [],
+                    "last": "Larsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "R.F.",
+                    "middle": [],
+                    "last": "Gesteland",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.F.",
+                    "middle": [],
+                    "last": "Atkins",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "J. Mol. Biol.",
+            "volume": "271",
+            "issn": "",
+            "pages": "47-60",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF11": {
+            "title": "The gag and pol genes of bovine leukemia virus: nucleotide sequence and analysis",
+            "authors": [
+                {
+                    "first": "N.R.",
+                    "middle": [],
+                    "last": "Rice",
+                    "suffix": ""
+                },
+                {
+                    "first": "R.M.",
+                    "middle": [],
+                    "last": "Stephens",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.",
+                    "middle": [],
+                    "last": "Burny",
+                    "suffix": ""
+                },
+                {
+                    "first": "R.V.",
+                    "middle": [],
+                    "last": "Gilden",
+                    "suffix": ""
+                }
+            ],
+            "year": 1985,
+            "venue": "Virology",
+            "volume": "142",
+            "issn": "",
+            "pages": "357-377",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF12": {
+            "title": "Identification and characterisation of a developmentally regulated mammalian gene that utilises \u22121 programmed ribosomal frameshifting",
+            "authors": [
+                {
+                    "first": "K.",
+                    "middle": [],
+                    "last": "Shigemoto",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.",
+                    "middle": [],
+                    "last": "Brennan",
+                    "suffix": ""
+                },
+                {
+                    "first": "E.",
+                    "middle": [],
+                    "last": "Walls",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.J.",
+                    "middle": [],
+                    "last": "Watson",
+                    "suffix": ""
+                },
+                {
+                    "first": "D.",
+                    "middle": [],
+                    "last": "Stott",
+                    "suffix": ""
+                },
+                {
+                    "first": "P.W.",
+                    "middle": [],
+                    "last": "Rigby",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.D.",
+                    "middle": [],
+                    "last": "Reith",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Nucleic Acids Res.",
+            "volume": "29",
+            "issn": "",
+            "pages": "4079-4088",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF13": {
+            "title": "A retrotransposon-derived gene, PEG10, is a novel imprinted gene located on human chromosome 7q21",
+            "authors": [
+                {
+                    "first": "R.",
+                    "middle": [],
+                    "last": "Ono",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.",
+                    "middle": [],
+                    "last": "Kobayashi",
+                    "suffix": ""
+                },
+                {
+                    "first": "H.",
+                    "middle": [],
+                    "last": "Wagatsuma",
+                    "suffix": ""
+                },
+                {
+                    "first": "K.",
+                    "middle": [],
+                    "last": "Aisaka",
+                    "suffix": ""
+                },
+                {
+                    "first": "T.",
+                    "middle": [],
+                    "last": "Kohda",
+                    "suffix": ""
+                },
+                {
+                    "first": "T.",
+                    "middle": [],
+                    "last": "Kaneko-Ishino",
+                    "suffix": ""
+                },
+                {
+                    "first": "F.",
+                    "middle": [],
+                    "last": "Ishino",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Genomics",
+            "volume": "73",
+            "issn": "",
+            "pages": "232-237",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF14": {
+            "title": "Involvement of PEG10 in human hepatocellular carcinogenesis through interaction with SIAH1",
+            "authors": [
+                {
+                    "first": "H.",
+                    "middle": [],
+                    "last": "Okabe",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.",
+                    "middle": [],
+                    "last": "Satoh",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y.",
+                    "middle": [],
+                    "last": "Furukawa",
+                    "suffix": ""
+                },
+                {
+                    "first": "T.",
+                    "middle": [],
+                    "last": "Kato",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.",
+                    "middle": [],
+                    "last": "Hasegawa",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y.",
+                    "middle": [],
+                    "last": "Nakajima",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y.",
+                    "middle": [],
+                    "last": "Yamaoka",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y.",
+                    "middle": [],
+                    "last": "Nakamura",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Cancer Res.",
+            "volume": "63",
+            "issn": "",
+            "pages": "3043-3048",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF15": {
+            "title": "Structure, stability and function of RNA pseudoknots involved in stimulating ribosomal frameshifting",
+            "authors": [
+                {
+                    "first": "D.P.",
+                    "middle": [],
+                    "last": "Giedroc",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.A.",
+                    "middle": [],
+                    "last": "Theimer",
+                    "suffix": ""
+                },
+                {
+                    "first": "P.L.",
+                    "middle": [],
+                    "last": "Nixon",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "J. Mol. Biol.",
+            "volume": "298",
+            "issn": "",
+            "pages": "167-185",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF16": {
+            "title": "Structure and function of the stimulatory RNAs involved in programmed eukaryotic \u22121 ribosomal frameshifting",
+            "authors": [
+                {
+                    "first": "I.",
+                    "middle": [],
+                    "last": "Brierley",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.",
+                    "middle": [],
+                    "last": "Pennell",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Cold Spring Harb. Symp. Quant. Biol.",
+            "volume": "66",
+            "issn": "",
+            "pages": "233-248",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF17": {
+            "title": "Rapid and efficient site-specific mutagenesis without phenotypic selection",
+            "authors": [
+                {
+                    "first": "T.A.",
+                    "middle": [],
+                    "last": "Kunkel",
+                    "suffix": ""
+                }
+            ],
+            "year": 1985,
+            "venue": "Proc. Natl Acad. Sci. USA",
+            "volume": "82",
+            "issn": "",
+            "pages": "488-492",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF18": {
+            "title": "Characterisation of an efficient coronavirus ribosomal frameshifting signal: requirement for an RNA pseudoknot",
+            "authors": [
+                {
+                    "first": "I.",
+                    "middle": [],
+                    "last": "Brierley",
+                    "suffix": ""
+                },
+                {
+                    "first": "P.",
+                    "middle": [],
+                    "last": "Digard",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.C.",
+                    "middle": [],
+                    "last": "Inglis",
+                    "suffix": ""
+                }
+            ],
+            "year": 1989,
+            "venue": "Cell",
+            "volume": "57",
+            "issn": "",
+            "pages": "537-547",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF19": {
+            "title": "DNA sequencing with chain-terminating inhibitors",
+            "authors": [
+                {
+                    "first": "F.",
+                    "middle": [],
+                    "last": "Sanger",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.",
+                    "middle": [],
+                    "last": "Nicklen",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.R.",
+                    "middle": [],
+                    "last": "Coulson",
+                    "suffix": ""
+                }
+            ],
+            "year": 1977,
+            "venue": "Proc. Natl Acad. Sci. USA",
+            "volume": "74",
+            "issn": "",
+            "pages": "5463-5467",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF20": {
+            "title": "A region of the coronavirus infectious bronchitis virus 1a polyprotein encoding the 3C-like protease domain is subject to rapid turnover when expressed in rabbit reticulocyte lysate",
+            "authors": [
+                {
+                    "first": "K.W.",
+                    "middle": [],
+                    "last": "Tibbles",
+                    "suffix": ""
+                },
+                {
+                    "first": "I.",
+                    "middle": [],
+                    "last": "Brierley",
+                    "suffix": ""
+                },
+                {
+                    "first": "D.",
+                    "middle": [],
+                    "last": "Cavanagh",
+                    "suffix": ""
+                },
+                {
+                    "first": "T.D.K.",
+                    "middle": [],
+                    "last": "Brown",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "J. Gen. Virol.",
+            "volume": "76",
+            "issn": "",
+            "pages": "3059-3070",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF21": {
+            "title": "Efficient in vitro synthesis of biologically active RNA and RNA hybridisation probes from plasmids containing a bacteriophage SP6 promoter",
+            "authors": [
+                {
+                    "first": "D.A.",
+                    "middle": [],
+                    "last": "Melton",
+                    "suffix": ""
+                },
+                {
+                    "first": "P.A.",
+                    "middle": [],
+                    "last": "Krieg",
+                    "suffix": ""
+                },
+                {
+                    "first": "M.R.",
+                    "middle": [],
+                    "last": "Robagliati",
+                    "suffix": ""
+                },
+                {
+                    "first": "T.",
+                    "middle": [],
+                    "last": "Maniatis",
+                    "suffix": ""
+                },
+                {
+                    "first": "K.",
+                    "middle": [],
+                    "last": "Zinn",
+                    "suffix": ""
+                },
+                {
+                    "first": "M.R.",
+                    "middle": [],
+                    "last": "Green",
+                    "suffix": ""
+                }
+            ],
+            "year": 1984,
+            "venue": "Nucleic Acids Res.",
+            "volume": "12",
+            "issn": "",
+            "pages": "7035-7056",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF22": {
+            "title": "Translational frameshifting in the control of transposition in bacteria",
+            "authors": [
+                {
+                    "first": "M.",
+                    "middle": [],
+                    "last": "Chandler",
+                    "suffix": ""
+                },
+                {
+                    "first": "O.",
+                    "middle": [],
+                    "last": "Fayet",
+                    "suffix": ""
+                }
+            ],
+            "year": 1993,
+            "venue": "Mol. Microbiol.",
+            "volume": "7",
+            "issn": "",
+            "pages": "497-503",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF23": {
+            "title": "An introduction to polyacrylamide gel electrophoresis",
+            "authors": [
+                {
+                    "first": "B.D.",
+                    "middle": [],
+                    "last": "Hames",
+                    "suffix": ""
+                }
+            ],
+            "year": 1981,
+            "venue": "Gel Electrophoresis of Proteins\u2014A Practical Approach",
+            "volume": "",
+            "issn": "",
+            "pages": "1-91",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF24": {
+            "title": "Identification and analysis of the pseudoknot-containing gag-pro ribosomal frameshift signal of simian retrovirus-1",
+            "authors": [
+                {
+                    "first": "E.",
+                    "middle": [],
+                    "last": "Ten Dam",
+                    "suffix": ""
+                },
+                {
+                    "first": "I.",
+                    "middle": [],
+                    "last": "Brierley",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.C.",
+                    "middle": [],
+                    "last": "Inglis",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.",
+                    "middle": [],
+                    "last": "Pleij",
+                    "suffix": ""
+                }
+            ],
+            "year": 1994,
+            "venue": "Nucleic Acids Res.",
+            "volume": "22",
+            "issn": "",
+            "pages": "2304-2310",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF25": {
+            "title": "Temperature dependent chemical and enzymatic probing of the tRNA-like structure of TYMV RNA",
+            "authors": [
+                {
+                    "first": "A.",
+                    "middle": [],
+                    "last": "Van Belkum",
+                    "suffix": ""
+                },
+                {
+                    "first": "P.",
+                    "middle": [],
+                    "last": "Verlaan",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.",
+                    "middle": [],
+                    "last": "Bing Kun",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.",
+                    "middle": [],
+                    "last": "Pleij",
+                    "suffix": ""
+                },
+                {
+                    "first": "L.",
+                    "middle": [],
+                    "last": "Bosch",
+                    "suffix": ""
+                }
+            ],
+            "year": 1988,
+            "venue": "Nucleic Acids Res.",
+            "volume": "16",
+            "issn": "",
+            "pages": "1931-1950",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF26": {
+            "title": "RNA pseudoknots: stability and loop size requirements",
+            "authors": [
+                {
+                    "first": "J.R.",
+                    "middle": [],
+                    "last": "Wyatt",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.D.",
+                    "middle": [],
+                    "last": "Puglisi",
+                    "suffix": ""
+                },
+                {
+                    "first": "I.",
+                    "middle": [],
+                    "last": "Tinoco",
+                    "suffix": ""
+                }
+            ],
+            "year": 1990,
+            "venue": "J. Mol. Biol.",
+            "volume": "214",
+            "issn": "",
+            "pages": "455-470",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF27": {
+            "title": "Preferential selection of adenosines for modification by double-stranded RNA adenosine deaminase",
+            "authors": [
+                {
+                    "first": "A.G.",
+                    "middle": [],
+                    "last": "Polson",
+                    "suffix": ""
+                },
+                {
+                    "first": "B.L.",
+                    "middle": [],
+                    "last": "Bass",
+                    "suffix": ""
+                }
+            ],
+            "year": 1994,
+            "venue": "EMBO J.",
+            "volume": "13",
+            "issn": "",
+            "pages": "5701-5711",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF28": {
+            "title": "Characterization of the frameshift stimulatory signal controlling a programmed \u22121 ribosomal frameshift in the human immunodeficiency virus type 1",
+            "authors": [
+                {
+                    "first": "D.",
+                    "middle": [],
+                    "last": "Dulude",
+                    "suffix": ""
+                },
+                {
+                    "first": "M.",
+                    "middle": [],
+                    "last": "Baril",
+                    "suffix": ""
+                },
+                {
+                    "first": "L.",
+                    "middle": [],
+                    "last": "Brakier-Gingras",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Nucleic Acids Res.",
+            "volume": "30",
+            "issn": "",
+            "pages": "5094-5102",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF29": {
+            "title": "Minor groove RNA triplex in the crystal structure of a ribosomal frameshifting viral pseudoknot",
+            "authors": [
+                {
+                    "first": "L.",
+                    "middle": [],
+                    "last": "Su",
+                    "suffix": ""
+                },
+                {
+                    "first": "L.",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M.",
+                    "middle": [],
+                    "last": "Egli",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.M.",
+                    "middle": [],
+                    "last": "Berger",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.",
+                    "middle": [],
+                    "last": "Rich",
+                    "suffix": ""
+                }
+            ],
+            "year": 1999,
+            "venue": "Nature Struct. Biol.",
+            "volume": "6",
+            "issn": "",
+            "pages": "285-292",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF30": {
+            "title": "Solution structure of the pseudoknot of SRV-1 RNA, involved in ribosomal frameshifting",
+            "authors": [
+                {
+                    "first": "P.J.",
+                    "middle": [],
+                    "last": "Michiels",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.A.",
+                    "middle": [],
+                    "last": "Versleijen",
+                    "suffix": ""
+                },
+                {
+                    "first": "P.W.",
+                    "middle": [],
+                    "last": "Verlaan",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.W.",
+                    "middle": [],
+                    "last": "Pleij",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.W.",
+                    "middle": [],
+                    "last": "Hilbers",
+                    "suffix": ""
+                },
+                {
+                    "first": "H.A.",
+                    "middle": [],
+                    "last": "Heus",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "J. Mol. Biol.",
+            "volume": "310",
+            "issn": "",
+            "pages": "1109-1123",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF31": {
+            "title": "Preparation and use of nuclease-treated rabbit reticulocyte lysates for the translation of eukaryotic messenger RNA",
+            "authors": [
+                {
+                    "first": "R.J.",
+                    "middle": [],
+                    "last": "Jackson",
+                    "suffix": ""
+                },
+                {
+                    "first": "T.",
+                    "middle": [],
+                    "last": "Hunt",
+                    "suffix": ""
+                }
+            ],
+            "year": 1983,
+            "venue": "Methods Enzymol.",
+            "volume": "96",
+            "issn": "",
+            "pages": "50-74",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF32": {
+            "title": "Secondary structure and mutational analysis of the ribosomal frameshift signal of Rous sarcoma virus",
+            "authors": [
+                {
+                    "first": "B.",
+                    "middle": [],
+                    "last": "Marczinke",
+                    "suffix": ""
+                },
+                {
+                    "first": "R.",
+                    "middle": [],
+                    "last": "Fisher",
+                    "suffix": ""
+                },
+                {
+                    "first": "M.",
+                    "middle": [],
+                    "last": "Vidakovic",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.J.",
+                    "middle": [],
+                    "last": "Bloys",
+                    "suffix": ""
+                },
+                {
+                    "first": "I.",
+                    "middle": [],
+                    "last": "Brierley",
+                    "suffix": ""
+                }
+            ],
+            "year": 1998,
+            "venue": "J. Mol. Biol.",
+            "volume": "284",
+            "issn": "",
+            "pages": "205-225",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF33": {
+            "title": "Ribosomal frameshifting on viral RNAs",
+            "authors": [
+                {
+                    "first": "I.",
+                    "middle": [],
+                    "last": "Brierley",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "J. Gen. Virol.",
+            "volume": "76",
+            "issn": "",
+            "pages": "1885-1892",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF34": {
+            "title": "The role of RNA pseudoknot stem 1 length in the promotion of efficient \u22121 ribosomal frameshifting",
+            "authors": [
+                {
+                    "first": "S.",
+                    "middle": [],
+                    "last": "Napthine",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.",
+                    "middle": [],
+                    "last": "Liphardt",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.",
+                    "middle": [],
+                    "last": "Bloys",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.",
+                    "middle": [],
+                    "last": "Routledge",
+                    "suffix": ""
+                },
+                {
+                    "first": "I.",
+                    "middle": [],
+                    "last": "Brierley",
+                    "suffix": ""
+                }
+            ],
+            "year": 1999,
+            "venue": "J. Mol. Biol.",
+            "volume": "288",
+            "issn": "",
+            "pages": "305-320",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF35": {
+            "title": "Evidence for an RNA pseudoknot loop\u2013helix interaction essential for efficient \u22121 ribosomal frameshifting",
+            "authors": [
+                {
+                    "first": "J.",
+                    "middle": [],
+                    "last": "Liphardt",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.",
+                    "middle": [],
+                    "last": "Napthine",
+                    "suffix": ""
+                },
+                {
+                    "first": "H.",
+                    "middle": [],
+                    "last": "Kontos",
+                    "suffix": ""
+                },
+                {
+                    "first": "I.",
+                    "middle": [],
+                    "last": "Brierley",
+                    "suffix": ""
+                }
+            ],
+            "year": 1999,
+            "venue": "J. Mol. Biol.",
+            "volume": "288",
+            "issn": "",
+            "pages": "321-335",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF36": {
+            "title": "RNA pseudoknots: translational frameshifting and readthrough on viral RNAs",
+            "authors": [
+                {
+                    "first": "E.B.",
+                    "middle": [],
+                    "last": "Ten Dam",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.W.A.",
+                    "middle": [],
+                    "last": "Pleij",
+                    "suffix": ""
+                },
+                {
+                    "first": "L.",
+                    "middle": [],
+                    "last": "Bosch",
+                    "suffix": ""
+                }
+            ],
+            "year": 1990,
+            "venue": "Virus Genes",
+            "volume": "4",
+            "issn": "",
+            "pages": "121-136",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF37": {
+            "title": "RNA pseudoknots downstream of the frameshift sites of retroviruses",
+            "authors": [
+                {
+                    "first": "S.Y.",
+                    "middle": [],
+                    "last": "Le",
+                    "suffix": ""
+                },
+                {
+                    "first": "B.A.",
+                    "middle": [],
+                    "last": "Shapiro",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.H.",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "R.",
+                    "middle": [],
+                    "last": "Nussinov",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.V.",
+                    "middle": [],
+                    "last": "Maizel",
+                    "suffix": ""
+                }
+            ],
+            "year": 1991,
+            "venue": "Genet. Anal. Tech. Appl.",
+            "volume": "8",
+            "issn": "",
+            "pages": "191-205",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF38": {
+            "title": "Characterization of ribosomal frameshifting for expression of pol gene products of human T-cell leukemia virus type I",
+            "authors": [
+                {
+                    "first": "S.H.",
+                    "middle": [],
+                    "last": "Nam",
+                    "suffix": ""
+                },
+                {
+                    "first": "T.D.",
+                    "middle": [],
+                    "last": "Copeland",
+                    "suffix": ""
+                },
+                {
+                    "first": "M.",
+                    "middle": [],
+                    "last": "Hatanaka",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.",
+                    "middle": [],
+                    "last": "Oroszlan",
+                    "suffix": ""
+                }
+            ],
+            "year": 1993,
+            "venue": "J. Virol.",
+            "volume": "67",
+            "issn": "",
+            "pages": "196-203",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF39": {
+            "title": "Mutational analysis of the RNA pseudoknot component of a coronavirus ribosomal frameshifting signal",
+            "authors": [
+                {
+                    "first": "I.",
+                    "middle": [],
+                    "last": "Brierley",
+                    "suffix": ""
+                },
+                {
+                    "first": "N.J.",
+                    "middle": [],
+                    "last": "Rolley",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.J.",
+                    "middle": [],
+                    "last": "Jenner",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.C.",
+                    "middle": [],
+                    "last": "Inglis",
+                    "suffix": ""
+                }
+            ],
+            "year": 1991,
+            "venue": "J. Mol. Biol.",
+            "volume": "220",
+            "issn": "",
+            "pages": "889-902",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF40": {
+            "title": "Characterization of ribosomal frameshifting in HIV-1 gag-pol expression",
+            "authors": [
+                {
+                    "first": "T.",
+                    "middle": [],
+                    "last": "Jacks",
+                    "suffix": ""
+                },
+                {
+                    "first": "M.D.",
+                    "middle": [],
+                    "last": "Power",
+                    "suffix": ""
+                },
+                {
+                    "first": "F.R.",
+                    "middle": [],
+                    "last": "Masiarz",
+                    "suffix": ""
+                },
+                {
+                    "first": "P.A.",
+                    "middle": [],
+                    "last": "Luciw",
+                    "suffix": ""
+                },
+                {
+                    "first": "P.J.",
+                    "middle": [],
+                    "last": "Barr",
+                    "suffix": ""
+                },
+                {
+                    "first": "H.E.",
+                    "middle": [],
+                    "last": "Varmus",
+                    "suffix": ""
+                }
+            ],
+            "year": 1988,
+            "venue": "Nature",
+            "volume": "331",
+            "issn": "",
+            "pages": "280-283",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF41": {
+            "title": "Mechanisms and enzymes involved in SARS coronavirus genome expression",
+            "authors": [
+                {
+                    "first": "V.",
+                    "middle": [],
+                    "last": "Thiel",
+                    "suffix": ""
+                },
+                {
+                    "first": "K.A.",
+                    "middle": [],
+                    "last": "Ivanov",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.",
+                    "middle": [],
+                    "last": "Putics",
+                    "suffix": ""
+                },
+                {
+                    "first": "T.",
+                    "middle": [],
+                    "last": "Hertzig",
+                    "suffix": ""
+                },
+                {
+                    "first": "B.",
+                    "middle": [],
+                    "last": "Schelle",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.",
+                    "middle": [],
+                    "last": "Bayer",
+                    "suffix": ""
+                },
+                {
+                    "first": "B.",
+                    "middle": [],
+                    "last": "Weissbrich",
+                    "suffix": ""
+                },
+                {
+                    "first": "E.J.",
+                    "middle": [],
+                    "last": "Snijder",
+                    "suffix": ""
+                },
+                {
+                    "first": "H.",
+                    "middle": [],
+                    "last": "Rabenau",
+                    "suffix": ""
+                },
+                {
+                    "first": "H.W.",
+                    "middle": [],
+                    "last": "Doerr",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "J. Gen. Virol.",
+            "volume": "84",
+            "issn": "",
+            "pages": "2305-2315",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF42": {
+            "title": "Translational frameshifting mediated by a viral sequence in plant cells",
+            "authors": [
+                {
+                    "first": "V.",
+                    "middle": [],
+                    "last": "Brault",
+                    "suffix": ""
+                },
+                {
+                    "first": "W.A.",
+                    "middle": [],
+                    "last": "Miller",
+                    "suffix": ""
+                }
+            ],
+            "year": 1992,
+            "venue": "Proc. Natl Acad. Sci. USA.",
+            "volume": "89",
+            "issn": "",
+            "pages": "2262-2266",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF43": {
+            "title": "Ribosomal frameshifting in plants: a novel signal directs the \u22121 frameshift in the synthesis of the putative viral replicase of potato leafroll luteovirus",
+            "authors": [
+                {
+                    "first": "D.",
+                    "middle": [],
+                    "last": "Prufer",
+                    "suffix": ""
+                },
+                {
+                    "first": "E.",
+                    "middle": [],
+                    "last": "Tacke",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.",
+                    "middle": [],
+                    "last": "Schmitz",
+                    "suffix": ""
+                },
+                {
+                    "first": "B.",
+                    "middle": [],
+                    "last": "Kull",
+                    "suffix": ""
+                },
+                {
+                    "first": "A.",
+                    "middle": [],
+                    "last": "Kaufmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "W.",
+                    "middle": [],
+                    "last": "Rohde",
+                    "suffix": ""
+                }
+            ],
+            "year": 1992,
+            "venue": "EMBO J.",
+            "volume": "11",
+            "issn": "",
+            "pages": "1111-1117",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF44": {
+            "title": "Programmed translational frameshifting",
+            "authors": [
+                {
+                    "first": "P.J.",
+                    "middle": [],
+                    "last": "Farabaugh",
+                    "suffix": ""
+                }
+            ],
+            "year": 1996,
+            "venue": "Microb. Rev.",
+            "volume": "60",
+            "issn": "",
+            "pages": "103-134",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF45": {
+            "title": "Identification and analysis of the site of \u22121 ribosomal frameshifting in red clover necrotic mosaic virus",
+            "authors": [
+                {
+                    "first": "K.H.",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.A.",
+                    "middle": [],
+                    "last": "Lommel",
+                    "suffix": ""
+                }
+            ],
+            "year": 1994,
+            "venue": "Virology",
+            "volume": "200",
+            "issn": "",
+            "pages": "574-582",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF46": {
+            "title": "Peptidyl-transferase inhibitors have antiviral properties by altering programmed \u22121 ribosomal frameshifting efficiencies: development of model systems",
+            "authors": [
+                {
+                    "first": "J.D.",
+                    "middle": [],
+                    "last": "Dinman",
+                    "suffix": ""
+                },
+                {
+                    "first": "M.J.",
+                    "middle": [],
+                    "last": "Ruiz-Echevarria",
+                    "suffix": ""
+                },
+                {
+                    "first": "K.",
+                    "middle": [],
+                    "last": "Czaplinski",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.W.",
+                    "middle": [],
+                    "last": "Peltz",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "Proc. Natl Acad. Sci. USA",
+            "volume": "94",
+            "issn": "",
+            "pages": "6606-6611",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF47": {
+            "title": "Translating old drugs into new treatments: ribosomal frameshifting as a target for antiviral agents",
+            "authors": [
+                {
+                    "first": "J.D.",
+                    "middle": [],
+                    "last": "Dinman",
+                    "suffix": ""
+                },
+                {
+                    "first": "M.J.",
+                    "middle": [],
+                    "last": "Ruiz-Echevarria",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.W.",
+                    "middle": [],
+                    "last": "Peltz",
+                    "suffix": ""
+                }
+            ],
+            "year": 1998,
+            "venue": "Trends Biotechnol.",
+            "volume": "16",
+            "issn": "",
+            "pages": "190-196",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF48": {
+            "title": "A dual-luciferase reporter system for studying recoding signals",
+            "authors": [
+                {
+                    "first": "G.",
+                    "middle": [],
+                    "last": "Grentzmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.A.",
+                    "middle": [],
+                    "last": "Ingram",
+                    "suffix": ""
+                },
+                {
+                    "first": "P.J.",
+                    "middle": [],
+                    "last": "Kelly",
+                    "suffix": ""
+                },
+                {
+                    "first": "R.F.",
+                    "middle": [],
+                    "last": "Gesteland",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.F.",
+                    "middle": [],
+                    "last": "Atkins",
+                    "suffix": ""
+                }
+            ],
+            "year": 1998,
+            "venue": "RNA",
+            "volume": "4",
+            "issn": "",
+            "pages": "479-486",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF49": {
+            "title": "Recoding: translational bifurcations in gene expression",
+            "authors": [
+                {
+                    "first": "P.V.",
+                    "middle": [],
+                    "last": "Baranov",
+                    "suffix": ""
+                },
+                {
+                    "first": "R.F.",
+                    "middle": [],
+                    "last": "Gesteland",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.F.",
+                    "middle": [],
+                    "last": "Atkins",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Gene",
+            "volume": "286",
+            "issn": "",
+            "pages": "187-201",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF50": {
+            "title": "A new principle of RNA folding based on pseudoknotting",
+            "authors": [
+                {
+                    "first": "C.W.A.",
+                    "middle": [],
+                    "last": "Pleij",
+                    "suffix": ""
+                },
+                {
+                    "first": "K.",
+                    "middle": [],
+                    "last": "Rietveld",
+                    "suffix": ""
+                },
+                {
+                    "first": "L.",
+                    "middle": [],
+                    "last": "Bosch",
+                    "suffix": ""
+                }
+            ],
+            "year": 1985,
+            "venue": "Nucleic Acids Res.",
+            "volume": "13",
+            "issn": "",
+            "pages": "1717-1731",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF51": {
+            "title": "An \u2018elaborated\u2019 pseudoknot is required for high frequency frameshifting during translation of HCV 229E polymerase mRNA",
+            "authors": [
+                {
+                    "first": "J.",
+                    "middle": [],
+                    "last": "Herold",
+                    "suffix": ""
+                },
+                {
+                    "first": "S.G.",
+                    "middle": [],
+                    "last": "Siddell",
+                    "suffix": ""
+                }
+            ],
+            "year": 1993,
+            "venue": "Nucleic Acids Res.",
+            "volume": "1",
+            "issn": "",
+            "pages": "5838-5842",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF52": {
+            "title": "Programmed ribosomal frameshifting in decoding the SARS-CoV genome",
+            "authors": [
+                {
+                    "first": "P.V.",
+                    "middle": [],
+                    "last": "Baranov",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.M.",
+                    "middle": [],
+                    "last": "Henderson",
+                    "suffix": ""
+                },
+                {
+                    "first": "C.B.",
+                    "middle": [],
+                    "last": "Anderson",
+                    "suffix": ""
+                },
+                {
+                    "first": "R.F.",
+                    "middle": [],
+                    "last": "Gesteland",
+                    "suffix": ""
+                },
+                {
+                    "first": "J.F.",
+                    "middle": [],
+                    "last": "Atkins",
+                    "suffix": ""
+                },
+                {
+                    "first": "M.T.",
+                    "middle": [],
+                    "last": "Howard",
+                    "suffix": ""
+                }
+            ],
+            "year": 2005,
+            "venue": "Virology",
+            "volume": "332",
+            "issn": "",
+            "pages": "498-510",
+            "other_ids": {
+                "DOI": []
+            }
+        }
+    }
+}
