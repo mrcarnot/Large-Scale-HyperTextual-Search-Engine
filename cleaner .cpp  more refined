@@ -1,0 +1,202 @@
+// tokenizer.cpp
+// Standalone tokenizer module (C++17)
+// ICU optional: compile with -DUSE_ICU -licuuc
+
+#include <string>
+#include <vector>
+#include <unordered_set>
+#include <cwctype>
+#include <locale>
+#include <codecvt>
+#include <cctype>
+
+#ifdef USE_ICU
+  #include <unicode/unistr.h>
+  #include <unicode/normalizer2.h>
+  #include <unicode/uchar.h>
+  using namespace icu;
+#endif
+
+// =====================
+// Data Structures
+// =====================
+
+struct Options {
+    bool use_stopwords = true;
+    bool stem = false;
+    bool keep_original = false;
+    bool remove_numbers = false;
+};
+
+struct RawToken {
+    size_t start;
+    size_t end;
+    int pos;
+};
+
+struct Token {
+    std::string term;
+    std::string orig;
+    int pos;
+};
+
+// =====================
+// UTF-8 / Unicode Utils
+// =====================
+
+static std::wstring utf8_to_wstring(const std::string &s) {
+    std::wstring_convert<std::codecvt_utf8<wchar_t>> conv;
+    try { return conv.from_bytes(s); }
+    catch (...) {
+        std::wstring w;
+        for (unsigned char c : s) w.push_back((wchar_t)c);
+        return w;
+    }
+}
+
+static std::string wstring_to_utf8(const std::wstring &w) {
+    std::wstring_convert<std::codecvt_utf8<wchar_t>> conv;
+    try { return conv.to_bytes(w); }
+    catch (...) {
+        std::string s;
+        for (wchar_t c : w) s.push_back((char)(c & 0xFF));
+        return s;
+    }
+}
+
+// =====================
+// Normalization
+// =====================
+
+static std::string normalize_text(const std::string &in) {
+#ifdef USE_ICU
+    UErrorCode err = U_ZERO_ERROR;
+    const Normalizer2 *norm = Normalizer2::getNFCInstance(err);
+    if (U_FAILURE(err) || !norm) return in;
+
+    UnicodeString u = UnicodeString::fromUTF8(in);
+    UnicodeString out;
+    norm->normalize(u, out, err);
+
+    std::string result;
+    out.toUTF8String(result);
+    return result;
+#else
+    std::string out;
+    out.reserve(in.size());
+    for (unsigned char c : in) {
+        if (c >= 0x20) out.push_back((char)c);
+        else if (c == '\n' || c == '\t') out.push_back(' ');
+    }
+    return out;
+#endif
+}
+
+// =====================
+// Token Character Rules
+// =====================
+
+inline bool is_ascii_alnum(wchar_t c) {
+    return c < 128 && std::isalnum(static_cast<unsigned char>(c));
+}
+
+inline bool is_apostrophe(wchar_t c) {
+    return c == L'\'' || c == 0x2019; // ' and ’
+}
+
+inline bool is_token_char(const std::wstring &w, size_t i) {
+    wchar_t c = w[i];
+
+    if (is_ascii_alnum(c)) return true;
+    if (c >= 128 && std::iswalnum(c)) return true;
+
+    if (is_apostrophe(c)) {
+        if (i > 0 && i + 1 < w.size())
+            return std::iswalpha(w[i - 1]) && std::iswalpha(w[i + 1]);
+    }
+    return false;
+}
+
+// =====================
+// Tokenizer (Span-Based)
+// =====================
+
+static std::vector<RawToken> tokenize_unicode(const std::wstring &w) {
+    std::vector<RawToken> out;
+    size_t start = std::wstring::npos;
+    int pos = 0;
+
+    for (size_t i = 0; i <= w.size(); ++i) {
+        bool valid = (i < w.size()) && is_token_char(w, i);
+
+        if (valid) {
+            if (start == std::wstring::npos)
+                start = i;
+        } else if (start != std::wstring::npos) {
+            out.push_back({start, i, ++pos});
+            start = std::wstring::npos;
+        }
+    }
+    return out;
+}
+
+// =====================
+// Lowercase + Filter
+// =====================
+
+static std::vector<Token> normalize_tokens(
+    const std::wstring &w,
+    const std::vector<RawToken> &raw,
+    const Options &opt,
+    const std::unordered_set<std::string> &stopwords
+) {
+    std::vector<Token> out;
+    out.reserve(raw.size());
+
+    for (const auto &rt : raw) {
+        std::wstring orig_w = w.substr(rt.start, rt.end - rt.start);
+        std::wstring norm_w = orig_w;
+
+#ifdef USE_ICU
+        UnicodeString u(norm_w.data(), (int32_t)norm_w.size());
+        u.toLower();
+        u.toUTF8String(norm_w);
+#else
+        for (wchar_t &c : norm_w) c = std::towlower(c);
+#endif
+
+        bool all_digits = true;
+        for (wchar_t c : norm_w)
+            if (!std::iswdigit(c)) { all_digits = false; break; }
+
+        if (opt.remove_numbers && all_digits) continue;
+
+        std::string term = wstring_to_utf8(norm_w);
+        if (opt.use_stopwords && stopwords.count(term)) continue;
+
+        Token t;
+        t.term = term;
+        t.pos = rt.pos;
+        if (opt.keep_original)
+            t.orig = wstring_to_utf8(orig_w);
+
+        out.push_back(std::move(t));
+    }
+    return out;
+}
+
+// =====================
+// Public API
+// =====================
+
+std::vector<Token> tokenize(
+    const std::string &utf8,
+    const Options &opt,
+    const std::unordered_set<std::string> &stopwords
+) {
+    std::string norm = normalize_text(utf8);
+    std::wstring w = utf8_to_wstring(norm);
+
+    auto raw = tokenize_unicode(w);
+    return normalize_tokens(w, raw, opt, stopwords);
+}
