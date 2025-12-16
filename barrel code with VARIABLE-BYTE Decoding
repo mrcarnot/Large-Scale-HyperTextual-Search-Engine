@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class VBCodec {
+public:
+    // Decode a stream of VB-encoded bytes into integers
+    static vector<uint32_t> decode(const vector<uint8_t>& bytes) {
+        vector<uint32_t> numbers;
+        uint32_t value = 0;
+
+        for (uint8_t b : bytes) {
+            value = (value << 7) | (b & 0x7F);
+
+            if ((b & 0x80) == 0) {   // last byte
+                numbers.push_back(value);
+                value = 0;
+            }
+        }
+        return numbers;
+    }
+};
+
+int main() {
+    // Example encoded sequence
+    vector<uint8_t> encoded = {0x81, 0x01, 0x02};
+
+    auto decoded = VBCodec::decode(encoded);
+    for (auto n : decoded) cout << n << " ";
+    cout << endl;
+}
