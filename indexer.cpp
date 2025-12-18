@@ -1,13 +1,5 @@
-// indexer.cpp
-// Compile:
-//   g++ -std=c++17 -O2 indexer.cpp -Irapidjson-master/include -o indexer
-//
-// SPIMI-style blocked indexer (fixed):
-// - supports string docids (PMC...) by assigning stable internal numeric IDs
-// - ensures output directory exists
-// - consistent lowercasing of terms
-// - robust forward-block parsing using RapidJSON
-// - outputs: block_*.inv, block_*.fwd.jsonl, postings.bin, lexicon.txt, terms_list.txt, forward_index.jsonl, docid_map.txt
+// indexer.cpp - FIXED VERSION with barrels and memory tracking
+// Compile: g++ -std=c++17 -O2 indexer.cpp -o indexer
 
 #include <bits/stdc++.h>
 #include <filesystem>
@@ -19,7 +11,47 @@ namespace fs = std::filesystem;
 using namespace std;
 using namespace rapidjson;
 
-// -------------------- utilities --------------------
+// ==================== MEMORY TRACKER ====================
+struct MemoryTracker {
+    size_t current_bytes = 0;
+    size_t peak_bytes = 0;
+    size_t block_limit = 256 * 1024 * 1024; // 256 MB per block
+    size_t total_processed = 0;
+    
+    void add(size_t bytes) {
+        current_bytes += bytes;
+        peak_bytes = max(peak_bytes, current_bytes);
+        total_processed += bytes;
+    }
+    
+    void reset() {
+        current_bytes = 0;
+    }
+    
+    bool should_flush() const {
+        return current_bytes >= block_limit;
+    }
+    
+    void report() const {
+        cerr << "Memory Stats:\n";
+        cerr << "  Peak: " << (peak_bytes / (1024.0 * 1024.0)) << " MB\n";
+        cerr << "  Total processed: " << (total_processed / (1024.0 * 1024.0)) << " MB\n";
+    }
+    
+    size_t estimate_posting_size(const vector<uint32_t>& positions) const {
+        return sizeof(uint32_t) + positions.size() * sizeof(uint32_t) + 64; // padding
+    }
+};
+
+// ==================== BARREL CONFIGURATION ====================
+const int NUM_BARRELS = 4; // Split index into 4 barrels
+
+// Hash function to assign terms to barrels
+int get_barrel_id(const string& term) {
+    return abs((int)(hash<string>{}(term))) % NUM_BARRELS;
+}
+
+// ==================== VByte Encoding ====================
 static void vbyte_encode_uint32(uint32_t v, vector<uint8_t> &out) {
     while (true) {
         uint8_t byte = v & 0x7F;
@@ -34,12 +66,6 @@ static void vbyte_encode_uint32(uint32_t v, vector<uint8_t> &out) {
     }
 }
 
-// static string lower_copy(const string &s) {
-//     string t = s;
-//     for (unsigned char &c : *(unsigned char*)&t[0]) c = (unsigned char)tolower(c);
-//     // above trick to modify bytes directly; works for ascii/stemmed tokens
-//     return t;
-// }
 static string lower_copy(const string &s) {
     string t = s;
     for (char &c : t) {
@@ -48,27 +74,22 @@ static string lower_copy(const string &s) {
     return t;
 }
 
-
 static void ensure_dir(const string &d) {
     if (!fs::exists(d)) fs::create_directories(d);
 }
 
-// -------------------- data structures --------------------
+// ==================== Data Structures ====================
 struct Posting {
-    uint32_t docid;               // internal numeric doc id
+    uint32_t docid;
     vector<uint32_t> positions;
 };
 
-using BlockDict = unordered_map<string, vector<Posting>>; // term -> postings (per block)
-using BlockForward = unordered_map<string, vector<pair<string, vector<uint32_t>>>>; // original_docid -> [(term, positions)]
+using BlockDict = unordered_map<string, vector<Posting>>;
+using BlockForward = unordered_map<string, vector<pair<string, vector<uint32_t>>>>;
 
-// -------------------- global config --------------------
-size_t BLOCK_SIZE_DOCS = 10000;
-size_t SKIP_INTERVAL = 128;
-
-// -------------------- docid mapping --------------------
+// ==================== Docid Mapping ====================
 static unordered_map<string, uint32_t> docid_to_int;
-static vector<string> int_to_docid; // 1-based: int_to_docid[internal_id] = original
+static vector<string> int_to_docid;
 static uint32_t next_internal_docid = 1;
 
 static uint32_t get_or_assign_docint(const string &orig) {
@@ -81,14 +102,15 @@ static uint32_t get_or_assign_docint(const string &orig) {
     return id;
 }
 
-// -------------------- parsing cleaned.jsonl --------------------
-static bool parse_cleaned_line(const string &line, string &docid_out, vector<pair<string, vector<uint32_t>>> &doc_terms) {
+// ==================== Parse Cleaned JSONL ====================
+static bool parse_cleaned_line(const string &line, string &docid_out, 
+                               vector<pair<string, vector<uint32_t>>> &doc_terms) {
     doc_terms.clear();
     Document doc;
     doc.Parse(line.c_str());
     if (doc.HasParseError()) return false;
     if (!doc.HasMember("docid")) return false;
-    // Accept string or numeric docid
+    
     if (doc["docid"].IsString()) docid_out = doc["docid"].GetString();
     else if (doc["docid"].IsUint64()) docid_out = to_string(doc["docid"].GetUint64());
     else if (doc["docid"].IsInt64()) docid_out = to_string(doc["docid"].GetInt64());
@@ -105,7 +127,6 @@ static bool parse_cleaned_line(const string &line, string &docid_out, vector<pai
                 if (!t.IsObject()) continue;
                 if (!t.HasMember("term") || !t.HasMember("pos")) continue;
                 string term = t["term"].GetString();
-                // normalize term to lowercase to ensure consistency across blocks/forward mapping
                 term = lower_copy(term);
                 uint32_t pos = 0;
                 if (t["pos"].IsUint()) pos = t["pos"].GetUint();
@@ -125,8 +146,9 @@ static bool parse_cleaned_line(const string &line, string &docid_out, vector<pai
     return true;
 }
 
-// -------------------- flush block to disk --------------------
-static void flush_block_to_disk(const BlockDict &dict, const BlockForward &forward, const string &outdir, size_t block_id) {
+// ==================== Flush Block to Disk ====================
+static void flush_block_to_disk(const BlockDict &dict, const BlockForward &forward, 
+                                const string &outdir, size_t block_id) {
     string invname = outdir + "/block_" + to_string(block_id) + ".inv";
     string fwdname = outdir + "/block_" + to_string(block_id) + ".fwd.jsonl";
 
@@ -153,9 +175,7 @@ static void flush_block_to_disk(const BlockDict &dict, const BlockForward &forwa
     ofstream fw(fwdname);
     if (!fw) { cerr << "Cannot open " << fwdname << " for writing\n"; exit(1); }
     for (const auto &d : forward) {
-        // d.first is original docid string
         fw << "{\"docid\":\"";
-        // escape quotes/backslashes in docid if any
         for (char c : d.first) {
             if (c == '"' || c == '\\') fw << '\\' << c;
             else fw << c;
@@ -165,9 +185,7 @@ static void flush_block_to_disk(const BlockDict &dict, const BlockForward &forwa
         for (const auto &tp : d.second) {
             if (!first) fw << ",";
             first = false;
-            // term is already lowercased in dict building
             string term = tp.first;
-            // escape term
             fw << "{\"term\":\"";
             for (char c : term) {
                 if (c == '"' || c == '\\') fw << '\\' << c;
@@ -185,7 +203,7 @@ static void flush_block_to_disk(const BlockDict &dict, const BlockForward &forwa
     fw.close();
 }
 
-// -------------------- merge blocks into final postings --------------------
+// ==================== Merge Blocks into Barrels ====================
 struct LexiconEntry {
     uint32_t wordID;
     string term;
@@ -193,16 +211,17 @@ struct LexiconEntry {
     uint64_t term_freq;
     uint64_t offset;
     uint64_t bytes;
-    string skip_meta;
+    int barrel_id;
 };
 
-static void merge_blocks(const string &outdir, size_t num_blocks) {
+static void merge_blocks_into_barrels(const string &outdir, size_t num_blocks) {
     struct ReaderState {
         ifstream ifs;
         string current_line;
         string term;
         bool valid;
     };
+    
     vector<ReaderState> readers;
     readers.reserve(num_blocks);
     for (size_t i = 0; i < num_blocks; ++i) {
@@ -231,9 +250,16 @@ static void merge_blocks(const string &outdir, size_t num_blocks) {
 
     for (auto &r : readers) read_line_state(r);
 
-    string postings_path = outdir + "/postings.bin";
-    ofstream pout(postings_path, ios::binary);
-    if (!pout) { cerr << "Cannot open " << postings_path << "\n"; exit(1); }
+    // Open barrel files
+    vector<ofstream> barrel_files(NUM_BARRELS);
+    for (int i = 0; i < NUM_BARRELS; i++) {
+        string barrel_path = outdir + "/barrel_" + to_string(i) + ".bin";
+        barrel_files[i].open(barrel_path, ios::binary);
+        if (!barrel_files[i]) {
+            cerr << "Cannot open barrel " << barrel_path << "\n";
+            exit(1);
+        }
+    }
 
     vector<LexiconEntry> lexicon;
     lexicon.reserve(1000000);
@@ -257,7 +283,7 @@ static void merge_blocks(const string &outdir, size_t num_blocks) {
             }
         }
 
-        // merged: internal_docid -> positions
+        // Merge postings
         unordered_map<uint32_t, vector<uint32_t>> merged;
         uint64_t term_freq = 0;
         for (auto &ln : block_lines) {
@@ -268,7 +294,7 @@ static void merge_blocks(const string &outdir, size_t num_blocks) {
                 size_t colon = rest.find(':', idx);
                 if (colon == string::npos) break;
                 string docid_s = rest.substr(idx, colon - idx);
-                uint32_t docid = (uint32_t)stoul(docid_s); // docid here is internal numeric id we wrote earlier
+                uint32_t docid = (uint32_t)stoul(docid_s);
                 idx = colon + 1;
                 size_t semi = rest.find(';', idx);
                 string poslist = (semi == string::npos) ? rest.substr(idx) : rest.substr(idx, semi - idx);
@@ -301,6 +327,7 @@ static void merge_blocks(const string &outdir, size_t num_blocks) {
         }
         sort(postings.begin(), postings.end(), [](auto &a, auto &b){ return a.first < b.first; });
 
+        // Encode postings
         vector<uint8_t> encoded;
         uint32_t last_docid = 0;
         uint32_t doc_count = (uint32_t)postings.size();
@@ -320,11 +347,12 @@ static void merge_blocks(const string &outdir, size_t num_blocks) {
                 vbyte_encode_uint32(pos_delta, encoded);
             }
         }
-        uint64_t offset = (uint64_t)pout.tellp();
-        pout.write(reinterpret_cast<const char*>(encoded.data()), encoded.size());
-        uint64_t bytes_written = encoded.size();
 
-        string skip_meta = "{\"df\":" + to_string(df) + ",\"skip_interval\":" + to_string(SKIP_INTERVAL) + "}";
+        // Determine barrel and write
+        int barrel_id = get_barrel_id(min_term);
+        uint64_t offset = (uint64_t)barrel_files[barrel_id].tellp();
+        barrel_files[barrel_id].write(reinterpret_cast<const char*>(encoded.data()), encoded.size());
+        uint64_t bytes_written = encoded.size();
 
         ++global_wordid;
         LexiconEntry ent;
@@ -334,20 +362,22 @@ static void merge_blocks(const string &outdir, size_t num_blocks) {
         ent.term_freq = term_freq;
         ent.offset = offset;
         ent.bytes = bytes_written;
-        ent.skip_meta = skip_meta;
+        ent.barrel_id = barrel_id;
         lexicon.push_back(move(ent));
     }
 
-    pout.close();
+    for (auto &f : barrel_files) f.close();
 
-    // write lexicon and terms list
+    // Write lexicon with barrel info
     string lexpath = outdir + "/lexicon.txt";
     ofstream lexofs(lexpath);
     if (!lexofs) { cerr << "Cannot write lexicon\n"; exit(1); }
     for (auto &le : lexicon) {
         string t = le.term;
         for (char &c : t) if (c=='\t' || c=='\n' || c=='\r') c = ' ';
-        lexofs << le.wordID << '\t' << t << '\t' << le.doc_freq << '\t' << le.term_freq << '\t' << le.offset << '\t' << le.bytes << '\t' << le.skip_meta << '\n';
+        lexofs << le.wordID << '\t' << t << '\t' << le.doc_freq << '\t' 
+               << le.term_freq << '\t' << le.offset << '\t' << le.bytes << '\t'
+               << le.barrel_id << '\n';
     }
     lexofs.close();
 
@@ -359,10 +389,11 @@ static void merge_blocks(const string &outdir, size_t num_blocks) {
     }
     tl.close();
 
-    cerr << "Merge done. Total terms: " << lexicon.size() << ", postings.bin written.\n";
+    cerr << "Merge done. Total terms: " << lexicon.size() << "\n";
+    cerr << "Barrels created: " << NUM_BARRELS << "\n";
 }
 
-// -------------------- remap forward indices (use RapidJSON) --------------------
+// ==================== Remap Forward Indices ====================
 static unordered_map<string, uint32_t> load_term_to_id(const string &lex_terms_path) {
     unordered_map<string,uint32_t> map;
     ifstream ifs(lex_terms_path);
@@ -394,14 +425,13 @@ static void remap_forward_indices(const string &outdir, size_t num_blocks) {
             doc.Parse(line.c_str());
             if (doc.HasParseError() || !doc.HasMember("docid")) continue;
             string orig_docid = doc["docid"].GetString();
-            vector<tuple<uint32_t,uint32_t,vector<uint32_t>>> outpost; // (wordID, freq, positions)
+            vector<tuple<uint32_t,uint32_t,vector<uint32_t>>> outpost;
 
             if (doc.HasMember("postings") && doc["postings"].IsArray()) {
                 for (auto &p : doc["postings"].GetArray()) {
                     if (!p.IsObject()) continue;
                     if (!p.HasMember("term") || !p.HasMember("positions")) continue;
                     string term = p["term"].GetString();
-                    // term already lowercased when blocks were written, but normalize here too
                     term = lower_copy(term);
                     vector<uint32_t> positions;
                     for (auto &vp : p["positions"].GetArray()) {
@@ -413,14 +443,10 @@ static void remap_forward_indices(const string &outdir, size_t num_blocks) {
                     if (it != t2id.end()) {
                         uint32_t wid = it->second;
                         outpost.emplace_back(wid, (uint32_t)positions.size(), positions);
-                    } else {
-                        // log missing terms for debugging
-                        cerr << "[MISSING_TERM] " << term << " (doc " << orig_docid << ")\n";
                     }
                 }
             }
 
-            // write remapped forward for this doc (original docid kept)
             ofs << "{\"docid\":\"" << orig_docid << "\",\"postings\":[";
             for (size_t i = 0; i < outpost.size(); ++i) {
                 auto &tp = outpost[i];
@@ -441,20 +467,21 @@ static void remap_forward_indices(const string &outdir, size_t num_blocks) {
     cerr << "Forward index remapped & written to " << fout << "\n";
 }
 
-// -------------------- main driver --------------------
+// ==================== Main Driver ====================
 static void usage(const char *prog) {
-    cerr << "Usage: " << prog << " -i cleaned.jsonl -o outdir [--block-size N] [--skip-interval N]\n";
+    cerr << "Usage: " << prog << " -i cleaned.jsonl -o outdir [--block-memory MB]\n";
 }
 
 int main(int argc, char **argv) {
     string input;
     string outdir = "index_out";
+    size_t block_memory_mb = 256;
+    
     for (int i = 1; i < argc; ++i) {
         string a = argv[i];
         if (a == "-i" && i+1 < argc) input = argv[++i];
         else if (a == "-o" && i+1 < argc) outdir = argv[++i];
-        else if (a == "--block-size" && i+1 < argc) BLOCK_SIZE_DOCS = stoul(argv[++i]);
-        else if (a == "--skip-interval" && i+1 < argc) SKIP_INTERVAL = stoul(argv[++i]);
+        else if (a == "--block-memory" && i+1 < argc) block_memory_mb = stoul(argv[++i]);
         else { usage(argv[0]); return 1; }
     }
     if (input.empty()) { usage(argv[0]); return 1; }
@@ -466,9 +493,16 @@ int main(int argc, char **argv) {
 
     BlockDict dict;
     BlockForward fwd;
+    MemoryTracker mem_tracker;
+    mem_tracker.block_limit = block_memory_mb * 1024 * 1024;
+    
     size_t docs_in_block = 0;
     size_t block_id = 0;
     size_t total_docs = 0;
+
+    cerr << "\n=== Indexing with Memory Tracking ===\n";
+    cerr << "Block memory limit: " << block_memory_mb << " MB\n";
+    cerr << "Barrels: " << NUM_BARRELS << "\n\n";
 
     string line;
     while (getline(ifs, line)) {
@@ -480,18 +514,19 @@ int main(int argc, char **argv) {
             continue;
         }
 
-        // assign internal numeric id (stable)
         uint32_t doc_int = get_or_assign_docint(orig_docid);
 
-        // add to block forward (store original docid string)
         vector<pair<string, vector<uint32_t>>> tmp;
         tmp.swap(doc_terms);
         fwd[orig_docid] = tmp;
 
-        // update block dict using internal numeric id
         for (auto &tp : fwd[orig_docid]) {
-            const string &term = tp.first; // already lowercased in parse_cleaned_line
+            const string &term = tp.first;
             auto &positions = tp.second;
+            
+            // Track memory
+            mem_tracker.add(mem_tracker.estimate_posting_size(positions));
+            
             auto &plist = dict[term];
             if (plist.empty() || plist.back().docid != doc_int) {
                 Posting p;
@@ -505,18 +540,24 @@ int main(int argc, char **argv) {
         }
 
         docs_in_block++;
-        if (docs_in_block >= BLOCK_SIZE_DOCS) {
-            cerr << "Flushing block " << block_id << " containing " << docs_in_block << " docs\n";
+        
+        if (mem_tracker.should_flush()) {
+            cerr << "Flushing block " << block_id << " (memory: " 
+                 << (mem_tracker.current_bytes / (1024.0 * 1024.0)) << " MB, docs: " 
+                 << docs_in_block << ")\n";
             flush_block_to_disk(dict, fwd, outdir, block_id);
             dict.clear();
             fwd.clear();
+            mem_tracker.reset();
             docs_in_block = 0;
             ++block_id;
         }
     }
 
     if (!dict.empty() || !fwd.empty()) {
-        cerr << "Flushing final block " << block_id << " containing " << docs_in_block << " docs\n";
+        cerr << "Flushing final block " << block_id << " (memory: " 
+             << (mem_tracker.current_bytes / (1024.0 * 1024.0)) << " MB, docs: " 
+             << docs_in_block << ")\n";
         flush_block_to_disk(dict, fwd, outdir, block_id);
         dict.clear();
         fwd.clear();
@@ -525,24 +566,28 @@ int main(int argc, char **argv) {
     ifs.close();
 
     size_t num_blocks = block_id;
-    cerr << "Total documents processed: " << total_docs << ", blocks: " << num_blocks << "\n";
+    cerr << "\nTotal documents processed: " << total_docs << ", blocks: " << num_blocks << "\n\n";
+    mem_tracker.report();
 
-    // merge blocks -> postings.bin & lexicon
-    merge_blocks(outdir, num_blocks);
+    cerr << "\n=== Merging blocks into barrels ===\n";
+    merge_blocks_into_barrels(outdir, num_blocks);
 
-    // remap forward block files using lexicon -> forward_index.jsonl
+    cerr << "\n=== Remapping forward indices ===\n";
     remap_forward_indices(outdir, num_blocks);
 
-    // write docid_map (original -> internal)
     string docmap = outdir + "/docid_map.txt";
     ofstream dm(docmap);
     if (!dm) { cerr << "Cannot write docid_map\n"; }
     else {
-        // write original_docid \t internal_id
         for (auto &p : docid_to_int) dm << p.first << '\t' << p.second << '\n';
         dm.close();
     }
 
-    cerr << "Indexing complete. Files written to: " << outdir << "\n";
+    cerr << "\n=== Indexing Complete ===\n";
+    cerr << "Output directory: " << outdir << "\n";
+    cerr << "Barrels: " << NUM_BARRELS << " files (barrel_0.bin to barrel_" 
+         << (NUM_BARRELS-1) << ".bin)\n";
+    cerr << "Lexicon: lexicon.txt (includes barrel_id column)\n";
+    
     return 0;
 }
