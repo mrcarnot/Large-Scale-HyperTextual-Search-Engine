@@ -1,13 +1,5 @@
 // indexer.cpp
-// Compile:
-//   g++ -std=c++17 -O2 indexer.cpp -Irapidjson-master/include -o indexer
-//
-// SPIMI-style blocked indexer (fixed):
-// - supports string docids (PMC...) by assigning stable internal numeric IDs
-// - ensures output directory exists
-// - consistent lowercasing of terms
-// - robust forward-block parsing using RapidJSON
-// - outputs: block_*.inv, block_*.fwd.jsonl, postings.bin, lexicon.txt, terms_list.txt, forward_index.jsonl, docid_map.txt
+
 
 #include <bits/stdc++.h>
 #include <filesystem>
@@ -546,3 +538,4 @@ int main(int argc, char **argv) {
     cerr << "Indexing complete. Files written to: " << outdir << "\n";
     return 0;
 }
+
