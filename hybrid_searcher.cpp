@@ -1,6 +1,4 @@
-// hybrid_searcher.cpp - FIXED for Windows
-// Combines keyword (BM25) and semantic search
-// Compile: g++ -std=c++17 -O2 hybrid_searcher.cpp -o hybrid_searcher
+// hybrid_searcher.cpp 
 
 #include <bits/stdc++.h>
 #include <filesystem>
