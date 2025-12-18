@@ -1,8 +1,5 @@
 // extractor.cpp
-// Compile: g++ -std=c++17 -O2 extractor.cpp -o extractor
-// Requires RapidJSON headers (https://github.com/Tencent/rapidjson)
 
-// --- Standard Headers (Replaces bits/stdc++.h) ---
 #include <iostream>
 #include <fstream>
 #include <sstream>
