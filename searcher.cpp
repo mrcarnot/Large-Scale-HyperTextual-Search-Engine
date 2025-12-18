@@ -1,6 +1,5 @@
-// searcher_ranked.cpp
-// Enhanced searcher with field boosting and date recency
-// Compile: g++ -std=c++17 -O2 searcher_ranked.cpp -Irapidjson-master/include -o searcher_ranked
+// searcher.cpp - FIXED VERSION with barrel loading and performance benchmarks
+// Compile: g++ -std=c++17 -O2 searcher.cpp -o searcher
 
 #include <bits/stdc++.h>
 #include <filesystem>
@@ -11,7 +10,7 @@ namespace fs = std::filesystem;
 using namespace std;
 using namespace rapidjson;
 
-// -------------------- VByte Decoding --------------------
+// ==================== VByte Decoding ====================
 static uint32_t vbyte_decode_uint32(const uint8_t* data, size_t max_size, size_t& offset) {
     uint32_t result = 0;
     int shift = 0;
@@ -31,7 +30,7 @@ static uint32_t vbyte_decode_uint32(const uint8_t* data, size_t max_size, size_t
     return result;
 }
 
-// -------------------- Data Structures --------------------
+// ==================== Data Structures ====================
 struct LexiconEntry {
     uint32_t wordID;
     string term;
@@ -39,13 +38,13 @@ struct LexiconEntry {
     uint64_t term_freq;
     uint64_t offset;
     uint64_t bytes;
+    int barrel_id;
 };
 
 struct PostingEntry {
     uint32_t docid;
     uint32_t term_freq;
     vector<uint32_t> positions;
-    string field_name; // NEW: track which field this posting came from
 };
 
 struct DocMetadata {
@@ -54,15 +53,20 @@ struct DocMetadata {
     string title;
     string authors;
     string pub_date;
-    map<string, uint32_t> field_lengths; // NEW: length per field
 };
 
-// -------------------- Global State --------------------
+// ==================== Global State ====================
 unordered_map<string, LexiconEntry> lexicon;
 unordered_map<uint32_t, string> int_to_docid;
 unordered_map<string, uint32_t> docid_to_int;
 unordered_map<uint32_t, DocMetadata> doc_metadata;
-vector<uint8_t> postings_data;
+
+// BARREL SYSTEM: Load barrels on-demand
+const int NUM_BARRELS = 4;
+vector<vector<uint8_t>> barrel_data(NUM_BARRELS);
+vector<bool> barrel_loaded(NUM_BARRELS, false);
+string index_directory;
+
 uint32_t total_docs = 0;
 double avg_doc_length = 0.0;
 
@@ -70,16 +74,94 @@ double avg_doc_length = 0.0;
 const double k1 = 1.2;
 const double b = 0.75;
 
-// NEW: Field boost weights
+// Field boost weights
 const double TITLE_BOOST = 3.0;
 const double ABSTRACT_BOOST = 2.0;
 const double BODY_BOOST = 1.0;
 
-// NEW: Recency parameters
+// Recency parameters
 const int CURRENT_YEAR = 2024;
-const double RECENCY_WEIGHT = 0.1; // 10% contribution to final score
+const double RECENCY_WEIGHT = 0.1;
 
-// -------------------- Load Index --------------------
+// PERFORMANCE TRACKING
+struct PerformanceStats {
+    size_t queries_executed = 0;
+    vector<long long> query_times; // microseconds
+    unordered_map<string, size_t> query_type_counts;
+    
+    void record(const string& type, long long time_us) {
+        queries_executed++;
+        query_times.push_back(time_us);
+        query_type_counts[type]++;
+    }
+    
+    void report() {
+        if (query_times.empty()) return;
+        
+        sort(query_times.begin(), query_times.end());
+        long long min_time = query_times.front();
+        long long max_time = query_times.back();
+        long long median = query_times[query_times.size() / 2];
+        long long p95 = query_times[(query_times.size() * 95) / 100];
+        long long p99 = query_times[(query_times.size() * 99) / 100];
+        double avg = accumulate(query_times.begin(), query_times.end(), 0.0) / query_times.size();
+        
+        cerr << "\n=== Performance Statistics ===\n";
+        cerr << "Total queries: " << queries_executed << "\n";
+        cerr << "Min: " << (min_time / 1000.0) << " ms\n";
+        cerr << "Avg: " << (avg / 1000.0) << " ms\n";
+        cerr << "Median: " << (median / 1000.0) << " ms\n";
+        cerr << "P95: " << (p95 / 1000.0) << " ms\n";
+        cerr << "P99: " << (p99 / 1000.0) << " ms\n";
+        cerr << "Max: " << (max_time / 1000.0) << " ms\n";
+        
+        cerr << "\nQuery types:\n";
+        for (const auto& p : query_type_counts) {
+            cerr << "  " << p.first << ": " << p.second << "\n";
+        }
+        
+        // Check targets
+        cerr << "\nTarget compliance:\n";
+        if (p95 / 1000.0 < 200) cerr << "  ✅ P95 < 200ms\n";
+        else cerr << "  ❌ P95 >= 200ms\n";
+        
+        if (p99 / 1000.0 < 300) cerr << "  ✅ P99 < 300ms\n";
+        else cerr << "  ❌ P99 >= 300ms\n";
+    }
+};
+
+PerformanceStats perf_stats;
+
+// ==================== Barrel Loading ====================
+static void load_barrel_if_needed(int barrel_id) {
+    if (barrel_id < 0 || barrel_id >= NUM_BARRELS) return;
+    if (barrel_loaded[barrel_id]) return;
+    
+    string barrel_path = index_directory + "/barrel_" + to_string(barrel_id) + ".bin";
+    
+    if (!fs::exists(barrel_path)) {
+        cerr << "Warning: Barrel file does not exist: " << barrel_path << "\n";
+        return;
+    }
+    
+    ifstream ifs(barrel_path, ios::binary);
+    if (!ifs) {
+        cerr << "Warning: Cannot open barrel: " << barrel_path << "\n";
+        return;
+    }
+    
+    ifs.seekg(0, ios::end);
+    size_t size = ifs.tellg();
+    ifs.seekg(0, ios::beg);
+    
+    barrel_data[barrel_id].resize(size);
+    ifs.read(reinterpret_cast<char*>(barrel_data[barrel_id].data()), size);
+    
+    barrel_loaded[barrel_id] = true;
+    cerr << "  Loaded barrel " << barrel_id << " (" << (size / 1024.0) << " KB)\n";
+}
+
+// ==================== Load Index ====================
 static void load_lexicon(const string& path) {
     ifstream ifs(path);
     if (!ifs) {
@@ -92,35 +174,14 @@ static void load_lexicon(const string& path) {
         line_num++;
         istringstream iss(line);
         LexiconEntry entry;
-        string skip_meta;
         if (iss >> entry.wordID >> entry.term >> entry.doc_freq >> 
-                   entry.term_freq >> entry.offset >> entry.bytes) {
-            getline(iss, skip_meta);
+                   entry.term_freq >> entry.offset >> entry.bytes >> entry.barrel_id) {
             lexicon[entry.term] = entry;
         } else {
             cerr << "Warning: Malformed lexicon line " << line_num << "\n";
         }
     }
     cerr << "Loaded " << lexicon.size() << " terms from lexicon\n";
-}
-
-static void load_postings(const string& path) {
-    if (!fs::exists(path)) {
-        cerr << "ERROR: Postings file does not exist: " << path << "\n";
-        exit(1);
-    }
-    
-    ifstream ifs(path, ios::binary);
-    if (!ifs) {
-        cerr << "ERROR: Cannot open postings: " << path << "\n";
-        exit(1);
-    }
-    ifs.seekg(0, ios::end);
-    size_t size = ifs.tellg();
-    ifs.seekg(0, ios::beg);
-    postings_data.resize(size);
-    ifs.read(reinterpret_cast<char*>(postings_data.data()), size);
-    cerr << "Loaded postings.bin (" << size << " bytes)\n";
 }
 
 static void load_docid_map(const string& path) {
@@ -147,7 +208,6 @@ static void load_docid_map(const string& path) {
     cerr << "Loaded " << total_docs << " documents from docid_map\n";
 }
 
-// NEW: Enhanced forward index loading with field tracking
 static void load_forward_index(const string& path) {
     ifstream ifs(path);
     if (!ifs) {
@@ -181,9 +241,7 @@ static void load_forward_index(const string& path) {
         
         string orig_docid = doc["docid"].GetString();
         
-        // Calculate document length AND field lengths
         uint32_t doc_len = 0;
-        map<string, uint32_t> field_lens;
         
         if (doc.HasMember("postings") && doc["postings"].IsArray()) {
             for (auto& p : doc["postings"].GetArray()) {
@@ -195,12 +253,6 @@ static void load_forward_index(const string& path) {
                         freq = (uint32_t)p["freq"].GetInt();
                     }
                     doc_len += freq;
-                    
-                    // Track field if available
-                    if (p.HasMember("field") && p["field"].IsString()) {
-                        string field = p["field"].GetString();
-                        field_lens[field] += freq;
-                    }
                 }
             }
         }
@@ -215,9 +267,7 @@ static void load_forward_index(const string& path) {
         DocMetadata meta;
         meta.orig_docid = orig_docid;
         meta.doc_length = (doc_len > 0) ? doc_len : 100;
-        meta.field_lengths = field_lens;
         
-        // Extract metadata
         if (doc.HasMember("title") && doc["title"].IsString()) {
             meta.title = doc["title"].GetString();
         }
@@ -247,37 +297,47 @@ static void load_forward_index(const string& path) {
          << "Avg doc length: " << fixed << setprecision(2) << avg_doc_length << "\n";
 }
 
-// -------------------- Decode Postings --------------------
+// ==================== Decode Postings ====================
 static vector<PostingEntry> decode_postings_list(const LexiconEntry& entry) {
     vector<PostingEntry> result;
     
-    if (entry.offset >= postings_data.size()) {
+    int barrel_id = entry.barrel_id;
+    load_barrel_if_needed(barrel_id);
+    
+    if (!barrel_loaded[barrel_id]) {
+        cerr << "ERROR: Barrel " << barrel_id << " not loaded\n";
+        return result;
+    }
+    
+    const auto& data = barrel_data[barrel_id];
+    
+    if (entry.offset >= data.size()) {
         cerr << "ERROR: Invalid offset for term '" << entry.term << "'\n";
         return result;
     }
     
-    if (entry.offset + entry.bytes > postings_data.size()) {
-        cerr << "ERROR: Postings extend beyond file for term '" << entry.term << "'\n";
+    if (entry.offset + entry.bytes > data.size()) {
+        cerr << "ERROR: Postings extend beyond barrel for term '" << entry.term << "'\n";
         return result;
     }
     
     size_t offset = entry.offset;
     size_t max_offset = entry.offset + entry.bytes;
     
-    uint32_t doc_count = vbyte_decode_uint32(postings_data.data(), max_offset, offset);
+    uint32_t doc_count = vbyte_decode_uint32(data.data(), max_offset, offset);
     
     uint32_t last_docid = 0;
     for (uint32_t i = 0; i < doc_count && offset < max_offset; i++) {
         PostingEntry pe;
-        uint32_t doc_delta = vbyte_decode_uint32(postings_data.data(), max_offset, offset);
+        uint32_t doc_delta = vbyte_decode_uint32(data.data(), max_offset, offset);
         pe.docid = last_docid + doc_delta;
         last_docid = pe.docid;
         
-        pe.term_freq = vbyte_decode_uint32(postings_data.data(), max_offset, offset);
+        pe.term_freq = vbyte_decode_uint32(data.data(), max_offset, offset);
         
         uint32_t last_pos = 0;
         for (uint32_t j = 0; j < pe.term_freq && offset < max_offset; j++) {
-            uint32_t pos_delta = vbyte_decode_uint32(postings_data.data(), max_offset, offset);
+            uint32_t pos_delta = vbyte_decode_uint32(data.data(), max_offset, offset);
             uint32_t pos = last_pos + pos_delta;
             pe.positions.push_back(pos);
             last_pos = pos;
@@ -289,50 +349,37 @@ static vector<PostingEntry> decode_postings_list(const LexiconEntry& entry) {
     return result;
 }
 
-// NEW: Extract year from publication date
+// ==================== Ranking Functions ====================
 static int extract_year(const string& pub_date) {
-    // Try to extract 4-digit year
     regex year_regex(R"(\b(19|20)\d{2}\b)");
     smatch match;
     if (regex_search(pub_date, match, year_regex)) {
         return stoi(match.str());
     }
-    return 0; // Unknown year
+    return 0;
 }
 
-// NEW: Compute recency score (0.0 to 1.0)
 static double compute_recency_score(int pub_year) {
-    if (pub_year == 0) return 0.5; // Neutral for unknown
-    
+    if (pub_year == 0) return 0.5;
     int age = CURRENT_YEAR - pub_year;
-    if (age < 0) age = 0; // Future dates
-    
-    // Exponential decay: newer papers score higher
-    // Papers from this year: 1.0
-    // Papers 5 years old: ~0.6
-    // Papers 10 years old: ~0.37
+    if (age < 0) age = 0;
     double decay_rate = 0.1;
     return exp(-decay_rate * age);
 }
 
-// NEW: Determine field from position (heuristic)
-// In real implementation, you'd track this during indexing
 static string guess_field_from_position(uint32_t position, uint32_t doc_length) {
-    // Heuristic: first 10% is title, next 20% is abstract, rest is body
     double ratio = (double)position / doc_length;
     if (ratio < 0.10) return "title";
     if (ratio < 0.30) return "abstract";
     return "body";
 }
 
-// NEW: Get field boost weight
 static double get_field_boost(const string& field) {
     if (field == "title") return TITLE_BOOST;
     if (field == "abstract") return ABSTRACT_BOOST;
     return BODY_BOOST;
 }
 
-// NEW: Enhanced BM25 with field boosting
 static double compute_bm25_fielded(uint32_t tf, uint32_t doc_len, uint32_t df, 
                                     const string& field) {
     if (total_docs == 0 || df == 0) return 0.0;
@@ -341,12 +388,10 @@ static double compute_bm25_fielded(uint32_t tf, uint32_t doc_len, uint32_t df,
     double norm = doc_len / avg_doc_length;
     double base_score = idf * (tf * (k1 + 1.0)) / (tf + k1 * (1.0 - b + b * norm));
     
-    // Apply field boost
     double field_boost = get_field_boost(field);
     return base_score * field_boost;
 }
 
-// -------------------- Helper Functions --------------------
 static string normalize_term(string term) {
     transform(term.begin(), term.end(), term.begin(), 
               [](unsigned char c){ return tolower(c); });
@@ -369,7 +414,7 @@ static string get_orig_docid(uint32_t docid) {
     return "UNKNOWN_" + to_string(docid);
 }
 
-// -------------------- Query Processing --------------------
+// ==================== Search Results ====================
 struct SearchResult {
     uint32_t docid;
     string orig_docid;
@@ -381,7 +426,7 @@ struct SearchResult {
     string pub_date;
 };
 
-// NEW: Enhanced search with field boosting and recency
+// ==================== Query Processing ====================
 static vector<SearchResult> search_query_ranked(const vector<string>& query_terms, 
                                                  size_t top_k = 10) {
     vector<string> normalized_terms;
@@ -403,13 +448,11 @@ static vector<SearchResult> search_query_ranked(const vector<string>& query_term
         return {};
     }
     
-    // Decode postings
     vector<vector<PostingEntry>> all_postings;
     for (const auto& entry : entries) {
         all_postings.push_back(decode_postings_list(entry));
     }
     
-    // Accumulate scores with field boosting
     unordered_map<uint32_t, SearchResult> scores;
     
     for (size_t i = 0; i < normalized_terms.size(); i++) {
@@ -423,7 +466,6 @@ static vector<SearchResult> search_query_ranked(const vector<string>& query_term
             uint32_t df = entry.doc_freq;
             uint32_t doc_len = get_doc_length(docid);
             
-            // Determine field from position (heuristic)
             string field = "body";
             if (!posting.positions.empty()) {
                 field = guess_field_from_position(posting.positions[0], doc_len);
@@ -443,8 +485,6 @@ static vector<SearchResult> search_query_ranked(const vector<string>& query_term
                 if (meta_it != doc_metadata.end()) {
                     sr.title = meta_it->second.title;
                     sr.pub_date = meta_it->second.pub_date;
-                    
-                    // Compute recency score once per document
                     int pub_year = extract_year(meta_it->second.pub_date);
                     sr.recency_score = compute_recency_score(pub_year);
                 }
@@ -457,15 +497,12 @@ static vector<SearchResult> search_query_ranked(const vector<string>& query_term
         }
     }
     
-    // Compute final scores: BM25 + recency
     for (auto& p : scores) {
         SearchResult& sr = p.second;
-        // Weighted combination: 90% BM25, 10% recency
         sr.final_score = (1.0 - RECENCY_WEIGHT) * sr.bm25_score + 
-                         RECENCY_WEIGHT * sr.recency_score * 10.0; // Scale recency to match BM25 range
+                         RECENCY_WEIGHT * sr.recency_score * 10.0;
     }
     
-    // Convert to vector and sort by final score
     vector<SearchResult> results;
     results.reserve(scores.size());
     for (auto& p : scores) {
@@ -484,7 +521,6 @@ static vector<SearchResult> search_query_ranked(const vector<string>& query_term
     return results;
 }
 
-// NEW: AND query with enhanced ranking
 static vector<SearchResult> search_query_and_ranked(const vector<string>& query_terms, 
                                                      size_t top_k = 10) {
     vector<string> normalized_terms;
@@ -506,7 +542,6 @@ static vector<SearchResult> search_query_and_ranked(const vector<string>& query_
         return {};
     }
     
-    // Sort by doc_freq (ascending) - process rare terms first
     vector<size_t> indices(entries.size());
     iota(indices.begin(), indices.end(), 0);
     sort(indices.begin(), indices.end(), 
@@ -514,7 +549,6 @@ static vector<SearchResult> search_query_and_ranked(const vector<string>& query_
              return entries[a].doc_freq < entries[b].doc_freq;
          });
     
-    // Reorder
     vector<string> ordered_terms;
     vector<LexiconEntry> ordered_entries;
     for (size_t idx : indices) {
@@ -522,7 +556,6 @@ static vector<SearchResult> search_query_and_ranked(const vector<string>& query_
         ordered_entries.push_back(entries[idx]);
     }
     
-    // Get postings
     vector<vector<PostingEntry>> all_postings;
     vector<unordered_set<uint32_t>> doc_sets;
     
@@ -537,7 +570,6 @@ static vector<SearchResult> search_query_and_ranked(const vector<string>& query_
         doc_sets.push_back(doc_set);
     }
     
-    // Find intersection
     unordered_set<uint32_t> result_docs = doc_sets[0];
     for (size_t i = 1; i < doc_sets.size(); i++) {
         unordered_set<uint32_t> intersection;
@@ -554,7 +586,6 @@ static vector<SearchResult> search_query_and_ranked(const vector<string>& query_
         }
     }
     
-    // Score with field boosting and recency
     unordered_map<uint32_t, SearchResult> scores;
     
     for (uint32_t docid : result_docs) {
@@ -599,7 +630,6 @@ static vector<SearchResult> search_query_and_ranked(const vector<string>& query_
         scores[docid] = sr;
     }
     
-    // Convert and sort
     vector<SearchResult> results;
     results.reserve(scores.size());
     for (auto& p : scores) {
@@ -618,7 +648,6 @@ static vector<SearchResult> search_query_and_ranked(const vector<string>& query_
     return results;
 }
 
-// NEW: Phrase query with enhanced ranking
 static vector<SearchResult> search_phrase_ranked(const vector<string>& phrase_terms, 
                                                  size_t top_k = 10) {
     if (phrase_terms.empty()) return {};
@@ -637,7 +666,6 @@ static vector<SearchResult> search_phrase_ranked(const vector<string>& phrase_te
         entries.push_back(it->second);
     }
     
-    // Get postings and create docid maps
     vector<unordered_map<uint32_t, const PostingEntry*>> posting_maps;
     vector<vector<PostingEntry>> all_postings;
     
@@ -651,7 +679,6 @@ static vector<SearchResult> search_phrase_ranked(const vector<string>& phrase_te
         posting_maps.push_back(posting_map);
     }
     
-    // Find candidates
     unordered_set<uint32_t> candidates;
     for (const auto& posting : all_postings[0]) {
         candidates.insert(posting.docid);
@@ -667,7 +694,6 @@ static vector<SearchResult> search_phrase_ranked(const vector<string>& phrase_te
         candidates = intersection;
     }
     
-    // Check phrase matches
     vector<SearchResult> results;
     
     for (uint32_t docid : candidates) {
@@ -704,12 +730,11 @@ static vector<SearchResult> search_phrase_ranked(const vector<string>& phrase_te
             sr.docid = docid;
             sr.orig_docid = get_orig_docid(docid);
             
-            // Score phrase matches with field boosting
             uint32_t doc_len = get_doc_length(docid);
             string field = guess_field_from_position(phrase_position, doc_len);
             double field_boost = get_field_boost(field);
             
-            sr.bm25_score = 100.0 * field_boost; // High base score with field boost
+            sr.bm25_score = 100.0 * field_boost;
             
             auto meta_it = doc_metadata.find(docid);
             if (meta_it != doc_metadata.end()) {
@@ -726,7 +751,6 @@ static vector<SearchResult> search_phrase_ranked(const vector<string>& phrase_te
         }
     }
     
-    // Sort by score
     sort(results.begin(), results.end(), 
          [](const SearchResult& a, const SearchResult& b) {
              return a.final_score > b.final_score;
@@ -739,7 +763,7 @@ static vector<SearchResult> search_phrase_ranked(const vector<string>& phrase_te
     return results;
 }
 
-// -------------------- Main --------------------
+// ==================== Main ====================
 int main(int argc, char** argv) {
     if (argc < 3) {
         cerr << "Usage: " << argv[0] << " -d index_dir [OPTIONS]\n";
@@ -749,28 +773,25 @@ int main(int argc, char** argv) {
         cerr << "  -a \"QUERY\"  : query terms (AND semantics - all required)\n";
         cerr << "  -p \"PHRASE\" : phrase query (exact match)\n";
         cerr << "  -k N        : number of results (default 10)\n";
+        cerr << "  --benchmark : run performance benchmark\n";
         cerr << "\nInteractive mode queries:\n";
         cerr << "  Regular (OR):  machine learning\n";
         cerr << "  AND query:     +neural network\n";
         cerr << "  Phrase:        \"deep learning\"\n";
-        cerr << "\nFeatures:\n";
-        cerr << "  - Field boosting: Title (3x), Abstract (2x), Body (1x)\n";
-        cerr << "  - Date recency scoring (10% weight)\n";
-        cerr << "  - Enhanced BM25 ranking\n";
         return 1;
     }
     
-    string index_dir;
     string query_str;
     string and_query_str;
     string phrase_str;
     size_t top_k = 10;
     bool interactive = true;
+    bool run_benchmark = false;
     
     for (int i = 1; i < argc; i++) {
         string arg = argv[i];
         if (arg == "-d" && i+1 < argc) {
-            index_dir = argv[++i];
+            index_directory = argv[++i];
         } else if (arg == "-q" && i+1 < argc) {
             query_str = argv[++i];
             interactive = false;
@@ -782,34 +803,121 @@ int main(int argc, char** argv) {
             interactive = false;
         } else if (arg == "-k" && i+1 < argc) {
             top_k = stoul(argv[++i]);
+        } else if (arg == "--benchmark") {
+            run_benchmark = true;
+            interactive = false;
         }
     }
     
-    if (index_dir.empty()) {
+    if (index_directory.empty()) {
         cerr << "ERROR: Index directory (-d) required\n";
         return 1;
     }
     
-    if (!fs::exists(index_dir)) {
-        cerr << "ERROR: Index directory does not exist: " << index_dir << "\n";
+    if (!fs::exists(index_directory)) {
+        cerr << "ERROR: Index directory does not exist: " << index_directory << "\n";
         return 1;
     }
     
-    // Load index files
     cerr << "\n=== Loading Index ===\n";
-    load_lexicon(index_dir + "/lexicon.txt");
-    load_postings(index_dir + "/postings.bin");
-    load_docid_map(index_dir + "/docid_map.txt");
-    load_forward_index(index_dir + "/forward_index.jsonl");
+    load_lexicon(index_directory + "/lexicon.txt");
+    load_docid_map(index_directory + "/docid_map.txt");
+    load_forward_index(index_directory + "/forward_index.jsonl");
     
     cerr << "\n=== Enhanced Search Engine Ready ===\n";
     cerr << "Total terms: " << lexicon.size() << "\n";
     cerr << "Total docs: " << total_docs << "\n";
     cerr << "Docs with metadata: " << doc_metadata.size() << "\n";
     cerr << "Avg doc length: " << fixed << setprecision(2) << avg_doc_length << "\n";
+    cerr << "Barrels: " << NUM_BARRELS << " (lazy loading enabled)\n";
     cerr << "Field boosting: Title=" << TITLE_BOOST << "x, Abstract=" 
          << ABSTRACT_BOOST << "x, Body=" << BODY_BOOST << "x\n";
     cerr << "Recency weight: " << (RECENCY_WEIGHT * 100) << "%\n\n";
+    
+    if (run_benchmark) {
+        cerr << "\n=== Running Performance Benchmark ===\n";
+        
+        vector<tuple<string, string, string>> test_queries = {
+            {"Single term", "machine", "OR"},
+            {"Two terms OR", "machine learning", "OR"},
+            {"Three terms OR", "deep neural network", "OR"},
+            {"Two terms AND", "+machine +learning", "AND"},
+            {"Three terms AND", "+deep +neural +network", "AND"},
+            {"Phrase 2 words", "\"machine learning\"", "PHRASE"},
+            {"Phrase 3 words", "\"deep neural network\"", "PHRASE"},
+            {"Common term", "data", "OR"},
+            {"Rare term", "immunotherapy", "OR"}
+        };
+        
+        cout << "\nRunning " << test_queries.size() << " test queries...\n\n";
+        
+        for (const auto& [name, query, type] : test_queries) {
+            auto start = chrono::high_resolution_clock::now();
+            
+            vector<SearchResult> results;
+            if (type == "PHRASE") {
+                string clean = query.substr(1, query.size() - 2);
+                vector<string> terms;
+                istringstream iss(clean);
+                string term;
+                while (iss >> term) terms.push_back(term);
+                results = search_phrase_ranked(terms, 10);
+            } else if (type == "AND") {
+                string clean = query;
+                size_t pos = 0;
+                while ((pos = clean.find('+')) != string::npos) {
+                    clean.replace(pos, 1, "");
+                }
+                vector<string> terms;
+                istringstream iss(clean);
+                string term;
+                while (iss >> term) terms.push_back(term);
+                results = search_query_and_ranked(terms, 10);
+            } else {
+                vector<string> terms;
+                istringstream iss(query);
+                string term;
+                while (iss >> term) terms.push_back(term);
+                results = search_query_ranked(terms, 10);
+            }
+            
+            auto end = chrono::high_resolution_clock::now();
+            auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+            
+            perf_stats.record(type, duration.count());
+            
+            cout << name << " [" << type << "]: " 
+                 << (duration.count() / 1000.0) << " ms";
+            cout << " (" << results.size() << " results)";
+            
+            // Check targets
+            double ms = duration.count() / 1000.0;
+            if (type == "OR" && ms < 100) cout << " ✅";
+            else if (type == "AND" && ms < 200) cout << " ✅";
+            else if (type == "PHRASE" && ms < 300) cout << " ✅";
+            else cout << " ⚠️";
+            
+            cout << "\n";
+        }
+        
+        perf_stats.report();
+        
+        // Memory usage report
+        size_t loaded_barrels = 0;
+        size_t total_barrel_memory = 0;
+        for (int i = 0; i < NUM_BARRELS; i++) {
+            if (barrel_loaded[i]) {
+                loaded_barrels++;
+                total_barrel_memory += barrel_data[i].size();
+            }
+        }
+        
+        cerr << "\n=== Memory Usage ===\n";
+        cerr << "Barrels loaded: " << loaded_barrels << "/" << NUM_BARRELS << "\n";
+        cerr << "Barrel memory: " << (total_barrel_memory / (1024.0 * 1024.0)) << " MB\n";
+        
+        return 0;
+    }
     
     if (interactive) {
         cout << "Enter queries (or 'quit' to exit):\n";
@@ -825,7 +933,6 @@ int main(int argc, char** argv) {
             if (line == "quit" || line == "exit") break;
             if (line.empty()) continue;
             
-            // Parse query type
             bool is_phrase = false;
             bool is_and = false;
             
@@ -837,7 +944,6 @@ int main(int argc, char** argv) {
                 line = line.substr(1);
             }
             
-            // Parse terms
             vector<string> terms;
             istringstream iss(line);
             string term;
@@ -847,25 +953,29 @@ int main(int argc, char** argv) {
             
             if (terms.empty()) continue;
             
-            // Execute search
             auto start = chrono::high_resolution_clock::now();
             vector<SearchResult> results;
+            string query_type;
             
             if (is_phrase) {
-                cerr << "  [Phrase query with enhanced ranking]\n";
+                cerr << "  [Phrase query]\n";
                 results = search_phrase_ranked(terms, top_k);
+                query_type = "PHRASE";
             } else if (is_and) {
-                cerr << "  [AND query with enhanced ranking]\n";
+                cerr << "  [AND query]\n";
                 results = search_query_and_ranked(terms, top_k);
+                query_type = "AND";
             } else {
-                cerr << "  [OR query with enhanced ranking]\n";
+                cerr << "  [OR query]\n";
                 results = search_query_ranked(terms, top_k);
+                query_type = "OR";
             }
             
             auto end = chrono::high_resolution_clock::now();
             auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
             
-            // Display results
+            perf_stats.record(query_type, duration.count() * 1000); // convert to microseconds
+            
             cout << "\nFound " << results.size() << " results in " 
                  << duration.count() << " ms\n\n";
             
@@ -892,8 +1002,11 @@ int main(int argc, char** argv) {
                 cout << "\n";
             }
         }
+        
+        cout << "\n";
+        perf_stats.report();
+        
     } else {
-        // Command-line mode
         vector<SearchResult> results;
         auto start = chrono::high_resolution_clock::now();
         
@@ -902,21 +1015,21 @@ int main(int argc, char** argv) {
             istringstream iss(phrase_str);
             string term;
             while (iss >> term) terms.push_back(term);
-            cerr << "Executing phrase query with enhanced ranking...\n";
+            cerr << "Executing phrase query...\n";
             results = search_phrase_ranked(terms, top_k);
         } else if (!and_query_str.empty()) {
             vector<string> terms;
             istringstream iss(and_query_str);
             string term;
             while (iss >> term) terms.push_back(term);
-            cerr << "Executing AND query with enhanced ranking...\n";
+            cerr << "Executing AND query...\n";
             results = search_query_and_ranked(terms, top_k);
         } else {
             vector<string> terms;
             istringstream iss(query_str);
             string term;
             while (iss >> term) terms.push_back(term);
-            cerr << "Executing OR query with enhanced ranking...\n";
+            cerr << "Executing OR query...\n";
             results = search_query_ranked(terms, top_k);
         }
         
