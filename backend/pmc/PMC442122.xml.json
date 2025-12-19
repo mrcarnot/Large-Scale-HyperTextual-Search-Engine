@@ -1,0 +1,2631 @@
+{
+    "paper_id": "PMC442122",
+    "metadata": {
+        "title": "Coronavirus 3CLpro proteinase cleavage sites: Possible relevance to SARS virus pathology",
+        "authors": [
+            {
+                "first": "Lars",
+                "middle": [],
+                "last": "Kiemer",
+                "suffix": "",
+                "email": "lars@cbs.dtu.dk",
+                "affiliation": {}
+            },
+            {
+                "first": "Ole",
+                "middle": [],
+                "last": "Lund",
+                "suffix": "",
+                "email": "lund@cbs.dtu.dk",
+                "affiliation": {}
+            },
+            {
+                "first": "S\u00f8ren",
+                "middle": [],
+                "last": "Brunak",
+                "suffix": "",
+                "email": "brunak@cbs.dtu.dk",
+                "affiliation": {}
+            },
+            {
+                "first": "Nikolaj",
+                "middle": [],
+                "last": "Blom",
+                "suffix": "",
+                "email": "nikob@cbs.dtu.dk",
+                "affiliation": {}
+            }
+        ]
+    },
+    "body_text": [
+        {
+            "text": "In the spring of 2003, the Severe Acute Respiratory Syndrome (SARS) caused numerous fatalities particularly in Southeast Asia and gravely affected the global economy. The causative agent was shown to be a human coronavirus [1], a virus type which normally causes mild cold symptoms in humans. The abrupt appearance raises concern of another break-out of an epidemic of SARS virus or similar strains in the future.",
+            "cite_spans": [
+                {
+                    "start": 224,
+                    "end": 225,
+                    "mention": "1",
+                    "ref_id": "BIBREF0"
+                }
+            ],
+            "section": "Background",
+            "ref_spans": []
+        },
+        {
+            "text": "Coronaviruses are found in different species ranging from chicken to cattle and humans. Currently, seven coronavirus genomes, including SARS coronavirus (CoV), have been fully sequenced and cluster into four main groups, of which SARS-CoV occupies its own [2,3]. Polyproteins encoded by the coronavirus RNA are processed by viral proteinases yielding mature proteins. The main proteinase 3CLpro performs at least eleven proteolytic cleavages within a single viral polyprotein [4,5]. Viral polyprotein processing is a common theme in viral molecular biology, e.g. as seen in picornaviruses and retroviruses like HIV. Therefore, essential viral proteinases have been suggested as potential targets for specific therapeutic approaches, e.g. by development of specific proteinase inhibitors [6-8].",
+            "cite_spans": [
+                {
+                    "start": 257,
+                    "end": 258,
+                    "mention": "2",
+                    "ref_id": "BIBREF11"
+                },
+                {
+                    "start": 259,
+                    "end": 260,
+                    "mention": "3",
+                    "ref_id": "BIBREF22"
+                },
+                {
+                    "start": 477,
+                    "end": 478,
+                    "mention": "4",
+                    "ref_id": "BIBREF32"
+                },
+                {
+                    "start": 479,
+                    "end": 480,
+                    "mention": "5",
+                    "ref_id": "BIBREF33"
+                },
+                {
+                    "start": 788,
+                    "end": 789,
+                    "mention": "6",
+                    "ref_id": "BIBREF34"
+                },
+                {
+                    "start": 790,
+                    "end": 791,
+                    "mention": "8",
+                    "ref_id": "BIBREF36"
+                }
+            ],
+            "section": "Background",
+            "ref_spans": []
+        },
+        {
+            "text": "In the case of picornaviruses, virus-encoded proteinases are able to cleave specific cellular targets and thereby severely inhibit the cellular translational machinery (the \"host cell shut-off\" response) while still allowing for high translational activity of viral mRNA [9]. Earlier, we developed a computational approach for predicting potential cleavage sites of picornavirus proteinases 2A and 3C [10]. Badorff et al. successfully used this cleavage predictor to identify the cellular target dystrophin, which they experimentally showed to be cleaved both in vitro and in vivo [11]. However, preliminary studies revealed that this model is not compatible with coronavirus cleavage sites. The general approach is still valid though, and we decided to apply this method to the problem of predicting the 3CLpro proteinase cleavage sites and identifying potential host cell target proteins. We propose that a deeper understanding of coronavirus proteinase function and substrate specificity may benefit further research by: i) increasing the understanding of substrate specificity determinants which may direct studies focusing on the development of specific proteinase inhibitors and ii) providing a method for screening cellular target proteins for potential coronavirus proteinase cleavage sites.",
+            "cite_spans": [
+                {
+                    "start": 272,
+                    "end": 273,
+                    "mention": "9",
+                    "ref_id": "BIBREF37"
+                },
+                {
+                    "start": 402,
+                    "end": 404,
+                    "mention": "10",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 582,
+                    "end": 584,
+                    "mention": "11",
+                    "ref_id": "BIBREF2"
+                }
+            ],
+            "section": "Background",
+            "ref_spans": []
+        },
+        {
+            "text": "In this paper, we describe the development of a computational prediction method using artificial neural networks for predicting coronavirus 3CLpro proteinase cleavage sites. The method is based on known cleavage sites in seven members of the coronavirus family as the cleavage sites are believed to be sufficiently conserved among family members. This notion is supported by the fact that the SARS 3CLpro proteinase has recently been shown capable of catalysing the cleavage of peptide fragments from other coronaviruses at the expected cleavage sites [12].",
+            "cite_spans": [
+                {
+                    "start": 553,
+                    "end": 555,
+                    "mention": "12",
+                    "ref_id": "BIBREF3"
+                }
+            ],
+            "section": "Background",
+            "ref_spans": []
+        },
+        {
+            "text": "We discuss potential targets of 3CLpro proteinase, e.g. the cystic fibrosis transmembrane conductance regulator (CFTR) and translational and transcriptional factors, which may be involved in the molecular pathology of coronaviruses in general and SARS virus in particular.",
+            "cite_spans": [],
+            "section": "Background",
+            "ref_spans": []
+        },
+        {
+            "text": "The 77 annotated coronavirus polyprotein main proteinase cleavage sites were aligned without gaps by constraining the P1 position. Every site had a glutamine (Q) in position P1 (the position just before the cleavage site; the positions are named as suggested by Berger and Schechter [13] with P1, P2, ... etc., N-terminal to the cleavage site and P1', P2', ... etc., C-terminal to the cleavage site). From the sequence logo (Figure 1) a very strong consensus is evident around the cleavage site. As discussed by others [14,15], the coronavirus 3C-like proteinase shares many traits with its picornavirus 3C proteinase counterpart, hence the name. This is reflected in the cleavage site logo although differences between the two are also apparent. Positions P1', P1, and P4 have similar amino acid distribution in the 3C and 3CL proteinase cleavage sites. On the other hand, the coronavirus proteinase has a strong preference for leucine at position P2 while this position is relatively non-conserved among picornavirus proteinase cleavage sites [10]. A recently published study of the crystal structure of 3CLpro from the 229E strain of human coronaviruses indicates that residues at positions P5 to P3 form an anti-parallel \u03b2 sheet with part of the proteinase, signifying their importance in cleavage site recognition [7].",
+            "cite_spans": [
+                {
+                    "start": 284,
+                    "end": 286,
+                    "mention": "13",
+                    "ref_id": "BIBREF4"
+                },
+                {
+                    "start": 520,
+                    "end": 522,
+                    "mention": "14",
+                    "ref_id": "BIBREF5"
+                },
+                {
+                    "start": 523,
+                    "end": 525,
+                    "mention": "15",
+                    "ref_id": "BIBREF6"
+                },
+                {
+                    "start": 1046,
+                    "end": 1048,
+                    "mention": "10",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 1320,
+                    "end": 1321,
+                    "mention": "7",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "section": "Analysis of the proteinase cleavage site ::: Results",
+            "ref_spans": [
+                {
+                    "start": 432,
+                    "end": 433,
+                    "mention": "1",
+                    "ref_id": "FIGREF0"
+                }
+            ]
+        },
+        {
+            "text": "It is clear from the above that a simple, position specific consensus sequence is difficult to define. With the present data set from seven different coronaviruses it is possible to classify correctly 60 (78%) of the 77 cleavage sites by matching an 'LQ' consensus pattern. However, an additional 196 sites in the viral polyproteins are incorrectly classified as cleavage sites, being random occurrences of this pair of amino acids. Classification is improved by using the consensus pattern 'LQ [S/A]', meaning Leu-Gln-(Ser OR Ala), but it is still far from being a useful classifier. The false positive rate is now down to 36 wrong sites, but at the same time only 48 (62%) of the correct cleavage sites are detected. As the pattern becomes more sophisticated, specificity increases (reducing the number of false positives) but at the same time sensitivity drops dramatically (i.e. fewer of the true sites are detected).",
+            "cite_spans": [],
+            "section": "Analysis of the proteinase cleavage site ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "To overcome the limitations of simple consensus patterns, we trained an artificial neural network to identify the cleavage sites. The best model was obtained using a three-layered neural network with two hidden neurons and a sequence window encompassing nine amino acids centered on the P1 position, thus encompassing P5-P4'. The network evaluates and assigns a score between 0 and 1 to every glutamine to which it is presented, where a score above 0.5 is considered a positive answer (i.e. a cleavage site is predicted). This model was able to classify correctly 67 of 77 known cleavage sites (87.0%) and 1,358 of 1,372 (99.0%) sites assumed not to be cleaved by the proteinase when testing on independent sites not included when training. The neural network method could thus identify many more of the positive sites with fewer false positives than simple consensus-type methods thereby increasing the classification performance. The Matthews correlation coefficient reached 0.84 for the artificial neural network compared to 0.37, 0.53 and 0.51 for increasingly complex consensus patterns ('LQ', 'LQ [S/A]', ' [T/S/A]X [L/F]Q [S/A/G]' respectively) (Figure 2).",
+            "cite_spans": [],
+            "section": "Neural network training and performance ::: Results",
+            "ref_spans": [
+                {
+                    "start": 1160,
+                    "end": 1161,
+                    "mention": "2",
+                    "ref_id": "FIGREF1"
+                }
+            ]
+        },
+        {
+            "text": "To evaluate the predictive power of the neural network, we performed a basic bayesian analysis of the data set test results. The scoring range from 0 to 1 was divided into ten bins and the posterior probability of a positive prediction (a prediction indicating a cleavage) being true was calculated and plotted (Figure 3). The posterior probability in the range 0.5 to 0.8 cannot be determined accurately since relatively few examples score in this interval \u2013 only 3% of the test set (both positive and negative examples) scores between 0.4 and 0.8. However, results indicate that prediction scores can be classified into three categories, those that fall below 0.5 are most likely not cleaved, those that fall between 0.5 and 0.8 are possibly cleaved and those above 0.8 are most likely cleaved if available to the proteinase.",
+            "cite_spans": [],
+            "section": "Neural network training and performance ::: Results",
+            "ref_spans": [
+                {
+                    "start": 319,
+                    "end": 320,
+                    "mention": "3",
+                    "ref_id": "FIGREF2"
+                }
+            ]
+        },
+        {
+            "text": "As mentioned above, there are several experimentally verified examples of host cell protein cleavage by virus proteinases. Thus, both these and other non-coronavirus proteins from Swiss-Prot [16] 41.0 were examined for potential cleavage sites. In total three groups of proteins were examined: i) proteins known to be cleaved by other viruses, ii) proteins which could be targets when considering the pathology of coronaviruses iii) proteins related to the expected immune response to a viral infection. Eukaryotic translation initiation factor 4 gamma (IF4G_HUMAN) has a potential cleavage site after Gln838 (0.822), but also at two other positions although with lower cleavage scores. Cleavage of this protein may lead to host cell shut-off in a similar way to what has been described for picornavirus 2A proteinase [17].",
+            "cite_spans": [
+                {
+                    "start": 192,
+                    "end": 194,
+                    "mention": "16",
+                    "ref_id": "BIBREF7"
+                },
+                {
+                    "start": 819,
+                    "end": 821,
+                    "mention": "17",
+                    "ref_id": "BIBREF8"
+                }
+            ],
+            "section": "Analysis of selected human proteins ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "Two subunits of the RNA polymerase III are predicted targets of the coronavirus proteinase 3CLpro. RNA polymerase (RPC1_HUMAN) has a predicted cleavage site after Glnl95 with a score (0.765) well above the 0.5 cut-off. The protein is the second largest subunit of the RNA polymerase III complex and if this protein is indeed a cellular proteinase target it might cause disruption of the RNA polymerase III complex upon infection with a coronavirus. A similar disruption would be expected in case of a cleavage of the largest subunit of the complex (RPA1_HUMAN) which also has a predicted cleavage site (at position 329, score 0.704). It agrees with findings that poliovirus disrupts RNA polymerase III function, although this occurs through cleavage of transcription factor IIIC and not the polymerase subunits themselves [18-20]. Several well-known transcription factors contain potential cleavage sites. The highest scoring is CREB-RP (AT6B_HUMAN) with a predicted cleavage site at Gln358 (0.916) close to the DNA binding leucine zipper motif. This is in agreement with findings from picornavirus 3Cpro proteinase although at a different position in the sequence [21]. OCT-1 (PO21_HUMAN) is also predicted to be cleaved by the 3CLpro proteinase with high confidence (0.874) following Gln62 again corresponding to experimental evidence from picornavirus [22]. Several subunits of the transcription initiation factor TFIID, which is a verified target in poliovirus infections [23], have predicted cleavage sites; the 250 kDa subunit (T2D1_HUMAN), the 135 kDa subunit (T2D3_HUMAN), and the 105 kDa subunit (T2DT_HUMAN).",
+            "cite_spans": [
+                {
+                    "start": 823,
+                    "end": 825,
+                    "mention": "18",
+                    "ref_id": "BIBREF9"
+                },
+                {
+                    "start": 826,
+                    "end": 828,
+                    "mention": "20",
+                    "ref_id": "BIBREF12"
+                },
+                {
+                    "start": 1166,
+                    "end": 1168,
+                    "mention": "21",
+                    "ref_id": "BIBREF13"
+                },
+                {
+                    "start": 1356,
+                    "end": 1358,
+                    "mention": "22",
+                    "ref_id": "BIBREF14"
+                },
+                {
+                    "start": 1477,
+                    "end": 1479,
+                    "mention": "23",
+                    "ref_id": "BIBREF15"
+                }
+            ],
+            "section": "Analysis of selected human proteins ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "The tumor-suppressor protein P53 is known to be cleaved by picornavirus 3Cpro proteinase [24] but this protein is not predicted to contain any coronavirus 3Cpro proteinase cleavage sites. However, P53-binding protein 1 (P531_HUMAN) and P53-binding protein 2 (P532_HUMAN), which stimulate p53-mediated transcriptional activation [25], have several potential cleavage sites.",
+            "cite_spans": [
+                {
+                    "start": 90,
+                    "end": 92,
+                    "mention": "24",
+                    "ref_id": "BIBREF16"
+                },
+                {
+                    "start": 329,
+                    "end": 331,
+                    "mention": "25",
+                    "ref_id": "BIBREF17"
+                }
+            ],
+            "section": "Analysis of selected human proteins ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "Another known target for viral infections is the microtubule-associated protein 4 (MAP-4) which is cleavable in HeLa cells by the poliovirus 3Cpro proteinase [26,27]. MAP-4 (MAP4_HUMAN) might also be cleavable by 3CLpro albeit with a low score (after Gln 1005 with a score of 0.519) and furthermore microtubule-associated protein RP/EB member 1 and 3 (MAE1_HUMAN and MAE3_HUMAN) have sites which obtain scores above 0.5. The position of the possible cleavage site in MAP-4 is different from that observed with poliovirus 3Cpro reflecting the different specificity of this proteinase.",
+            "cite_spans": [
+                {
+                    "start": 159,
+                    "end": 161,
+                    "mention": "26",
+                    "ref_id": "BIBREF18"
+                },
+                {
+                    "start": 162,
+                    "end": 164,
+                    "mention": "27",
+                    "ref_id": "BIBREF19"
+                }
+            ],
+            "section": "Analysis of selected human proteins ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "Lung related proteins were examined as early symptoms of SARS could indicate a relation. The cystic fibrosis transmembrane conductance regulator (CFTR_HUMAN) is an ATP-dependent chloride channel. It has a predicted cleavage site with a high score (0.842) following Gln762 in the human sequence. This part of the membrane protein is cytoplasmic and contains several phosphorylation sites (residues 660 \u2013 813) indicating an accessible region.",
+            "cite_spans": [],
+            "section": "Analysis of selected human proteins ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "The epithelial sodium channels play an important role in lung liquid homeostasis [28] and the amiloride-sensitive sodium channel \u03b4-subunit (SCAD_HUMAN) has a predicted cleavage site in the cytoplasmic C-terminus (after residue 22) scoring 0.828. A number of proteins involved in the ubiquitin pathway which targets proteins to the proteasome, a necessary step to generate an immune response, have predicted cleavage sites (Swiss-Prot entries UBP1_HUMAN, SOC6_HUMAN, UBPD_HUMAN, UBP4_HUMAN, UBP5_HUMAN, UBPQ_HUMAN, FAFY_HUMAN, FAFX_HUMAN). Cleavage of one or more of these proteins may lead to reduced presentation of viral peptides to cytotoxic T lymphocytes thereby inhibiting the cellular immune response. IRAK-1 (IRA1_HUMAN) which is involved in IL-1 induced activation of cells has a predicted cleavage site after Gln457 scoring 0.859.",
+            "cite_spans": [
+                {
+                    "start": 82,
+                    "end": 84,
+                    "mention": "28",
+                    "ref_id": "BIBREF20"
+                }
+            ],
+            "section": "Analysis of selected human proteins ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "Interferon-induced protein 6\u201316 precursor (INI2_HUMAN) is a membrane protein and was predicted to possess a cleavage site following Gln97 (0.890) which is located in the cytoplasmic part of the mature protein. Protein 6\u201316 has been shown to enhance interferon-\u03b1 antiviral efficacy [29]. Interferon-\u03b1, -\u03b2, and -\u03b3 are known to be involved in antiviral defence and have been employed for treatment of SARS [30], but the interferons themselves do not seem to possess cleavage sites.",
+            "cite_spans": [
+                {
+                    "start": 282,
+                    "end": 284,
+                    "mention": "29",
+                    "ref_id": "BIBREF21"
+                },
+                {
+                    "start": 404,
+                    "end": 406,
+                    "mention": "30",
+                    "ref_id": "BIBREF23"
+                }
+            ],
+            "section": "Analysis of selected human proteins ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "We have listed the human proteins analysed in this work in a table (Table 1).",
+            "cite_spans": [],
+            "section": "Analysis of selected human proteins ::: Results",
+            "ref_spans": [
+                {
+                    "start": 74,
+                    "end": 75,
+                    "mention": "1",
+                    "ref_id": "TABREF0"
+                }
+            ]
+        },
+        {
+            "text": "We have developed a neural network capable of identifying the cleavage site of the coronavirus proteinase 3CLpro and use this model to predict potential cleavage sites in host cell proteins. The predictor is highly specific which means that few false positives are expected, in fact on independent test sets we observed a false positive rate around 1%. The optimal network window size of nine residues agrees well with available structural information about the proteinase from human coronavirus 229E which indicates that the active site makes contact with at least four residues N-terminal to the glutamine [7].",
+            "cite_spans": [
+                {
+                    "start": 609,
+                    "end": 610,
+                    "mention": "7",
+                    "ref_id": "BIBREF35"
+                }
+            ],
+            "section": "Discussion",
+            "ref_spans": []
+        },
+        {
+            "text": "The ten sites known to be cleaved but failed to be recognised by the neural network are not dramatically different from the remainder of the sites (Table 2). We therefore do not suspect these to be sites of a different hitherto unknown proteinase, but it would be interesting to see if the lower prediction score reflects a lower cleavage efficiency in vivo. Of the fourteen negative examples wrongly predicted as cleavable (Table 3), the highest scoring were examined more closely. The selected examples all show some resemblance to real cleavage sites but also some resemblance to negative examples which are not predicted as cleavable. They may represent sites in-between which are cleavable to a certain extent but are shielded from cleavage due to conformational issues.",
+            "cite_spans": [],
+            "section": "Discussion",
+            "ref_spans": [
+                {
+                    "start": 154,
+                    "end": 155,
+                    "mention": "2",
+                    "ref_id": "TABREF1"
+                },
+                {
+                    "start": 431,
+                    "end": 432,
+                    "mention": "3",
+                    "ref_id": "TABREF2"
+                }
+            ]
+        },
+        {
+            "text": "Predicted sites even with high scores which are inaccessible to the proteinase (like extracellular domains, transmembrane domains, or buried domains in globular proteins) should be disregarded, as accessibility information is not available to the neural network. Cleavage sites probably exist that are not cleaved because they are not exposed to the solvent sufficiently for the proteinase to work.",
+            "cite_spans": [],
+            "section": "Discussion",
+            "ref_spans": []
+        },
+        {
+            "text": "Others have attempted recognising the cleavage sites of the 3CL proteinase as a component of a coronavirus gene prediction server using different methods [31]. As the goal was different, that predictor is not publicly available and no performance values have been published.",
+            "cite_spans": [
+                {
+                    "start": 155,
+                    "end": 157,
+                    "mention": "31",
+                    "ref_id": "BIBREF24"
+                }
+            ],
+            "section": "Discussion",
+            "ref_spans": []
+        },
+        {
+            "text": "Our method can be employed by researchers suspecting a possible viral proteinase cleavage but may also prove useful for researchers working with coronavirus function. Finally, the method might facilitate proteinase blocking based drug discovery by providing hints about proteinase affinity to various non-cleavable peptide ligands, which is a possible strategy for drug development [7,32].",
+            "cite_spans": [
+                {
+                    "start": 383,
+                    "end": 384,
+                    "mention": "7",
+                    "ref_id": "BIBREF35"
+                },
+                {
+                    "start": 385,
+                    "end": 387,
+                    "mention": "32",
+                    "ref_id": "BIBREF25"
+                }
+            ],
+            "section": "Conclusions",
+            "ref_spans": []
+        },
+        {
+            "text": "Seven full-length coronavirus genomes were retrieved from the GenBank database [33] with the following accession numbers: NC_001451 (Avian infectious bronchitis virus, AIBV), NC_001846 (Murine hepatitis virus, MHV), NC_002645 (Human coronavirus 229E, HCoV-229E), NC_003436 (Porcine epidemic diarrhea virus, PEDV), NC_003045 (Bovine coronavirus, BCoV), NC_002306 (Transmissible gastroenteritis virus, TGV), and the TOR2 strain of SARS NC_004718. Deduced polyprotein sequences were aligned and cleavage sites identified from the annotation in NC_004718. Each sequence contained eleven 3CLpro proteinase cleavage sites, thus a total of 77 of these sites were identified. For training a neural network classifier, a number of negative examples (presumed non-cleavage sites) are required. For this purpose, all other glutamines in the viral polyproteins were treated as non-cleavable sites.",
+            "cite_spans": [
+                {
+                    "start": 80,
+                    "end": 82,
+                    "mention": "33",
+                    "ref_id": "BIBREF26"
+                }
+            ],
+            "section": "Data Set Preparation ::: Methods",
+            "ref_spans": []
+        },
+        {
+            "text": "Three test sets were created for three-fold cross-validation and the training set for one was created by combining the two other test sets. Every test set thus contained 483 examples of which 25 or 26 were positive examples. All testing and results reported are combined values of the three test sets, which are run individually with three separate neural networks to avoid testing on sequences included in training sets.",
+            "cite_spans": [],
+            "section": "Data Set Preparation ::: Methods",
+            "ref_spans": []
+        },
+        {
+            "text": "Amino acid conservation in multiple sequence alignments may be visualised using sequence logos. The height of the amino acid one-letter abbreviations reflect the Shannon information content [34] in units of bits at that specific position in the multiple sequence alignment [35]. The basic idea behind the visualisation technique is that the height of each letter in a given position reflects its probability pk(i). The total height of the column reflects the total information content (D(i)) at that specific position in the alignment given by (for proteins):",
+            "cite_spans": [
+                {
+                    "start": 191,
+                    "end": 193,
+                    "mention": "34",
+                    "ref_id": "BIBREF27"
+                },
+                {
+                    "start": 274,
+                    "end": 276,
+                    "mention": "35",
+                    "ref_id": "BIBREF28"
+                }
+            ],
+            "section": "Sequence logos ::: Methods",
+            "ref_spans": []
+        },
+        {
+            "text": "",
+            "cite_spans": [],
+            "section": "Sequence logos ::: Methods",
+            "ref_spans": []
+        },
+        {
+            "text": "Very conserved positions will then get tall columns with the height of individual residue symbols reflecting the amino acid distribution.",
+            "cite_spans": [],
+            "section": "Sequence logos ::: Methods",
+            "ref_spans": []
+        },
+        {
+            "text": "The artificial neural networks used in this work were of the standard feed-forward type. Sparse encoding was used for translating the amino acids to data input for the networks as has been described previously [36,10,37].",
+            "cite_spans": [
+                {
+                    "start": 211,
+                    "end": 213,
+                    "mention": "36",
+                    "ref_id": "BIBREF29"
+                },
+                {
+                    "start": 214,
+                    "end": 216,
+                    "mention": "10",
+                    "ref_id": "BIBREF1"
+                },
+                {
+                    "start": 217,
+                    "end": 219,
+                    "mention": "37",
+                    "ref_id": "BIBREF30"
+                }
+            ],
+            "section": "Training the neural networks ::: Methods",
+            "ref_spans": []
+        },
+        {
+            "text": "Training was done with three-fold cross-validation and Matthews correlation coefficients [38] were calculated by summing up true positives, false positives, true negatives, and false negatives in all combinations of training and test sets. Using an architecture with two hidden neurons and a symmetric window of nine amino acids centered on the glutamine in the P1 position it was possible to obtain a correlation coefficient of 0.84 on cross-validated test sets. Care was taken to ensure that all cleavage sites were equally distributed in every cross-validated set.",
+            "cite_spans": [
+                {
+                    "start": 90,
+                    "end": 92,
+                    "mention": "38",
+                    "ref_id": "BIBREF31"
+                }
+            ],
+            "section": "Training the neural networks ::: Methods",
+            "ref_spans": []
+        },
+        {
+            "text": "The validity of the statistics depends on the expected fraction of cleavage sites in a given data set, which we only know in the data set at hand. Statistics was thus done on the data set test results in order to create a histogram of prediction probabilities. Statistics was done using Bayes' Theorem:",
+            "cite_spans": [],
+            "section": "Bayesian statistics ::: Methods",
+            "ref_spans": []
+        },
+        {
+            "text": "",
+            "cite_spans": [],
+            "section": "Bayesian statistics ::: Methods",
+            "ref_spans": []
+        },
+        {
+            "text": "The prediction outcome (0\u20131) was divided into 10 bins (Xl) with increments of 0.1. The posterior probability P(Cpos|Xl) gives the probability of a positive prediction (that is, a cleavage) being true given the bin. This can be calculated from the prior probability P(Cpos), which is the fraction of positive examples in the data set, and the class-conditional probability P(Xl|Cpos) for positive examples, which is the fraction of positive examples in the bin Xl. P(Xl) is the fraction of prediction outcomes in bin Xl.",
+            "cite_spans": [],
+            "section": "Bayesian statistics ::: Methods",
+            "ref_spans": []
+        },
+        {
+            "text": "An averaged sum of the score of all three networks arising from the three-fold cross-validation was used for prediction. Each network outputs a score in the range [0.000\u20131.000], where scores below 0.5 indicate non-cleavage and scores above 0.5 indicate potential cleavage. This method is also employed by the prediction web server mentioned below. The Swiss-Prot database [16] release 41.0 (February 2003) was downloaded and proteins from this database were used as targets for the neural network predictions.",
+            "cite_spans": [
+                {
+                    "start": 373,
+                    "end": 375,
+                    "mention": "16",
+                    "ref_id": "BIBREF7"
+                }
+            ],
+            "section": "Searching for potential cleavage sites ::: Methods",
+            "ref_spans": []
+        },
+        {
+            "text": "Our neural network based prediction method, NetCorona, for prediction of potential cleavage sites of the SARS-3CLpro proteinase is publicly available by following the link 'CBS prediction servers' from  or at this specific URL: ",
+            "cite_spans": [],
+            "section": "Availability",
+            "ref_spans": []
+        },
+        {
+            "text": "AIBV \u2013 Avian Infectious Bronchitis Virus, BCoV \u2013 Bovine Coronavirus, CFTR \u2013 cystic fibrosis transmembrane conductance regulator, CoV \u2013 Coronavirus, HCoV-229E \u2013 Human Coronavirus 229E, MHV \u2013 Murine Hepatitis Virus, NN \u2013 neural network, PEDV \u2013 Porcine Epidemic Diarrhea Virus, SARS \u2013 severe acute respiratory syndrome, TGV \u2013 Transmissible Gastroenteritis Virus.",
+            "cite_spans": [],
+            "section": "List of abbreviations",
+            "ref_spans": []
+        },
+        {
+            "text": "LK carried out sequence retrieval, alignment, neural network training, prediction on potential proteins and drafted the manuscript. OL provided input on virus pathology and suggested human proteins for prediction. SB provided general inputs and improvements to the manuscript. Finally, NB conceived of and supervised the study in addition to assisting with the drafting of the manuscript.",
+            "cite_spans": [],
+            "section": "Authors' contributions",
+            "ref_spans": []
+        }
+    ],
+    "ref_entries": {
+        "TABREF0": {
+            "text": "Table 1: Selected potential cleavage sites in human proteins from the Swiss-Prot database examined in this work. Columns represent Swiss-Prot identifier, predicted cleavage site position of P1 in the target protein, cleavage site score, and cellular localisation of target protein (Cyt \u2013 cytoplasmic, Nuc \u2013 nuclear, Mem \u2013 membrane associated). The last column lists the cleavage site in the sequence \u2013 cleavage is predicted between the central glutamine residue (Q) and the following amino acid residue. Sorted by prediction score.\n",
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "Table 2: Known main proteinase cleavage sites in coronavirus polyproteins used in this study, which were missed by the neural network during cross-validation. Position refers to position in the viral polyprotein. The last column lists the cleavage site in the sequence \u2013 cleavage occurs between the central glutamine residue (Q) and the following amino acid residue.\n",
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Table 3: Negative examples predicted to be cleaved by the neural network during cross-validation. Position refers to position in the viral polyprotein. The last column lists the cleavage site in the sequence \u2013 cleavage is predicted between the central glutamine residue (Q) and the following amino acid residue.\n",
+            "type": "table"
+        },
+        "FIGREF0": {
+            "text": "Figure 1: Logo plot of a multiple alignment of 77 coronavirus cleavage sites. The height of the letters reflects the Shannon information at individual positions (see Methods section for detailed information).",
+            "type": "figure"
+        },
+        "FIGREF1": {
+            "text": "Figure 2: Method performance comparison. Using consensus patterns or neural network (NN) to identify cleavage sites. Green bars are percentage of true positives, red bars are percentage of true negatives and blue bars are Matthews correlation coefficients multiplied with 100.",
+            "type": "figure"
+        },
+        "FIGREF2": {
+            "text": "Figure 3: Reliability analysis of data set test results. Scoring range (0 \u2013 1) was divided into ten bins. The fraction of negative examples in each bin is illustrated with red bars, the fraction of positive examples is illustrated with green bars, blue bars are posterior probabilities of a true cleavage prediction (see Methods section for detailed information).",
+            "type": "figure"
+        }
+    },
+    "back_matter": [],
+    "bib_entries": {
+        "BIBREF0": {
+            "title": "Aetiology: Koch's postulates fulfilled for SARS virus",
+            "authors": [
+                {
+                    "first": "RA",
+                    "middle": [],
+                    "last": "Fouchier",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Kuiken",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Schutten",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "van Amerongen",
+                    "suffix": ""
+                },
+                {
+                    "first": "GJ",
+                    "middle": [],
+                    "last": "van Doornum",
+                    "suffix": ""
+                },
+                {
+                    "first": "BG",
+                    "middle": [],
+                    "last": "van den Hoogen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Peiris",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Lim",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Stohr",
+                    "suffix": ""
+                },
+                {
+                    "first": "AD",
+                    "middle": [],
+                    "last": "Osterhaus",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Nature",
+            "volume": "423",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": [
+                    "10.1038/423240a"
+                ]
+            }
+        },
+        "BIBREF1": {
+            "title": "Cleavage site analysis in picornaviral polyproteins: discovering cellular targets by neural networks",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Blom",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Hansen",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Blaas",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Brunak",
+                    "suffix": ""
+                }
+            ],
+            "year": 1996,
+            "venue": "Protein Sci",
+            "volume": "5",
+            "issn": "",
+            "pages": "2203-2216",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF2": {
+            "title": "Enteroviral protease 2A directly cleaves dystrophin and is inhibited by a dystrophin-based substrate analogue",
+            "authors": [
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Badorff",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Berkely",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Mehrotra",
+                    "suffix": ""
+                },
+                {
+                    "first": "JW",
+                    "middle": [],
+                    "last": "Talhouk",
+                    "suffix": ""
+                },
+                {
+                    "first": "RE",
+                    "middle": [],
+                    "last": "Rhoads",
+                    "suffix": ""
+                },
+                {
+                    "first": "KU",
+                    "middle": [],
+                    "last": "Knowlton",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "J Biol Chem",
+            "volume": "275",
+            "issn": "",
+            "pages": "11191-11197",
+            "other_ids": {
+                "DOI": [
+                    "10.1074/jbc.275.15.11191"
+                ]
+            }
+        },
+        "BIBREF3": {
+            "title": "Mechanisms and enzymes involved in SARS coronavirus genome expression",
+            "authors": [
+                {
+                    "first": "V",
+                    "middle": [],
+                    "last": "Thiel",
+                    "suffix": ""
+                },
+                {
+                    "first": "KA",
+                    "middle": [],
+                    "last": "Ivanov",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Putics",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Hertzig",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Schelle",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Bayer",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Weissbrich",
+                    "suffix": ""
+                },
+                {
+                    "first": "EJ",
+                    "middle": [],
+                    "last": "Snijder",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Rabenau",
+                    "suffix": ""
+                },
+                {
+                    "first": "HW",
+                    "middle": [],
+                    "last": "Doerr",
+                    "suffix": ""
+                },
+                {
+                    "first": "AE",
+                    "middle": [],
+                    "last": "Gorbalenya",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ziebuhr",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "J Gen Virol",
+            "volume": "84",
+            "issn": "",
+            "pages": "2305-2315",
+            "other_ids": {
+                "DOI": [
+                    "10.1099/vir.0.19424-0"
+                ]
+            }
+        },
+        "BIBREF4": {
+            "title": "Mapping the active site of papain with the aid of peptide substrates and inhibitors",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Berger",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Schechter",
+                    "suffix": ""
+                }
+            ],
+            "year": 1970,
+            "venue": "Philos Trans R Soc Lond B Biol Sci",
+            "volume": "257",
+            "issn": "",
+            "pages": "249-264",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF5": {
+            "title": "Virus-encoded proteinases and proteolytic processing in the Nidovirales",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ziebuhr",
+                    "suffix": ""
+                },
+                {
+                    "first": "EJ",
+                    "middle": [],
+                    "last": "Snijder",
+                    "suffix": ""
+                },
+                {
+                    "first": "AE",
+                    "middle": [],
+                    "last": "Gorbalenya",
+                    "suffix": ""
+                }
+            ],
+            "year": 2000,
+            "venue": "J Gen Virol",
+            "volume": "81",
+            "issn": "",
+            "pages": "853-879",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF6": {
+            "title": "Conservation of substrate specificities among coronavirus main proteases",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Hegyi",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ziebuhr",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "J Gen Virol",
+            "volume": "83",
+            "issn": "",
+            "pages": "595-599",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF7": {
+            "title": "The SWISS-PROT protein knowledgebase and its supplement TrEMBL in 2003",
+            "authors": [
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Boeckmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Bairoch",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Apweiler",
+                    "suffix": ""
+                },
+                {
+                    "first": "MC",
+                    "middle": [],
+                    "last": "Blatter",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Estreicher",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Gasteiger",
+                    "suffix": ""
+                },
+                {
+                    "first": "MJ",
+                    "middle": [],
+                    "last": "Martin",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Michoud",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "O'Donovan",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Phan",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Pilbout",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Schneider",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Nucleic Acids Res",
+            "volume": "31",
+            "issn": "",
+            "pages": "365-370",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/nar/gkg095"
+                ]
+            }
+        },
+        "BIBREF8": {
+            "title": "Mapping of functional domains in eukaryotic protein synthesis initiation factor 4G (eIF4G) with picornaviral proteases. Implications for cap-dependent and cap-independent translational initiation",
+            "authors": [
+                {
+                    "first": "BJ",
+                    "middle": [],
+                    "last": "Lamphear",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Kirchweger",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Skern",
+                    "suffix": ""
+                },
+                {
+                    "first": "RE",
+                    "middle": [],
+                    "last": "Rhoads",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "J Biol Chem",
+            "volume": "270",
+            "issn": "",
+            "pages": "21975-21983",
+            "other_ids": {
+                "DOI": [
+                    "10.1074/jbc.270.37.21975"
+                ]
+            }
+        },
+        "BIBREF9": {
+            "title": "A transcriptionally active form of TFIIIC is modified in poliovirus-infected HeLa cells",
+            "authors": [
+                {
+                    "first": "ME",
+                    "middle": [],
+                    "last": "Clark",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Dasgupta",
+                    "suffix": ""
+                }
+            ],
+            "year": 1990,
+            "venue": "Mol Cell Biol",
+            "volume": "10",
+            "issn": "",
+            "pages": "5106-5113",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF10": {
+            "title": "Poliovirus proteinase 3C converts an active form of transcription factor IIIC to an inactive form: a mechanism for inhibition of host cell polymerase III transcription by poliovirus",
+            "authors": [
+                {
+                    "first": "ME",
+                    "middle": [],
+                    "last": "Clark",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Hammerle",
+                    "suffix": ""
+                },
+                {
+                    "first": "E",
+                    "middle": [],
+                    "last": "Wimmer",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Dasgupta",
+                    "suffix": ""
+                }
+            ],
+            "year": 1991,
+            "venue": "EMBO J",
+            "volume": "10",
+            "issn": "",
+            "pages": "2941-2947",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF11": {
+            "title": "The Genome sequence of the SARS-associated coronavirus",
+            "authors": [
+                {
+                    "first": "MA",
+                    "middle": [],
+                    "last": "Marra",
+                    "suffix": ""
+                },
+                {
+                    "first": "SJ",
+                    "middle": [],
+                    "last": "Jones",
+                    "suffix": ""
+                },
+                {
+                    "first": "CR",
+                    "middle": [],
+                    "last": "Astell",
+                    "suffix": ""
+                },
+                {
+                    "first": "RA",
+                    "middle": [],
+                    "last": "Holt",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Brooks-Wilson",
+                    "suffix": ""
+                },
+                {
+                    "first": "YS",
+                    "middle": [],
+                    "last": "Butterfield",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Khattra",
+                    "suffix": ""
+                },
+                {
+                    "first": "JK",
+                    "middle": [],
+                    "last": "Asano",
+                    "suffix": ""
+                },
+                {
+                    "first": "SA",
+                    "middle": [],
+                    "last": "Barber",
+                    "suffix": ""
+                },
+                {
+                    "first": "SY",
+                    "middle": [],
+                    "last": "Chan",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Cloutier",
+                    "suffix": ""
+                },
+                {
+                    "first": "SM",
+                    "middle": [],
+                    "last": "Coughlin",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Freeman",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Girn",
+                    "suffix": ""
+                },
+                {
+                    "first": "OL",
+                    "middle": [],
+                    "last": "Griffith",
+                    "suffix": ""
+                },
+                {
+                    "first": "SR",
+                    "middle": [],
+                    "last": "Leach",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Mayo",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "McDonald",
+                    "suffix": ""
+                },
+                {
+                    "first": "SB",
+                    "middle": [],
+                    "last": "Montgomery",
+                    "suffix": ""
+                },
+                {
+                    "first": "PK",
+                    "middle": [],
+                    "last": "Pandoh",
+                    "suffix": ""
+                },
+                {
+                    "first": "AS",
+                    "middle": [],
+                    "last": "Petrescu",
+                    "suffix": ""
+                },
+                {
+                    "first": "AG",
+                    "middle": [],
+                    "last": "Robertson",
+                    "suffix": ""
+                },
+                {
+                    "first": "JE",
+                    "middle": [],
+                    "last": "Schein",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Siddiqui",
+                    "suffix": ""
+                },
+                {
+                    "first": "DE",
+                    "middle": [],
+                    "last": "Smailus",
+                    "suffix": ""
+                },
+                {
+                    "first": "JM",
+                    "middle": [],
+                    "last": "Stott",
+                    "suffix": ""
+                },
+                {
+                    "first": "GS",
+                    "middle": [],
+                    "last": "Yang",
+                    "suffix": ""
+                },
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Plummer",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Andonov",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Artsob",
+                    "suffix": ""
+                },
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Bastien",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Bernard",
+                    "suffix": ""
+                },
+                {
+                    "first": "TF",
+                    "middle": [],
+                    "last": "Booth",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Bowness",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Czub",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Drebot",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Fernando",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Flick",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Garbutt",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Gray",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Grolla",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Jones",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Feldmann",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Meyers",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Kabani",
+                    "suffix": ""
+                },
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Normand",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Stroher",
+                    "suffix": ""
+                },
+                {
+                    "first": "GA",
+                    "middle": [],
+                    "last": "Tipples",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Tyler",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Vogrig",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Ward",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Watson",
+                    "suffix": ""
+                },
+                {
+                    "first": "RC",
+                    "middle": [],
+                    "last": "Brunham",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Krajden",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Petric",
+                    "suffix": ""
+                },
+                {
+                    "first": "DM",
+                    "middle": [],
+                    "last": "Skowronski",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Upton",
+                    "suffix": ""
+                },
+                {
+                    "first": "RL",
+                    "middle": [],
+                    "last": "Roper",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Science",
+            "volume": "300",
+            "issn": "",
+            "pages": "1399-1404",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.1085953"
+                ]
+            }
+        },
+        "BIBREF12": {
+            "title": "DNA binding domain and subunit interactions of transcription factor IIIC revealed by dissection with poliovirus 3C protease",
+            "authors": [
+                {
+                    "first": "Y",
+                    "middle": [],
+                    "last": "Shen",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Igo",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Yalamanchili",
+                    "suffix": ""
+                },
+                {
+                    "first": "AJ",
+                    "middle": [],
+                    "last": "Berk",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Dasgupta",
+                    "suffix": ""
+                }
+            ],
+            "year": 1996,
+            "venue": "Mol Cell Biol",
+            "volume": "16",
+            "issn": "",
+            "pages": "4163-4171",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF13": {
+            "title": "Inhibition of host cell transcription by poliovirus: cleavage of transcription factor CREB by poliovirus-encoded protease 3Cpro",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Yalamanchili",
+                    "suffix": ""
+                },
+                {
+                    "first": "U",
+                    "middle": [],
+                    "last": "Datta",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Dasgupta",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "J Virol",
+            "volume": "71",
+            "issn": "",
+            "pages": "1220-1226",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF14": {
+            "title": "Cleavage of transcriptional activator Oct-1 by poliovirus encoded protease 3Cpro",
+            "authors": [
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Yalamanchili",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Weidman",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Dasgupta",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "Virology",
+            "volume": "239",
+            "issn": "",
+            "pages": "176-185",
+            "other_ids": {
+                "DOI": [
+                    "10.1006/viro.1997.8862"
+                ]
+            }
+        },
+        "BIBREF15": {
+            "title": "An RNA polymerase II transcription factor inactivated in poliovirus-infected cells copurifies with transcription factor TFIID",
+            "authors": [
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Kliewer",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Dasgupta",
+                    "suffix": ""
+                }
+            ],
+            "year": 1988,
+            "venue": "Mol Cell Biol",
+            "volume": "8",
+            "issn": "",
+            "pages": "3175-3182",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF16": {
+            "title": "Poliovirus 3C protease-mediated degradation of transcriptional activator p53 requires a cellular activity",
+            "authors": [
+                {
+                    "first": "MK",
+                    "middle": [],
+                    "last": "Weidman",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Yalamanchili",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Ng",
+                    "suffix": ""
+                },
+                {
+                    "first": "W",
+                    "middle": [],
+                    "last": "Tsai",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Dasgupta",
+                    "suffix": ""
+                }
+            ],
+            "year": 2001,
+            "venue": "Virology",
+            "volume": "291",
+            "issn": "",
+            "pages": "260-271",
+            "other_ids": {
+                "DOI": [
+                    "10.1006/viro.2001.1215"
+                ]
+            }
+        },
+        "BIBREF17": {
+            "title": "Stimulation of p53-mediated transcriptional activation by the p53-binding proteins, 53BP1 and 53BP2",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Iwabuchi",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Li",
+                    "suffix": ""
+                },
+                {
+                    "first": "HF",
+                    "middle": [],
+                    "last": "Massa",
+                    "suffix": ""
+                },
+                {
+                    "first": "BJ",
+                    "middle": [],
+                    "last": "Trask",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Date",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Fields",
+                    "suffix": ""
+                }
+            ],
+            "year": 1998,
+            "venue": "J Biol Chem",
+            "volume": "273",
+            "issn": "",
+            "pages": "26061-26068",
+            "other_ids": {
+                "DOI": [
+                    "10.1074/jbc.273.40.26061"
+                ]
+            }
+        },
+        "BIBREF18": {
+            "title": "Poliovirus infection results in structural alteration of a microtubule-associated protein",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Joachims",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Etchison",
+                    "suffix": ""
+                }
+            ],
+            "year": 1992,
+            "venue": "J Virol",
+            "volume": "66",
+            "issn": "",
+            "pages": "5797-5804",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF19": {
+            "title": "Poliovirus protease 3C mediates cleavage of microtubule-associated protein 4",
+            "authors": [
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Joachims",
+                    "suffix": ""
+                },
+                {
+                    "first": "KS",
+                    "middle": [],
+                    "last": "Harris",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Etchison",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "Virology",
+            "volume": "211",
+            "issn": "",
+            "pages": "451-461",
+            "other_ids": {
+                "DOI": [
+                    "10.1006/viro.1995.1427"
+                ]
+            }
+        },
+        "BIBREF20": {
+            "title": "Alveolar epithelial type I cells contain transport proteins and transport sodium, supporting an active role for type I cells in regulation of lung liquid homeostasis",
+            "authors": [
+                {
+                    "first": "MD",
+                    "middle": [],
+                    "last": "Johnson",
+                    "suffix": ""
+                },
+                {
+                    "first": "JH",
+                    "middle": [],
+                    "last": "Widdicombe",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Allen",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Barbry",
+                    "suffix": ""
+                },
+                {
+                    "first": "LG",
+                    "middle": [],
+                    "last": "Dobbs",
+                    "suffix": ""
+                }
+            ],
+            "year": 2002,
+            "venue": "Proc Natl Acad Sci U S A",
+            "volume": "99",
+            "issn": "",
+            "pages": "1966-1971",
+            "other_ids": {
+                "DOI": [
+                    "10.1073/pnas.042689399"
+                ]
+            }
+        },
+        "BIBREF21": {
+            "title": "Gene expression associated with interferon alfa antiviral activity in an HCV replicon cell line",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhu",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Zhao",
+                    "suffix": ""
+                },
+                {
+                    "first": "CD",
+                    "middle": [],
+                    "last": "Collins",
+                    "suffix": ""
+                },
+                {
+                    "first": "SE",
+                    "middle": [],
+                    "last": "Eckenrode",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Run",
+                    "suffix": ""
+                },
+                {
+                    "first": "RA",
+                    "middle": [],
+                    "last": "Mclndoe",
+                    "suffix": ""
+                },
+                {
+                    "first": "JM",
+                    "middle": [],
+                    "last": "Crawford",
+                    "suffix": ""
+                },
+                {
+                    "first": "DR",
+                    "middle": [],
+                    "last": "Nelson",
+                    "suffix": ""
+                },
+                {
+                    "first": "JX",
+                    "middle": [],
+                    "last": "She",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Liu",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Hepatology",
+            "volume": "37",
+            "issn": "",
+            "pages": "1180-1188",
+            "other_ids": {
+                "DOI": [
+                    "10.1053/jhep.2003.50184"
+                ]
+            }
+        },
+        "BIBREF22": {
+            "title": "Characterization of a Novel Coronavirus Associated with Severe Acute Respiratory Syndrome",
+            "authors": [
+                {
+                    "first": "PA",
+                    "middle": [],
+                    "last": "Rota",
+                    "suffix": ""
+                },
+                {
+                    "first": "MS",
+                    "middle": [],
+                    "last": "Oberste",
+                    "suffix": ""
+                },
+                {
+                    "first": "SS",
+                    "middle": [],
+                    "last": "Monroe",
+                    "suffix": ""
+                },
+                {
+                    "first": "WA",
+                    "middle": [],
+                    "last": "Nix",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Campagnoli",
+                    "suffix": ""
+                },
+                {
+                    "first": "JP",
+                    "middle": [],
+                    "last": "Icenogle",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Penaranda",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Bankamp",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Maher",
+                    "suffix": ""
+                },
+                {
+                    "first": "Mh",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Tong",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Tamin",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Lowe",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Frace",
+                    "suffix": ""
+                },
+                {
+                    "first": "JL",
+                    "middle": [],
+                    "last": "DeRisi",
+                    "suffix": ""
+                },
+                {
+                    "first": "Q",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "D",
+                    "middle": [],
+                    "last": "Wang",
+                    "suffix": ""
+                },
+                {
+                    "first": "DD",
+                    "middle": [],
+                    "last": "Erdman",
+                    "suffix": ""
+                },
+                {
+                    "first": "TCT",
+                    "middle": [],
+                    "last": "Peret",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Burns",
+                    "suffix": ""
+                },
+                {
+                    "first": "TG",
+                    "middle": [],
+                    "last": "Ksiazek",
+                    "suffix": ""
+                },
+                {
+                    "first": "PE",
+                    "middle": [],
+                    "last": "Rollin",
+                    "suffix": ""
+                },
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Sanchez",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Liffick",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Holloway",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Limor",
+                    "suffix": ""
+                },
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "McCaustland",
+                    "suffix": ""
+                },
+                {
+                    "first": "M",
+                    "middle": [],
+                    "last": "Olsen-Rasmussen",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Fouchier",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Gunther",
+                    "suffix": ""
+                },
+                {
+                    "first": "ADME",
+                    "middle": [],
+                    "last": "Osterhaus",
+                    "suffix": ""
+                },
+                {
+                    "first": "C",
+                    "middle": [],
+                    "last": "Drosten",
+                    "suffix": ""
+                },
+                {
+                    "first": "MA",
+                    "middle": [],
+                    "last": "Pallansch",
+                    "suffix": ""
+                },
+                {
+                    "first": "LJ",
+                    "middle": [],
+                    "last": "Anderson",
+                    "suffix": ""
+                },
+                {
+                    "first": "WJ",
+                    "middle": [],
+                    "last": "Bellini",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Science",
+            "volume": "300",
+            "issn": "",
+            "pages": "1394-1399",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.1085952"
+                ]
+            }
+        },
+        "BIBREF23": {
+            "title": "Treatment of SARS with human interferons",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Cinatl",
+                    "suffix": ""
+                },
+                {
+                    "first": "B",
+                    "middle": [],
+                    "last": "Morgenstern",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "Bauer",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Chandra",
+                    "suffix": ""
+                },
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Rabenau",
+                    "suffix": ""
+                },
+                {
+                    "first": "HW",
+                    "middle": [],
+                    "last": "Doerr",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Lancet",
+            "volume": "362",
+            "issn": "",
+            "pages": "293-294",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/S0140-6736(03)13973-6"
+                ]
+            }
+        },
+        "BIBREF24": {
+            "title": "Prediction of proteinase cleavage sites in polyproteins of coronaviruses and its applications in analyzing SARS-CoV genomes",
+            "authors": [
+                {
+                    "first": "F",
+                    "middle": [],
+                    "last": "Gao",
+                    "suffix": ""
+                },
+                {
+                    "first": "HY",
+                    "middle": [],
+                    "last": "Ou",
+                    "suffix": ""
+                },
+                {
+                    "first": "LL",
+                    "middle": [],
+                    "last": "Chen",
+                    "suffix": ""
+                },
+                {
+                    "first": "WX",
+                    "middle": [],
+                    "last": "Zheng",
+                    "suffix": ""
+                },
+                {
+                    "first": "CT",
+                    "middle": [],
+                    "last": "Zhang",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "FEBS Lett",
+            "volume": "553",
+            "issn": "",
+            "pages": "451-456",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/S0014-5793(03)01091-3"
+                ]
+            }
+        },
+        "BIBREF25": {
+            "title": "Binding mechanism of coronavirus main proteinase with ligands and its implication to drug design against SARS",
+            "authors": [
+                {
+                    "first": "KC",
+                    "middle": [],
+                    "last": "Chou",
+                    "suffix": ""
+                },
+                {
+                    "first": "DQ",
+                    "middle": [],
+                    "last": "Wei",
+                    "suffix": ""
+                },
+                {
+                    "first": "WZ",
+                    "middle": [],
+                    "last": "Zhong",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Biochem Biophys Res Commun",
+            "volume": "308",
+            "issn": "",
+            "pages": "148-151",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/S0006-291X(03)01342-1"
+                ]
+            }
+        },
+        "BIBREF26": {
+            "title": "GenBank: update",
+            "authors": [
+                {
+                    "first": "DA",
+                    "middle": [],
+                    "last": "Benson",
+                    "suffix": ""
+                },
+                {
+                    "first": "I",
+                    "middle": [],
+                    "last": "Karsch-Mizrachi",
+                    "suffix": ""
+                },
+                {
+                    "first": "DJ",
+                    "middle": [],
+                    "last": "Lipman",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ostell",
+                    "suffix": ""
+                },
+                {
+                    "first": "DL",
+                    "middle": [],
+                    "last": "Wheeler",
+                    "suffix": ""
+                }
+            ],
+            "year": 2004,
+            "venue": "Nucleic Acids Res",
+            "volume": "",
+            "issn": "",
+            "pages": "D23-26",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/nar/gkh045"
+                ]
+            }
+        },
+        "BIBREF27": {
+            "title": "A mathematical theory of communication",
+            "authors": [
+                {
+                    "first": "CE",
+                    "middle": [],
+                    "last": "Shannon",
+                    "suffix": ""
+                }
+            ],
+            "year": 1948,
+            "venue": "Bell System Tech J",
+            "volume": "27",
+            "issn": "",
+            "pages": "379-423",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF28": {
+            "title": "Sequence logos: a new way to display consensus sequences",
+            "authors": [
+                {
+                    "first": "TD",
+                    "middle": [],
+                    "last": "Schneider",
+                    "suffix": ""
+                },
+                {
+                    "first": "RM",
+                    "middle": [],
+                    "last": "Stephens",
+                    "suffix": ""
+                }
+            ],
+            "year": 1990,
+            "venue": "Nucleic Acids Res",
+            "volume": "18",
+            "issn": "",
+            "pages": "6097-6100",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF29": {
+            "title": "Identification of prokaryotic and eukaryotic signal peptides and prediction of their cleavage sites",
+            "authors": [
+                {
+                    "first": "H",
+                    "middle": [],
+                    "last": "Nielsen",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Engelbrecht",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Brunak",
+                    "suffix": ""
+                },
+                {
+                    "first": "G",
+                    "middle": [],
+                    "last": "von Heijne",
+                    "suffix": ""
+                }
+            ],
+            "year": 1997,
+            "venue": "Protein Eng",
+            "volume": "10",
+            "issn": "",
+            "pages": "1-6",
+            "other_ids": {
+                "DOI": [
+                    "10.1093/protein/10.1.1"
+                ]
+            }
+        },
+        "BIBREF30": {
+            "title": "Sequence and structure-based prediction of eukaryotic protein phosphorylation sites",
+            "authors": [
+                {
+                    "first": "N",
+                    "middle": [],
+                    "last": "Blom",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Gammeltoft",
+                    "suffix": ""
+                },
+                {
+                    "first": "S",
+                    "middle": [],
+                    "last": "Brunak",
+                    "suffix": ""
+                }
+            ],
+            "year": 1999,
+            "venue": "J Mol Biol",
+            "volume": "294",
+            "issn": "",
+            "pages": "1351-1362",
+            "other_ids": {
+                "DOI": [
+                    "10.1006/jmbi.1999.3310"
+                ]
+            }
+        },
+        "BIBREF31": {
+            "title": "Comparison of the predicted and observed secondary structure of T4 phage lysozyme",
+            "authors": [
+                {
+                    "first": "BW",
+                    "middle": [],
+                    "last": "Matthews",
+                    "suffix": ""
+                }
+            ],
+            "year": 1975,
+            "venue": "Biochim Biophys Acta",
+            "volume": "405",
+            "issn": "",
+            "pages": "442-451",
+            "other_ids": {
+                "DOI": [
+                    "10.1016/0005-2795(75)90109-9"
+                ]
+            }
+        },
+        "BIBREF32": {
+            "title": "Identification of polypeptides encoded in open reading frame 1b of the putative polymerase gene of the murine coronavirus mouse hepatitis virus A59",
+            "authors": [
+                {
+                    "first": "MR",
+                    "middle": [],
+                    "last": "Denison",
+                    "suffix": ""
+                },
+                {
+                    "first": "PW",
+                    "middle": [],
+                    "last": "Zoltick",
+                    "suffix": ""
+                },
+                {
+                    "first": "JL",
+                    "middle": [],
+                    "last": "Leibowitz",
+                    "suffix": ""
+                },
+                {
+                    "first": "CJ",
+                    "middle": [],
+                    "last": "Pachuk",
+                    "suffix": ""
+                },
+                {
+                    "first": "SR",
+                    "middle": [],
+                    "last": "Weiss",
+                    "suffix": ""
+                }
+            ],
+            "year": 1991,
+            "venue": "J Virol",
+            "volume": "65",
+            "issn": "",
+            "pages": "3076-3082",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF33": {
+            "title": "Characterization of a human coronavirus (strain 229E) 3C-like proteinase activity",
+            "authors": [
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ziebuhr",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Herold",
+                    "suffix": ""
+                },
+                {
+                    "first": "SG",
+                    "middle": [],
+                    "last": "Siddell",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "J Virol",
+            "volume": "69",
+            "issn": "",
+            "pages": "4331-4338",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF34": {
+            "title": "Inhibition of coronavirus MHV-A59 replication by proteinase inhibitors",
+            "authors": [
+                {
+                    "first": "MR",
+                    "middle": [],
+                    "last": "Denison",
+                    "suffix": ""
+                },
+                {
+                    "first": "JC",
+                    "middle": [],
+                    "last": "Kim",
+                    "suffix": ""
+                },
+                {
+                    "first": "T",
+                    "middle": [],
+                    "last": "Ross",
+                    "suffix": ""
+                }
+            ],
+            "year": 1995,
+            "venue": "Adv Exp Med Biol",
+            "volume": "380",
+            "issn": "",
+            "pages": "391-397",
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF35": {
+            "title": "Coronavirus main proteinase (3CLpro) structure: basis for design of anti-SARS drugs",
+            "authors": [
+                {
+                    "first": "K",
+                    "middle": [],
+                    "last": "Anand",
+                    "suffix": ""
+                },
+                {
+                    "first": "J",
+                    "middle": [],
+                    "last": "Ziebuhr",
+                    "suffix": ""
+                },
+                {
+                    "first": "P",
+                    "middle": [],
+                    "last": "Wadhwani",
+                    "suffix": ""
+                },
+                {
+                    "first": "JR",
+                    "middle": [],
+                    "last": "Mesters",
+                    "suffix": ""
+                },
+                {
+                    "first": "R",
+                    "middle": [],
+                    "last": "Hilgenfeld",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Science",
+            "volume": "300",
+            "issn": "",
+            "pages": "1763-1767",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.1085658"
+                ]
+            }
+        },
+        "BIBREF36": {
+            "title": "Virology. The SARS coronavirus: a postgenomic era",
+            "authors": [
+                {
+                    "first": "KV",
+                    "middle": [],
+                    "last": "Holmes",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Enjuanes",
+                    "suffix": ""
+                }
+            ],
+            "year": 2003,
+            "venue": "Science",
+            "volume": "300",
+            "issn": "",
+            "pages": "1377-1378",
+            "other_ids": {
+                "DOI": [
+                    "10.1126/science.1086418"
+                ]
+            }
+        },
+        "BIBREF37": {
+            "title": "Degradation of cellular proteins during poliovirus infection: studies by two-dimensional gel electrophoresis",
+            "authors": [
+                {
+                    "first": "A",
+                    "middle": [],
+                    "last": "Urzainqui",
+                    "suffix": ""
+                },
+                {
+                    "first": "L",
+                    "middle": [],
+                    "last": "Carrasco",
+                    "suffix": ""
+                }
+            ],
+            "year": 1989,
+            "venue": "J Virol",
+            "volume": "63",
+            "issn": "",
+            "pages": "4729-4735",
+            "other_ids": {
+                "DOI": []
+            }
+        }
+    }
+}

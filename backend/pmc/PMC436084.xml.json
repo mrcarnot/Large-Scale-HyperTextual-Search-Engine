@@ -1,0 +1,606 @@
+{
+    "paper_id": "PMC436084",
+    "metadata": {
+        "title": "A Consensus Action Agenda for Achieving the National Health Information Infrastructure",
+        "authors": [
+            {
+                "first": "William",
+                "middle": [
+                    "A."
+                ],
+                "last": "Yasnoff",
+                "suffix": "",
+                "email": null,
+                "affiliation": {}
+            },
+            {
+                "first": "Betsy",
+                "middle": [
+                    "L."
+                ],
+                "last": "Humphreys",
+                "suffix": "",
+                "email": null,
+                "affiliation": {}
+            },
+            {
+                "first": "J.",
+                "middle": [
+                    "Marc"
+                ],
+                "last": "Overhage",
+                "suffix": "",
+                "email": null,
+                "affiliation": {}
+            },
+            {
+                "first": "Don",
+                "middle": [
+                    "E."
+                ],
+                "last": "Detmer",
+                "suffix": "",
+                "email": null,
+                "affiliation": {}
+            },
+            {
+                "first": "Patricia",
+                "middle": [
+                    "Flatley"
+                ],
+                "last": "Brennan",
+                "suffix": "",
+                "email": null,
+                "affiliation": {}
+            },
+            {
+                "first": "Richard",
+                "middle": [
+                    "W."
+                ],
+                "last": "Morris",
+                "suffix": "",
+                "email": null,
+                "affiliation": {}
+            },
+            {
+                "first": "Blackford",
+                "middle": [],
+                "last": "Middleton",
+                "suffix": "",
+                "email": null,
+                "affiliation": {}
+            },
+            {
+                "first": "David",
+                "middle": [
+                    "W."
+                ],
+                "last": "Bates",
+                "suffix": "",
+                "email": null,
+                "affiliation": {}
+            },
+            {
+                "first": "John",
+                "middle": [
+                    "P."
+                ],
+                "last": "Fanning",
+                "suffix": "",
+                "email": null,
+                "affiliation": {}
+            }
+        ]
+    },
+    "body_text": [
+        {
+            "text": "Each of the eight members of the organizing committee, convened and chaired by one of us (WAY), assumed responsibility for one of the specific topic areas (or tracks) identified for consideration (\u25b6) by first recruiting other experts to assist in developing draft recommendations and facilitating the discussions at the stakeholder meeting. Each track developed a draft document that the organizing committee circulated in advance to meeting participants. These documents included a statement of the present situation and a vision for the future, and suggested recommendations or a framework for recommendations to make the transition to the desired state. While the background documents were used as the basis for initial discussions at the meeting, they were not necessarily adopted by the participants as part of the final recommendations. Participants included both the dissemination of clinical information systems and the interoperability among those systems in the definition of NHII, but these two concepts were not clearly differentiated.).  ",
+            "cite_spans": [],
+            "section": "Methods",
+            "ref_spans": [
+                {
+                    "start": 197,
+                    "end": 198,
+                    "mention": "\u25b6",
+                    "ref_id": "TABREF0"
+                }
+            ]
+        },
+        {
+            "text": "At the meeting itself, participants self-selected into one of the eight tracks and met for five one-hour breakout sessions consisting of facilitated discussions leading to development of final recommendations. In addition to the facilitators, each breakout session included several \u201cinvited experts\u201d selected by the track chairs. Because of the large number of participants (more than 580), six of the eight tracks were divided arbitrarily into two separate groups that independently developed recommendations. Each breakout group presented its report at the final sessions of the NHII 03 meeting. The organization of the meeting followed a previously used model.22",
+            "cite_spans": [
+                {
+                    "start": 663,
+                    "end": 665,
+                    "mention": "22",
+                    "ref_id": "BIBREF14"
+                }
+            ],
+            "section": "Methods",
+            "ref_spans": []
+        },
+        {
+            "text": "Subsequent to the meeting, each track chair developed a summary of the recommendations from that track in consultation with the facilitators. The authors reviewed all the recommendations and reassigned them to meaningful categories based on their contents. We then organized these final categories into a reasonably coherent set of programmatic recommendations designed to facilitate the development of the NHII.",
+            "cite_spans": [],
+            "section": "Methods",
+            "ref_spans": []
+        },
+        {
+            "text": "The attendees endorsed a collaborative governance model based on a public\u2013private partnership, with specific foci in the areas of privacy, patient safety, and architecture. This model is favored to support voluntary cooperation among government and private-sector representatives. Participants also recommended the same public\u2013private partnership model for communities developing local health information infrastructures (LHIIs) to make complete electronic medical records available within a specific jurisdiction.",
+            "cite_spans": [],
+            "section": "Governance ::: Management ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "The attendees clearly recognized the need to educate and communicate with both health care professionals and the public about NHII. The transition to a health care system based on electronic information will require changes in expectations and create varying degrees of confusion as new patterns of practice are developed. The availability of substantially complete information about patients at most clinical encounters will be a dramatic change from current practice, for example, and is likely to require significant adaptations in the methods that physicians use to review and evaluate patients. Clear understanding of NHII including its benefits and progress will be essential to address the anxieties that will naturally arise from this change process. Concerns about privacy are particularly sensitive. Since clinical practice will change, training programs for health professionals must also incorporate modern information systems to prepare trainees for practicing with NHII. There will also be substantial demands for health informatics professionals to lead and coordinate NHII development activities, so steps must be taken to strengthen and expand specialized training programs to assure an adequate supply. The critical need to increase our public health preparedness makes these educational issues even more urgent.",
+            "cite_spans": [],
+            "section": "Education and Communication ::: Management ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "The attendees recommended the creation of a variety of shared information resources (e.g., knowledge about building community health information exchanges) to assist in the NHII development process. The objective of these is to facilitate rapid progress by effectively disseminating tools, techniques, and knowledge gained in each community throughout the nation. Some of the recommendations would require only the establishment of shared electronic communication facilities, while others await the establishment of specific standards (e.g., practice guideline dissemination).",
+            "cite_spans": [],
+            "section": "Shared Information Resources ::: Management ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "Several groups indicated the need for metrics and goals to assess ongoing progress in the development of NHII, with funding closely tied to achievement of predefined milestones (such as participation of a substantial proportion of providers in a community). A theme of the recommendations was the application of uniform measures by LHIIs across the nation to enable consistent progress assessment. While improvements in patient safety, quality of care, and efficiency are the ultimate goals of NHII, implementers may need to rely on intermediate process measures in the early stages of its development.",
+            "cite_spans": [],
+            "section": "Metrics ::: Management ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "Five of the eight breakout groups recommended the establishment of financial incentives. These recommendations fell into two major categories: funding for the initial investment in health IT to create NHII, and financial incentives to ensure its sustainability. The group concluded that the current reimbursement system does not provide sufficient incentives for acquisition and use of health IT and suggested multiple approaches to address this problem. Participants recognized that modernizing reimbursement policy would be key to sustainability of health IT, especially since substantial savings from improved efficiency are expected from the application of this technology. Since payment incentives for quality care depend on measurements most easily derived from EHR systems, quality incentives alone may be problematic prior to EHR system availability to provide those measures. Attendees identified linking financial incentives of all kinds to the use of standards as a key policy to promote interoperability.",
+            "cite_spans": [],
+            "section": "Financial Incentives ::: Enablers ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "Virtually every breakout group\u2014regardless of topic\u2014produced at least one recommendation related to data standards. This reflects both the centrality of standards to the NHII and the desire to move rapidly to build on recent progress in designating U.S. standards and in providing federal support for the maintenance and free dissemination of clinical vocabularies. Attendees placed high priority on increasing the use of designated standards\u2014not only to enhance data exchange and aggregation, but also to generate the broad feedback needed to improve the standards. There were recommendations to promote early adoption of standards by federal agencies and to provide standard identifiers and codes as close as possible to the source of data, e.g., devices or test kits. Participants also agreed on the need to continue the existing standards designation processes, i.e., the Consolidated Health Informatics (CHI) Initiative23 and implementation of the patient medical record information recommendations of the NCVHS24; to provide adequate ongoing funding for standards development; to bolster standards maintenance processes to respond to feedback from increasing use; and to ensure that designated vocabulary and messaging standards work together as a coherent set.",
+            "cite_spans": [
+                {
+                    "start": 923,
+                    "end": 925,
+                    "mention": "23",
+                    "ref_id": "BIBREF15"
+                },
+                {
+                    "start": 1015,
+                    "end": 1017,
+                    "mention": "24",
+                    "ref_id": "BIBREF16"
+                }
+            ],
+            "section": "Standards ::: Enablers ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "Four of the breakout groups recommended attention to removing legal barriers to the development of NHII. For example, the anti-kickback and Stark statutes that may prohibit hospitals from giving technology to their referring physicians (to prevent improper influence on referrals) can impede certain desirable investments in health IT. Specifically, state and federal laws that could affect the architecture, development, and/or implementation of NHII need to be evaluated. Guided by this evaluation, legal barriers that constrain investment and information sharing should be removed. The legal infrastructure should be updated to facilitate NHII, rather than inhibiting its development.",
+            "cite_spans": [],
+            "section": "Legal Issues ::: Enablers ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "Seven of the eight breakout groups recommended the establishment of community demonstration projects. The primary reason for this local/regional approach is that medical care itself is primarily a local service, with the exception of cross-country consultations. The community approach provides a manageable implementation project with participants who have the shared motivation of improving health care in their own geographic area. The sometimes difficult compromises required for agreements to facilitate sharing of health information (e.g., between competitors) are also more easily made at a community level, where all involved have a common and easily perceived interest in improving health care for themselves and their neighbors. The attendees suggested that regional steering committees would be the best organizational entities to build these community health information infrastructures. An incremental approach to data exchange and interoperability was recommended to minimize disruption from overly rapid change. Linkages among these regional steering committees should be established to promote sharing of lessons learned so that best practices can be developed and disseminated.",
+            "cite_spans": [],
+            "section": "Demonstration Projects ::: Implementation Strategy ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "These demonstrations should be built on the standards and architecture coordinated by an Architecture Task Force (ATF). Demonstrations would serve several purposes, including (1) feedback to the ATF that will help evolve the standards and architecture; (2) organizational and implementation models that other communities can follow; (3) operational LHIIs that will become the foundation for the NHII; and (4) test beds for experimenting with more advanced functions and approaches. These demonstrations would start with reference implementations of standards and architectural approaches that would eventually be reviewed and adopted by the ATF. Reference implementations that work \u201con the ground\u201d in real environments are critical tests of standards and architecture. The scope of the demonstrations will need to be carefully managed to ensure that the needs of all constituencies, including consumers and public health, are addressed.",
+            "cite_spans": [],
+            "section": "Demonstration Projects ::: Implementation Strategy ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "The group recommended creating an ATF to encourage and guide the adoption and evolution of relevant standards and establish the models LHIIs will use to meet the requirements of all community stakeholders. This task force's role is not envisioned as defining the standards or architecture, but rather coordinating and formally adopting or approving the work of volunteer groups that will create the standards and architecture. These functions will be based on architectural principles it develops (e.g., as proposed in \u25b6). Evaluating and refining these models will also be a critical ATF task because the totality of uses and demands for the NHII is not yet completely understood.  ",
+            "cite_spans": [],
+            "section": "Architecture ::: Implementation Strategy ::: Results",
+            "ref_spans": [
+                {
+                    "start": 519,
+                    "end": 520,
+                    "mention": "\u25b6",
+                    "ref_id": "TABREF2"
+                }
+            ]
+        },
+        {
+            "text": "The issue of unique identifiers was the subject of recommendations from four of the breakout groups. All NHII activities require the ability to identify information that relates to specific individuals, particularly when linking data from multiple sources into a single record for delivery at the point of care. The congressional prohibition against creation of a national unique health care identifier reflects the substantial concern in the general population that use of such an identifier would increase the risk of privacy violations. The recommended approaches to solving this problem varied among the breakout groups. The architecture group recommended that NHII development proceed without a unique national health identifier for individuals, but that mechanisms used for effective patient identification be reviewed. The consumer health group asked for resolution of the patient identification issue, without being specific about how the problem should be solved. The research group asked for the establishment of patient linkage variables and methodology for research purposes, but noted that less than 100% accuracy would be adequate for most clinical research. Finally, the safety and quality group specifically recommended a new unique national patient identifier and asked for the implementation of a national unique identifier for providers (as already being implemented as part of the Health Insurance Portability and Accountability Act [HIPAA]) to ensure proper authentication of health care professionals requesting patient information.",
+            "cite_spans": [],
+            "section": "Identifiers ::: Implementation Strategy ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "Three of the breakout groups made consumer health recommendations in three categories: (1) creation of the personal health record (PHR), a basic platform for personal access to NHII information; (2) development of associated tools to increase the usefulness of the PHR; and (3) evaluation of the usefulness of the PHR. It was recommended that PHRs be available at no charge to consumers from a trusted authority. Efforts should be made to promote the development of e-health tools, for example, to link the PHR to relevant electronic health information resources (e.g., MEDLINE). The PHR should support both health alerts (e.g., warnings and notifications of newly available relevant information) and decision support (e.g., information resources to assist consumers in evaluating their treatment options) for consumers, with linkages to their health care professionals. Efforts to support the health information needs of consumers should be accompanied by ongoing evaluation of the role of individuals in controlling and managing their own health information.",
+            "cite_spans": [],
+            "section": "Consumer Health ::: Domains ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "Clearly, the availability of health information in electronic form could provide substantial benefits for clinical research in general, dramatically improving both efficiency and effectiveness by eliminating the need to create expensive customized information systems to capture clinical data for every individual clinical research protocol. However, the recommendations from the attendees in two of the breakout groups primarily focused on research about methods, approaches, and results of activities related specifically to the NHII itself, e.g., measuring the costs and benefits of EHRs. The attendees recommended that $1 billion of funding per year be allocated for research relating health IT to quality of care and patient safety. Such research would include evaluation of the impact of information systems on safety and quality; improved methods of adverse event detection using electronic medical records; evaluation of existing published studies of privacy in relation to NHII; assessment of individual perceptions and perspectives on the privacy of health information; and development of methods for communicating medical knowledge within the NHII to ensure its timely and effective use in patient care. This includes development of effective methods for representation and distribution of care guidelines. Attendees also recommended the establishment of an ongoing ethical, legal, and social issues (ELSI) program for NHII, analogous to that for the Human Genome Project, to ensure ongoing attention to issues such as privacy.",
+            "cite_spans": [],
+            "section": "Research ::: Domains ::: Results",
+            "ref_spans": []
+        },
+        {
+            "text": "Significant improvements in the quality and efficiency of health care are achievable if physicians and other providers are supported with readily accessible information about their patients and the most current medical knowledge through the NHII. The availability of information alone is not sufficient; it must be in a form that allows clinicians to interact with it easily and efficiently in their day-to-day practice. The recommended approach to NHII through the development of community health information exchanges provides physicians with substantial opportunities to participate locally in the transition to a health care system enhanced with modern IT. The immediate availability of patient information and medical knowledge at the point of care will allow clinicians to exercise their judgment more effectively than ever before for the benefit of their patients.",
+            "cite_spans": [],
+            "section": "Discussion",
+            "ref_spans": []
+        },
+        {
+            "text": "There are several limitations in the methodology used to develop this report. First, of necessity, the authors analyzed and reorganized the recommendations subsequent to the meeting and without additional input from the participants. Also, in the interest of clarity, the authors excluded some very specific recommendations that are subsumed by those described. The authors alone organized the recommendations into the 12 categories and four major topic areas. Therefore, while the input for this report came from the broad spectrum of stakeholders present at the meeting, additional feedback from stakeholders at subsequent NHII meetings will test the validity of the organized synthesis presented.",
+            "cite_spans": [],
+            "section": "Discussion",
+            "ref_spans": []
+        },
+        {
+            "text": "Despite these limitations, the recommendations from NHII 03 represent the best information now available regarding the approach to NHII implementation desired by the health care and health IT community. Taken as a whole, the recommendations delineate a relatively coherent program consisting of establishment of key organizations, development of metrics and goals, use of standards, and extensive community-based demonstration projects. The stakeholders also stressed the need for financial incentives, shared resources, and education to facilitate the development of the NHII.",
+            "cite_spans": [],
+            "section": "Discussion",
+            "ref_spans": []
+        },
+        {
+            "text": "Since the NHII 03 meeting, issues relating to NHII development have received increasing attention in both the private sector and government. In April 2004, President Bush issued an Executive Order creating the new position of National Coordinator for Health Information Technology reporting to the DHHS Secretary.25 The National Coordinator is responsible for developing and implementing a strategic plan that will \u201cguide the nationwide implementation of interoperable health information technology in both the public and private health care sectors that will reduce medical errors, improve quality, and produce greater value for health care expenditures.\u201d25 In early May 2004, DHHS Secretary Thompson announced the appointment of David J. Brailer, MD, PhD, as the National Coordinator.26 It is anticipated that these actions at the highest levels of government and the focus brought to these activities by the new National Coordinator in DHHS will accelerate progress towards the NHII.",
+            "cite_spans": [
+                {
+                    "start": 313,
+                    "end": 315,
+                    "mention": "25",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 656,
+                    "end": 658,
+                    "mention": "25",
+                    "ref_id": "BIBREF17"
+                },
+                {
+                    "start": 786,
+                    "end": 788,
+                    "mention": "26",
+                    "ref_id": "BIBREF18"
+                }
+            ],
+            "section": "Discussion",
+            "ref_spans": []
+        },
+        {
+            "text": "The recommendations of the health care stakeholders from the NHII 03 meeting are already providing valuable guidance to current NHII development activities. For example, the focus of current federal funding for NHII demonstration projects uses the local and regional approach recommended by attendees. Subsequent national meetings will serve to further refine and modify these consensus views, as well as develop specific implementation strategies. Continuing collaborative efforts toward NHII should maximize the ability to achieve a safer, more effective, and more efficient health care system rapidly through the widespread adoption of health IT.",
+            "cite_spans": [],
+            "section": "Discussion",
+            "ref_spans": []
+        }
+    ],
+    "ref_entries": {
+        "TABREF0": {
+            "text": "Table 1.: Breakout Tracks for NHII 03\n",
+            "type": "table"
+        },
+        "TABREF1": {
+            "text": "Table 2.: Final Recommendations from NHII 03\n",
+            "type": "table"
+        },
+        "TABREF2": {
+            "text": "Table 3.: Proposed Architectural Principles for NHII\n",
+            "type": "table"
+        }
+    },
+    "back_matter": [],
+    "bib_entries": {
+        "BIBREF0": {
+            "title": "",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF1": {
+            "title": "",
+            "authors": [],
+            "year": 1991,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF2": {
+            "title": "",
+            "authors": [],
+            "year": 1997,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF3": {
+            "title": "",
+            "authors": [],
+            "year": 2001,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF4": {
+            "title": "",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF5": {
+            "title": "",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF6": {
+            "title": "",
+            "authors": [],
+            "year": 2002,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF7": {
+            "title": "",
+            "authors": [],
+            "year": 2003,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF8": {
+            "title": "",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF9": {
+            "title": "",
+            "authors": [],
+            "year": 2002,
+            "venue": "Ann Emerg Med.",
+            "volume": "39",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF10": {
+            "title": "",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF11": {
+            "title": "",
+            "authors": [],
+            "year": 2000,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF12": {
+            "title": "",
+            "authors": [],
+            "year": 2003,
+            "venue": "J Healthc Inf Manag.",
+            "volume": "17(4)",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF13": {
+            "title": "",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF14": {
+            "title": "",
+            "authors": [],
+            "year": 2001,
+            "venue": "J Am Med Inform Assoc.",
+            "volume": "7",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF15": {
+            "title": "",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF16": {
+            "title": "",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF17": {
+            "title": "",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF18": {
+            "title": "",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF19": {
+            "title": "",
+            "authors": [],
+            "year": 2001,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF20": {
+            "title": "",
+            "authors": [],
+            "year": 2003,
+            "venue": "N Engl J Med.",
+            "volume": "348",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF21": {
+            "title": "",
+            "authors": [],
+            "year": null,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF22": {
+            "title": "",
+            "authors": [],
+            "year": 2003,
+            "venue": "N Engl J Med.",
+            "volume": "348",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF23": {
+            "title": "",
+            "authors": [],
+            "year": 1993,
+            "venue": "JAMA.",
+            "volume": "269",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF24": {
+            "title": "",
+            "authors": [],
+            "year": 1998,
+            "venue": "JAMA.",
+            "volume": "280",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        },
+        "BIBREF25": {
+            "title": "",
+            "authors": [],
+            "year": 2003,
+            "venue": "",
+            "volume": "",
+            "issn": "",
+            "pages": null,
+            "other_ids": {
+                "DOI": []
+            }
+        }
+    }
+}
